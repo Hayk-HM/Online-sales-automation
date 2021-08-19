@@ -1,0 +1,98 @@
+.signUp {
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+  min-height: 80%;
+}
+
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.signUpTitle {
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: rgb(38, 61, 238);
+}
+
+.signUpFormInputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signUpInputFirstName {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.signUpInputLastName {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.signUpInputEmail {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.signUpInputPassword {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.signUpInputCompany {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.signUpError {
+  color: red;
+  font-size: 16px;
+  text-align: center;
+}
+
+.signUpButtonWrapper {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.signUpButton {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(38, 61, 238);
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+}

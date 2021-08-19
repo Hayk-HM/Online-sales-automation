@@ -1,0 +1,64 @@
+.MainPageHeader {
+  width: calc(100% - 20px);
+  height: 80px;
+  background-color: rgb(245, 241, 241);
+  padding: 10px;
+}
+
+.MainPageHeaderWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.MainPageHeaderLogo {
+  flex: 10;
+}
+
+.MainPageHeaderCompanyName {
+  margin-left: 20px;
+  font-size: 40px;
+  font-weight: 500;
+  color: rgb(41, 105, 201);
+}
+
+.MainPageHeaderLog {
+  display: flex;
+  flex: 2;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 50px;
+}
+
+.MainPageHeaderSignIn {
+}
+
+.MainPageHeaderSignUp {
+}
+
+.MainPageHeaderSignInButton {
+  width: 100px;
+  height: 40px;
+  border: none;
+  background-color: rgb(117, 163, 233);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.MainPageHeaderSignInButton:hover {
+  background-color: rgb(47, 118, 225);
+}
+
+.MainPageHeaderSignUpButton {
+  width: 100px;
+  height: 40px;
+  border: none;
+  background-color: rgb(117, 163, 233);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.MainPageHeaderSignUpButton:hover {
+  background-color: rgb(47, 118, 225);
+}
