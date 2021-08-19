@@ -42,7 +42,7 @@ const signInController = async (req, res) => {
 
 
 
-const signUpController = async (req, res) => {
+const createCompanyController = async (req, res) => {
 
   const data = req.body
   let db = mysql.createConnection({
@@ -70,7 +70,7 @@ const signUpController = async (req, res) => {
   }
 }
 
-const createUserController = async (req, res) => {
+const createTablesController = async (req, res) => {
   const data = req.body
   db = mysql.createConnection({
     host: 'localhost',
@@ -80,8 +80,7 @@ const createUserController = async (req, res) => {
   })
 
   try {
-
-    await db.query(`CREATE TABLE IF NOT EXISTS users (UserId int,firstName VARCHAR(255), lastName VARCHAR(255), company VARCHAR(255), email VARCHAR(255), password VARCHAR(255))`, (err, result) => {
+    await db.query(`CREATE TABLE IF NOT EXISTS users (UserId int, firstName VARCHAR(255), lastName VARCHAR(255), company VARCHAR(255), email VARCHAR(255), password VARCHAR(255))`, (err, result) => {
       if (err) {
         console.log(err)
       } else {
@@ -90,12 +89,45 @@ const createUserController = async (req, res) => {
       }
     })
 
-    await db.query(`INSERT INTO users(UserId,firstName, lastName, company, email, password) VALUES (${1},'${data.firstName}', '${data.lastName}','${data.company}','${data.email}','${data.password}')`, (err, result) => {
+  } catch (error) {
+    console.log('createUserController', error)
+  }
+}
+
+const insertInfoController = async (req, res) => {
+  const data = req.body
+  db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'adminRoot',
+    database: data.company
+  })
+  try {
+    await db.query(`SELECT * FROM users WHERE email = '${data.email}'`, async (err, result) => {
       if (err) {
-        console.log(err);
-        res.status(404).json('err')
+        console.log('SELECT ERROR FOR SIGNUP');
       } else {
-        res.status(200).json({ result })
+        if (result.length === 0) {
+          await db.query(`INSERT INTO users (UserId, firstName, lastName, company, email, password) VALUES (${1}, '${data.firstName}', '${data.lastName}', '${data.company}', '${data.email}', '${data.password}')`, async (err, result) => {
+            if (err) {
+              console.log(err);
+              res.status(500).json('err')
+              return
+            } else {
+
+              await db.query(`SELECT * FROM users WHERE email = '${data.email}'`, (err, result) => {
+                if (err) {
+                  console.log('SELECT USER ERROR');
+                } else {
+                  res.status(200).json(result)
+                }
+              })
+            }
+          })
+        } else {
+          res.status(500).json({ "message": "User already exist!!!" })
+          console.log('User already exist');
+        }
       }
     })
   } catch (error) {
@@ -103,4 +135,4 @@ const createUserController = async (req, res) => {
   }
 }
 
-module.exports = { signInController, signUpController, createUserController }
+module.exports = { signInController, createCompanyController, createTablesController, insertInfoController }

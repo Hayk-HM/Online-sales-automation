@@ -6,5 +6,7 @@ const instance = axios.create({
 
 export const authApi = ({
   signIn(formData) { return instance.post('/auth/signin', formData) },
-  signUp(formData) { return instance.post('/auth/signup', formData) }
+  createCompany(formData) { return instance.post('/auth/signup/createcompany', formData) },
+  createTable(formData) { return instance.post('/auth/signup/createtable', formData) },
+  insertInfo(formData) { return instance.post('/auth/signup/insertinfo', formData) },
 })

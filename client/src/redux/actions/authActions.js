@@ -16,8 +16,14 @@ export const signInAction = (formData) => async (dispatch) => {
 
 export const signUpAction = (formData) => async (dispatch) => {
   try {
-    const { data } = await authApi.signUp(formData)
-    dispatch(authActions.signUp(data))
+    Promise.all([await authApi.createCompany(formData), await authApi.createTable(formData), await authApi.insertInfo(formData)])
+      .then(data => {
+        dispatch(authActions.signUp(data))
+      })
+    // await authApi.createCompany(formData)
+    // await authApi.createTable(formData)
+    // const { data } = await authApi.insertInfo(formData)
+    // dispatch(authActions.signUp(data))
   } catch (error) {
     console.log('signUpAction', error);
   }
