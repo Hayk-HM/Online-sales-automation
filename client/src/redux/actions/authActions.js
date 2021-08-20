@@ -2,13 +2,18 @@ import { authApi } from "../../api/Api";
 
 const authActions = {
   signUp: (formDate) => ({ type: 'USER_SIGNUP', formDate }),
-  signIn: (formDate) => ({ type: 'USER_SIGNIN', formDate })
+  signIn: (formDate, history) => ({ type: 'USER_SIGNIN', payload: { formDate, history } })
 }
 
-export const signInAction = (formData) => async (dispatch) => {
+export const signInAction = (formData, history) => async (dispatch) => {
   try {
-    const { data } = await authApi.signIn(formData)
-    console.log(data);
+    new Promise(async (resolve, reject) => {
+      const { data } = await authApi.signIn(formData)
+      resolve(data)
+    })
+      .then(data => {
+        dispatch(authActions.signIn(data, history))
+      })
   } catch (error) {
     console.log('signInAction', error);
   }

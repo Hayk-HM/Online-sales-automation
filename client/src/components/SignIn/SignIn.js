@@ -4,14 +4,17 @@ import * as Yup from 'yup'
 import { useDispatch } from 'react-redux'
 import './SignIn.css'
 import { signInAction } from '../../redux/actions/authActions'
+import { useHistory } from 'react-router-dom'
 
 const SignIn = () => {
 
   const dispatch = useDispatch()
+  const history = useHistory()
 
   const initialValues = {
     email: '',
     password: '',
+    company: '',
   }
 
   return (
@@ -24,10 +27,13 @@ const SignIn = () => {
             Yup.object().shape({
               email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
               password: Yup.string().max(255).required('Password is required'),
+              company: Yup.string().max(255).required('Company is required'),
             })
           }
           onSubmit={(values, actions) => {
-            dispatch(signInAction(values))
+            const { email, password, company } = values
+            dispatch(signInAction({ email, password, company: company.replaceAll(' ', '_') }, history))
+            console.log(history);
             actions.resetForm()
           }}
         >
@@ -44,14 +50,21 @@ const SignIn = () => {
                     placeholder='email'
                     name='email'
                   />
-                  {touched.email && errors.email && <div className='signUpError'>{errors.email}</div>}
+                  {touched.email && errors.email && <div className='signInError'>{errors.email}</div>}
                   <Field
                     className='signInInputPassword'
                     type='password'
                     placeholder='password'
                     name='password'
                   />
-                  {touched.password && errors.password && <div className='signUpError'>{errors.password}</div>}
+                  {touched.password && errors.password && <div className='signInError'>{errors.password}</div>}
+                  <Field
+                    className='signInInputCompany'
+                    type='text'
+                    placeholder='company'
+                    name='company'
+                  />
+                  {touched.company && errors.company && <div className='signInError'>{errors.company}</div>}
                   <div className='signInButtonWrapper'>
                     <button className='signInButton' disabled={isSubmitting} type='submit'>SignIn</button>
                   </div>

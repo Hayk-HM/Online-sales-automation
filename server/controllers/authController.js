@@ -1,4 +1,6 @@
 const mysql = require('mysql')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 
 const signInController = async (req, res) => {
@@ -7,28 +9,33 @@ const signInController = async (req, res) => {
     host: 'localhost',
     user: 'root',
     password: 'adminRoot',
-    database: 'data.company'
+    database: data.company
   })
+
   try {
-    db.connect((err) => {
+    await db.connect(async (err) => {
       if (err) {
-        log("ERROR")
+        console.log("SIGN IN ERROR")
       } else {
-        db.query("CREATE TABLE MyPersonalTable (name VARCHAR(255), address VARCHAR(255))", (err, result) => {
-          if (err) throw err
-          console.log('MyPersonalTable', result);
-        })
-        db.query("SELECT * FROM customers", function (err, result, fields) {
+        await db.query(`SELECT * FROM users WHERE email = '${data.email}'`, async (err, result) => {
           if (err) {
-            console.log(err);
+            console.log("SIGN IN ERR");
           } else {
-            console.log(result);
+            if (!result.length) {
+              res.status(404).json({ message: `User doesn't exist` })
+            } else {
+              const isPasswordCorrect = await bcrypt.compare(data.password, result[0].password)
+              if (!isPasswordCorrect) {
+                res.status(404).json({ message: 'Password not correct' })
+              } else {
+                const token = jwt.sign({ email: result.email, id: result.id }, 'test', { expiresIn: '1h' })
+                res.status(200).json({ result, token })
+              }
+            }
           }
-        });
+        })
       }
     })
-    console.log(data);
-    res.status(200).json(data)
   } catch (error) {
     console.log('signInController', error);
   }
@@ -88,7 +95,6 @@ const createTablesController = async (req, res) => {
         res.status(200).json({ "message": `User table created successfully!!!` })
       }
     })
-
   } catch (error) {
     console.log('createUserController', error)
   }
@@ -102,19 +108,21 @@ const insertInfoController = async (req, res) => {
     password: 'adminRoot',
     database: data.company
   })
+
+  const hashPassword = await bcrypt.hash(data.password, 12)
+
   try {
     await db.query(`SELECT * FROM users WHERE email = '${data.email}'`, async (err, result) => {
       if (err) {
         console.log('SELECT ERROR FOR SIGNUP');
       } else {
         if (result.length === 0) {
-          await db.query(`INSERT INTO users (UserId, firstName, lastName, company, email, password) VALUES (${1}, '${data.firstName}', '${data.lastName}', '${data.company}', '${data.email}', '${data.password}')`, async (err, result) => {
+          await db.query(`INSERT INTO users (UserId, firstName, lastName, company, email, password) VALUES (${1}, '${data.firstName}', '${data.lastName}', '${data.company}', '${data.email}', '${hashPassword}')`, async (err, result) => {
             if (err) {
               console.log(err);
               res.status(500).json('err')
               return
             } else {
-
               await db.query(`SELECT * FROM users WHERE email = '${data.email}'`, (err, result) => {
                 if (err) {
                   console.log('SELECT USER ERROR');

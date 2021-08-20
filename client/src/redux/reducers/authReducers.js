@@ -1,4 +1,6 @@
+
 const initialState = { user: null }
+
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -10,12 +12,17 @@ const userReducer = (state = initialState, action) => {
       }
     }
     case 'USER_SIGNIN': {
+      localStorage.setItem('user', JSON.stringify({ ...action.payload?.formDate[0] }))
+      if (action.payload?.formDate[0]) {
+        action.payload.history.push('/app')
+      } else {
+        action.payload.history.push('/signin')
+      }
       return {
         ...state,
-        ...action.formDate
+        user: { ...action.payload?.formDate[0] }
       }
     }
-
     default:
       return state
   }
