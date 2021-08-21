@@ -1,0 +1,8 @@
+.taskAppFeed {
+  -webkit-box-flex: 10;
+      -ms-flex: 10;
+          flex: 10;
+  overflow-y: scroll;
+  background-color: violet;
+}
+/*# sourceMappingURL=TaskAppFeed.css.map */

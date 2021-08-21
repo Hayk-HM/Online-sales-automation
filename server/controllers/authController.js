@@ -9,7 +9,7 @@ const signInController = async (req, res) => {
     host: 'localhost',
     user: 'root',
     password: 'adminRoot',
-    database: data.company
+    database: data.company.trim().replaceAll(' ', '_')
   })
 
   try {
@@ -26,9 +26,9 @@ const signInController = async (req, res) => {
             } else {
               const isPasswordCorrect = await bcrypt.compare(data.password, result[0].password)
               if (!isPasswordCorrect) {
-                res.status(404).json({ message: 'Password not correct' })
+                res.status(404).json({ message: 'Credentials are incorrect' })
               } else {
-                const token = jwt.sign({ email: result.email, id: result.id }, 'test', { expiresIn: '1h' })
+                const token = jwt.sign({ email: result.email, userId: result.userId }, 'test', { expiresIn: '1h' })
                 res.status(200).json({ result, token })
               }
             }
@@ -62,13 +62,13 @@ const createCompanyController = async (req, res) => {
       if (err) {
         console.log(err);
       }
-      await db.query(`CREATE DATABASE IF NOT EXISTS ${data.company}`, async (err, result) => {
+      await db.query(`CREATE DATABASE IF NOT EXISTS ${data.company.trim().replaceAll(' ', '_')}`, async (err, result) => {
         if (err) {
           console.log(`Database can't be created!!!`);
-          res.status(400).json({ "message": "Database can't be created!!!" })
+          res.status(400).json({ message: "Database can't be created!!!" })
         } else {
           console.log(`Database created successfully!!!`);
-          res.status(200).json({ "message": "Database created successfully!!!" })
+          res.status(200).json({ message: "Database created successfully!!!" })
         }
       })
     })
@@ -83,16 +83,16 @@ const createTablesController = async (req, res) => {
     host: 'localhost',
     user: 'root',
     password: 'adminRoot',
-    database: data.company
+    database: data.company.trim().replaceAll(' ', '_')
   })
 
   try {
-    await db.query(`CREATE TABLE IF NOT EXISTS users (UserId int, firstName VARCHAR(255), lastName VARCHAR(255), company VARCHAR(255), email VARCHAR(255), password VARCHAR(255))`, (err, result) => {
+    await db.query(`CREATE TABLE IF NOT EXISTS users (userId int, firstName VARCHAR(255), lastName VARCHAR(255), company VARCHAR(255), companyName VARCHAR(255), email VARCHAR(255), password VARCHAR(255))`, (err, result) => {
       if (err) {
         console.log(err)
       } else {
         console.log(`User table created successfully!!!`)
-        res.status(200).json({ "message": `User table created successfully!!!` })
+        res.status(200).json({ message: `User table created successfully!!!` })
       }
     })
   } catch (error) {
@@ -106,7 +106,7 @@ const insertInfoController = async (req, res) => {
     host: 'localhost',
     user: 'root',
     password: 'adminRoot',
-    database: data.company
+    database: data.company.trim().replaceAll(' ', '_')
   })
 
   const hashPassword = await bcrypt.hash(data.password, 12)
@@ -117,23 +117,24 @@ const insertInfoController = async (req, res) => {
         console.log('SELECT ERROR FOR SIGNUP');
       } else {
         if (result.length === 0) {
-          await db.query(`INSERT INTO users (UserId, firstName, lastName, company, email, password) VALUES (${1}, '${data.firstName}', '${data.lastName}', '${data.company}', '${data.email}', '${hashPassword}')`, async (err, result) => {
+          await db.query(`INSERT INTO users (UserId, firstName, lastName, company, companyName, email, password) VALUES (${1}, '${data.firstName}', '${data.lastName}', '${data.company.trim().replaceAll(' ', '_')}', '${data.company.trim()}', '${data.email}', '${hashPassword}')`, async (err, result) => {
             if (err) {
               console.log(err);
               res.status(500).json('err')
               return
             } else {
-              await db.query(`SELECT * FROM users WHERE email = '${data.email}'`, (err, result) => {
+              await db.query(`SELECT * FROM users WHERE email = '${data.email}'`, async (err, result) => {
                 if (err) {
                   console.log('SELECT USER ERROR');
                 } else {
-                  res.status(200).json(result)
+                  const token = await jwt.sign({ email: result.email, userId: result.userId }, 'test', { expiresIn: '1h' })
+                  res.status(200).json({ result, token })
                 }
               })
             }
           })
         } else {
-          res.status(500).json({ "message": "User already exist!!!" })
+          res.status(500).json({ message: "User already exist!!!" })
           console.log('User already exist');
         }
       }

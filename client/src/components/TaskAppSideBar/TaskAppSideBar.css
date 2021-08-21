@@ -1,0 +1,53 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.taskAppSideBar {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  height: calc(100vh - 70px);
+  overflow-y: scroll;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 70px;
+}
+
+.taskAppSideBarWrapper {
+  margin: 20px;
+}
+
+.taskAppSideBarTasks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.taskAppSideBarTasks:hover {
+  background-color: #ebebeb;
+  border-radius: 10px;
+}
+
+.activeField {
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.taskAppSideBarLogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10px;
+}
+
+.taskAppSideBarName {
+  font-size: 20px;
+}
+/*# sourceMappingURL=TaskAppSideBar.css.map */

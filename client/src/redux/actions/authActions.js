@@ -1,8 +1,9 @@
 import { authApi } from "../../api/Api";
 
-const authActions = {
-  signUp: (formDate) => ({ type: 'USER_SIGNUP', formDate }),
-  signIn: (formDate, history) => ({ type: 'USER_SIGNIN', payload: { formDate, history } })
+export const authActions = {
+  signUp: (formDate, history) => ({ type: 'USER_SIGNUP', payload: { formDate, history } }),
+  signIn: (formDate, history) => ({ type: 'USER_SIGNIN', payload: { formDate, history } }),
+  logOut: (history) => ({ type: 'LOGOUT', payload: history })
 }
 
 export const signInAction = (formData, history) => async (dispatch) => {
@@ -19,11 +20,11 @@ export const signInAction = (formData, history) => async (dispatch) => {
   }
 }
 
-export const signUpAction = (formData) => async (dispatch) => {
+export const signUpAction = (formData, history) => async (dispatch) => {
   try {
     Promise.all([await authApi.createCompany(formData), await authApi.createTable(formData), await authApi.insertInfo(formData)])
       .then(data => {
-        dispatch(authActions.signUp(data))
+        dispatch(authActions.signUp(data, history))
       })
     // await authApi.createCompany(formData)
     // await authApi.createTable(formData)

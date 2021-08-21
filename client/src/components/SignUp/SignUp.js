@@ -2,12 +2,14 @@ import React from 'react'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import './SignUp.css'
 import { signUpAction } from '../../redux/actions/authActions'
 
 const SignUp = () => {
 
   const dispatch = useDispatch()
+  const history = useHistory()
 
   const initialValues = {
     email: '',
@@ -33,7 +35,7 @@ const SignUp = () => {
           }
           onSubmit={(values, actions) => {
             const { email, password, company, firstName, lastName } = values
-            dispatch(signUpAction({ email, password, company: company.replaceAll(' ', '_'), firstName, lastName }))
+            dispatch(signUpAction({ email, password, company, firstName, lastName }, history))
             actions.resetForm()
           }}
         >

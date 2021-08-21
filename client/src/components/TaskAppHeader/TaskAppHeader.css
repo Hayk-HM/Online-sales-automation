@@ -1,0 +1,72 @@
+.taskAppHeader {
+  height: 50px;
+  width: calc(100% - 20px);
+  background-color: whitesmoke;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 10px;
+}
+
+.taskAppHeaderWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.taskAppHeaderCompany {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 9;
+      -ms-flex: 9;
+          flex: 9;
+}
+
+.taskAppHeaderCompanyName {
+  margin-left: 20px;
+  font-size: 40px;
+  font-weight: 500;
+  color: #2969c9;
+}
+
+.taskAppHeaderUserInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}
+
+.taskAppHeaderUsername {
+  font-size: 20px;
+  font-weight: 400;
+  margin-right: 30px;
+  color: #2969c9;
+}
+
+.taskAppHeaderSignOutButton {
+  width: 100px;
+  height: 40px;
+  border: none;
+  background-color: #ed5656;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.taskAppHeaderSignOutButton:hover {
+  background-color: #e12f2f;
+}
+/*# sourceMappingURL=TaskAppHeader.css.map */

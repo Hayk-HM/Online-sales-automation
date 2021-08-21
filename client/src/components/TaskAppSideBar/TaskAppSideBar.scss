@@ -1,0 +1,43 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.taskAppSideBar {
+  flex: 2;
+  height: calc(100vh - 70px);
+  overflow-y: scroll;
+  position: sticky;
+  top: 70px;
+}
+
+.taskAppSideBarWrapper {
+  margin: 20px;
+}
+
+.taskAppSideBarTasks {
+  display: flex;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.taskAppSideBarTasks:hover {
+  background-color: rgb(235, 235, 235);
+  border-radius: 10px;
+}
+
+.activeField {
+  background-color: rgb(245, 245, 245);
+  border-radius: 10px;
+}
+
+.taskAppSideBarLogo {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.taskAppSideBarName {
+  font-size: 20px;
+}

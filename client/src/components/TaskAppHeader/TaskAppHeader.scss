@@ -1,0 +1,56 @@
+.taskAppHeader {
+  height: 50px;
+  width: calc(100% - 20px);
+  background-color: rgb(245, 245, 245);
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 10px;
+}
+
+.taskAppHeaderWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.taskAppHeaderCompany {
+  display: flex;
+  flex: 9;
+}
+
+.taskAppHeaderCompanyName {
+  margin-left: 20px;
+  font-size: 40px;
+  font-weight: 500;
+  color: rgb(41, 105, 201);
+}
+
+.taskAppHeaderUserInfo {
+  display: flex;
+  align-items: center;
+  flex: 3;
+}
+
+.taskAppHeaderUsername {
+  font-size: 20px;
+  font-weight: 400;
+  margin-right: 30px;
+  color: rgb(41, 105, 201);
+}
+
+.taskAppHeaderSignOut {
+}
+
+.taskAppHeaderSignOutButton {
+  width: 100px;
+  height: 40px;
+  border: none;
+  background-color: rgb(237, 86, 86);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.taskAppHeaderSignOutButton:hover {
+  background-color: rgb(225, 47, 47);
+}
