@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "Chat.scss"
+        "EmployeeInformation.scss"
     ],
     "names": [],
-    "file": "Chat.css"
+    "file": "EmployeeInformation.css"
 }

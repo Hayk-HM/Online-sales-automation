@@ -1,12 +1,13 @@
 import React from 'react'
 import { BiTask, BiChat, BiUser } from 'react-icons/bi'
+import { FiSettings } from 'react-icons/fi'
 import { Link, useLocation } from 'react-router-dom'
 import './TaskAppSideBar.css'
 
 const TaskAppSideBar = () => {
 
   const location = useLocation()
-  const activeField = (location.pathname.split('/')[2]);
+  const activeField = (location.pathname.split('/')[location.pathname.split('/').length - 1]);
 
   return (
     <div className='taskAppSideBar'>
@@ -30,6 +31,13 @@ const TaskAppSideBar = () => {
           <div className={`taskAppSideBarTasks ${activeField === 'employees' ? 'activeField' : 'notActiveField'}`}>
             <div className='taskAppSideBarLogo'><BiUser size={20} /></div>
             <div className='taskAppSideBarName'>Employees</div>
+          </div>
+        </Link>
+
+        <Link to={`/app/employees/settings`}>
+          <div className={`taskAppSideBarTasks ${activeField === 'settings' ? 'activeField' : 'notActiveField'}`}>
+            <div className='taskAppSideBarLogo'><FiSettings size={20} /></div>
+            <div className='taskAppSideBarName'>Settings</div>
           </div>
         </Link>
 

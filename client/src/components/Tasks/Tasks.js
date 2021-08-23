@@ -4,7 +4,9 @@ import './Tasks.css'
 const Tasks = () => {
   return (
     <div className='tasks'>
-      Tasks
+      <div className='tasksWrapper'>
+        Tasks
+      </div>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,IAAI,EAAE,EAAE;EACR,UAAU,EAAE,MAAM;EAClB,gBAAgB,EAAE,MAAM;CACzB",
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,IAAI,EAAE,EAAE;EACR,UAAU,EAAE,MAAM;EAClB,OAAO,EAAE,IAAI;CACd",
     "sources": [
         "TaskAppFeed.scss"
     ],

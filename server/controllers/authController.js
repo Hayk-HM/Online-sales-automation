@@ -1,4 +1,5 @@
 const mysql = require('mysql')
+const uuid = require('uuid')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
@@ -87,7 +88,7 @@ const createTablesController = async (req, res) => {
   })
 
   try {
-    await db.query(`CREATE TABLE IF NOT EXISTS users (userId int, firstName VARCHAR(255), lastName VARCHAR(255), company VARCHAR(255), companyName VARCHAR(255), email VARCHAR(255), password VARCHAR(255))`, (err, result) => {
+    await db.query(`CREATE TABLE IF NOT EXISTS users (userId VARCHAR(255), firstName VARCHAR(255), lastName VARCHAR(255), company VARCHAR(255), companyName VARCHAR(255), email VARCHAR(255), password VARCHAR(255))`, (err, result) => {
       if (err) {
         console.log(err)
       } else {
@@ -117,7 +118,7 @@ const insertInfoController = async (req, res) => {
         console.log('SELECT ERROR FOR SIGNUP');
       } else {
         if (result.length === 0) {
-          await db.query(`INSERT INTO users (UserId, firstName, lastName, company, companyName, email, password) VALUES (${1}, '${data.firstName}', '${data.lastName}', '${data.company.trim().replaceAll(' ', '_')}', '${data.company.trim()}', '${data.email}', '${hashPassword}')`, async (err, result) => {
+          await db.query(`INSERT INTO users (userId, firstName, lastName, company, companyName, email, password) VALUES ('${uuid.v4()}', '${data.firstName}', '${data.lastName}', '${data.company.trim().replaceAll(' ', '_')}', '${data.company.trim()}', '${data.email}', '${hashPassword}')`, async (err, result) => {
             if (err) {
               console.log(err);
               res.status(500).json('err')

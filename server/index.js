@@ -4,6 +4,7 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 const mysql = require('mysql')
 const { authRouter } = require('./routers/authRouter')
+const { employeesRouter } = require('./routers/employeesRouter')
 
 ////////// Create MySQL database //////////
 
@@ -42,6 +43,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/auth', authRouter)
+app.use('/app', employeesRouter)
 
 const PORT = process.env.PORT || 5000
 server.listen(PORT, (err) => {

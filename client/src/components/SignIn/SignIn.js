@@ -38,7 +38,7 @@ const SignIn = () => {
           }}
         >
           {
-            ({ errors, handleBlur, handleChange, isSubmitting, touched, values, handleSubmit, resetForm }) => (
+            ({ errors, isSubmitting, touched }) => (
               <div className='signInFormInputs'>
                 <div className='signInTitle'>
                   SignIn

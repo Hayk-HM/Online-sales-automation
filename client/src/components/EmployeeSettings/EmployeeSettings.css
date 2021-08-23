@@ -1,0 +1,122 @@
+.employeeSettings {
+  height: 100%;
+  width: 50vw;
+  margin: auto;
+  border-radius: 10px;
+  padding: 10px;
+  -webkit-box-shadow: 5px 5px 15px 5px #a3a3a3;
+  box-shadow: 5px 5px 15px 5px #a3a3a3;
+}
+
+.employeeSettingsWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.employeeSettingsPhotoCover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.employeeSettingsPhoto {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.employeeSettingsHr {
+  width: 100%;
+  margin: 30px 0;
+}
+
+.employeeSettingsInput {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.employeeSettingsForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.employeeSettingsButtonWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+  margin-left: auto;
+}
+
+.employeeSettingsInButton {
+  width: 80%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: #263dee;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+}
+
+.employeeSettingsPhotoInput {
+  border: none;
+}
+
+.employeeSettingsPhotoLabel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.employeeSettingsPhotoInput {
+  display: none;
+}
+
+.employeeSettingsChooseFile {
+  font-size: 20px;
+  font-weight: 500;
+  color: #2969c9;
+}
+/*# sourceMappingURL=EmployeeSettings.css.map */

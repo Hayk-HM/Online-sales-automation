@@ -1,0 +1,95 @@
+.employee {
+}
+
+.employeeWrapper {
+  display: flex;
+  -webkit-box-shadow: 5px 5px 15px 5px #a3a3a3;
+  box-shadow: 5px 5px 15px 5px #a3a3a3;
+  border-radius: 5px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.employeePhotoCover {
+  flex: 1;
+  margin: 10px;
+}
+
+.employeePhoto {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid white;
+}
+
+.employeeInfoPartOne {
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.employeeInfoPartTwo {
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.employeeInfoPartThree {
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.employeeFullName {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(78, 205, 205);
+  margin-bottom: 2px;
+}
+
+.employeePosition {
+  font-size: 10px;
+  font-weight: 400;
+  color: #c9c1c1;
+  margin-bottom: 2px;
+}
+
+.employeeDepartment {
+  font-size: 10px;
+  font-weight: 400;
+  color: #c9c1c1;
+}
+
+.employeePhoneNumber {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #c9c1c1;
+  margin-bottom: 2px;
+}
+
+.employeeCellPhoneNumber {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #c9c1c1;
+  margin-bottom: 2px;
+}
+
+.employeeAddress {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(78, 205, 205);
+  margin-bottom: 2px;
+}

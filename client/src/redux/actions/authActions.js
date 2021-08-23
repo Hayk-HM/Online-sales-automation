@@ -1,8 +1,8 @@
 import { authApi } from "../../api/Api";
 
 export const authActions = {
-  signUp: (formDate, history) => ({ type: 'USER_SIGNUP', payload: { formDate, history } }),
-  signIn: (formDate, history) => ({ type: 'USER_SIGNIN', payload: { formDate, history } }),
+  signUp: (formData, history) => ({ type: 'USER_SIGNUP', payload: { formData, history } }),
+  signIn: (formData, history) => ({ type: 'USER_SIGNIN', payload: { formData, history } }),
   logOut: (history) => ({ type: 'LOGOUT', payload: history })
 }
 
@@ -26,10 +26,6 @@ export const signUpAction = (formData, history) => async (dispatch) => {
       .then(data => {
         dispatch(authActions.signUp(data, history))
       })
-    // await authApi.createCompany(formData)
-    // await authApi.createTable(formData)
-    // const { data } = await authApi.insertInfo(formData)
-    // dispatch(authActions.signUp(data))
   } catch (error) {
     console.log('signUpAction', error);
   }
