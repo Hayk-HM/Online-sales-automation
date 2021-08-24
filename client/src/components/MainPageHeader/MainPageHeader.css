@@ -3,6 +3,7 @@
   height: 50px;
   background-color: whitesmoke;
   padding: 10px;
+  z-index: 10;
 }
 
 .MainPageHeaderWrapper {

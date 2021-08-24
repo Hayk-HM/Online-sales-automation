@@ -13,7 +13,7 @@ const TaskApp = () => {
 
   useEffect(() => {
     dispatch(userActions.setUser(user))
-  }, [])
+  }, [dispatch, user])
 
   return (
     <div className='taskApp'>

@@ -19,5 +19,7 @@ export const authApi = ({
 })
 
 export const employeesApi = ({
-  getAllEmployees(formData) { return instance.get(`/app/employees/:${formData.company}`) }
+  getAllEmployees(formData) { return instance.get(`/app/employees/${formData.company}`) },
+  getEmployeeInformation(formData) { return instance.get(`/app/employees/${formData.companyName}/${formData.userId}`) },
+  updateEmployeeInformation(formData) { return instance.put(`/app/employees/${formData.companyName}/${formData.userId}`, formData,) }
 })

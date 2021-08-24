@@ -7,7 +7,7 @@ import './Employees.css'
 const Employees = () => {
 
   const dispatch = useDispatch()
-  const employees = useSelector(state => state.employees)
+  const employees = useSelector(state => state.employees.employees)
 
   useEffect(() => {
     const { result } = JSON.parse(localStorage.getItem('user'))

@@ -1,32 +1,36 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import { HiOutlinePhotograph } from 'react-icons/hi'
+import { useDispatch } from 'react-redux'
 import './EmployeeSettings.css'
 import photo from '../../img/userAvatar.png'
+import { getEmployeeInformation, updateEmployeeFormData } from '../../redux/actions/employeesActions'
+import { employeesApi } from '../../api/Api'
+import Loading from '../Loading/Loading'
 
 const EmployeeSettings = () => {
 
-  useEffect(() => {
-
-  }, [])
+  const dispatch = useDispatch()
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
 
   const initialValues = {
-    photo: '',
-    firstName: '',
-    lastName: '',
-    companyName: '',
-    email: '',
-    position: '',
-    department: '',
-    cellPhoneOne: '',
-    cellPhoneTwo: '',
-    phone: '',
-    address: '',
-    store: '',
+    photo: user.result[0].photo || '',
+    firstName: user.result[0].firstName,
+    lastName: user.result[0].lastName || '',
+    companyName: user.result[0].companyName || '',
+    email: user.result[0].email || '',
+    position: user.result[0].position || '',
+    department: user.result[0].department || '',
+    cellPhoneOne: user.result[0].cellPhoneOne || '',
+    cellPhoneTwo: user.result[0].cellPhoneTwo || '',
+    phone: user.result[0].phone || '',
+    address: user.result[0].address || '',
+    store: user.result[0].store || '',
   }
 
   return (
+
     <div className='employeeSettings'>
       <div className="employeeSettingsWrapper">
         <div className='employeeSettingsPhotoCover'>
@@ -42,9 +46,8 @@ const EmployeeSettings = () => {
                 email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
               })
             }
-            onSubmit={(values, actions) => {
-
-              actions.resetForm()
+            onSubmit={async (values, actions) => {
+              await dispatch(updateEmployeeFormData({ ...values, userId: user.result[0].userId }))
             }}
           >
             {

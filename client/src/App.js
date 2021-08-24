@@ -21,7 +21,7 @@ const App = () => {
       if (decodedToken.exp * 1000 < new Date().getTime()) authActions.logOut();
     }
     setUser(JSON.parse(localStorage.getItem('user')))
-  }, [location])
+  }, [location, user?.token])
 
   return (
     <Switch>

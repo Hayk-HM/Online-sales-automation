@@ -38,7 +38,13 @@ const userReducer = (state = initialState, action) => {
       }
     }
     case 'SET_USER_INFORMATION': {
-
+      return {
+        ...state,
+        user: { ...action.payload }
+      }
+    }
+    case 'UPDATE_EMPLOYEE_INFORMATION': {
+      localStorage.setItem('user', JSON.stringify({ ...action.payload }))
       return {
         ...state,
         user: { ...action.payload }
