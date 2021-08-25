@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { AiTwotonePhone } from 'react-icons/ai'
 import { BsPhone } from 'react-icons/bs'
 import { AiFillHome } from 'react-icons/ai'
@@ -10,7 +10,13 @@ const Employee = ({ employee }) => {
   return (
     <div className='employee'>
       <div className='employeeWrapper'>
-        <div className='employeePhotoCover'><img className='employeePhoto' src={avatar} alt='employeePhoto' /></div>
+        <div className='employeePhotoCover'>
+          {
+            employee.photo
+              ? <img className='employeePhoto' src={`//localhost:5000/${employee.photo}`} alt='employeePhoto' />
+              : <img className='employeePhoto' src={avatar} alt='employeePhoto' />
+          }
+        </div>
         <div className='employeeInfoPartOne'>
           <div className='employeeFullName'>{`${employee.firstName} ${employee.lastName}`}</div>
           <div className='employeePosition'>{employee.position}</div>

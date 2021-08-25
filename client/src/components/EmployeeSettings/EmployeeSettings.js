@@ -4,7 +4,7 @@ import * as Yup from 'yup'
 import { HiOutlinePhotograph } from 'react-icons/hi'
 import { useDispatch } from 'react-redux'
 import './EmployeeSettings.css'
-import photo from '../../img/userAvatar.png'
+import avatar from '../../img/userAvatar.png'
 import { getEmployeeInformation, updateEmployeeFormData, uploadEmployeePhoto } from '../../redux/actions/employeesActions'
 import { employeesApi } from '../../api/Api'
 import Loading from '../Loading/Loading'
@@ -16,7 +16,7 @@ const EmployeeSettings = () => {
   const [file, setFile] = useState(null)
 
   const initialValues = {
-    photo: user.result[0].photo || '',
+    photo: '',
     firstName: user.result[0].firstName,
     lastName: user.result[0].lastName || '',
     companyName: user.result[0].companyName || '',
@@ -40,7 +40,11 @@ const EmployeeSettings = () => {
     <div className='employeeSettings'>
       <div className="employeeSettingsWrapper">
         <div className='employeeSettingsPhotoCover'>
-          <img src='//localhost:5000/1629881842954KARE-52564-700x700.jpg' alt='employeeSettingsPhoto' className='employeeSettingsPhoto' />
+          {
+            user.result[0].photo
+              ? <img src={`//localhost:5000/${user.result[0].photo}`} alt='employeeSettingsPhoto' className='employeeSettingsPhoto' />
+              : <img src={avatar} alt='employeeSettingsPhoto' className='employeeSettingsPhoto' />
+          }
         </div>
         <hr className='employeeSettingsHr' />
         <div className='employeeSettingsInformation'>

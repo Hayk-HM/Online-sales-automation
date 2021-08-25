@@ -49,12 +49,15 @@ const employeeInfoController = async (req, res) => {
   }
 }
 
+let photo
+
 const uploadEmployeeController = async (req, res) => {
   try {
     await upload.upload(req, res, (err) => {
       if (err) {
         res.status(500).json(err)
       } else {
+        photo = req.file
         res.status(200).send(req.file)
         // console.log(req.body);
       }
@@ -63,6 +66,7 @@ const uploadEmployeeController = async (req, res) => {
     console.log('uploadEmployeeController', error);
   }
 }
+
 
 const updateEmployeeInformation = async (req, res) => {
 
@@ -74,10 +78,10 @@ const updateEmployeeInformation = async (req, res) => {
   })
   try {
 
-    await db.query(`UPDATE users SET photo = '${req.body.photo}',
+    await db.query(`UPDATE users SET 
       firstName = '${req.body.firstName}',
       lastName = '${req.body.lastName}',
-      photo = '${req.body.photo}',
+      photo = '${photo.filename}',
       email = '${req.body.email}',
       position = '${req.body.position}',
       department = '${req.body.department}',
