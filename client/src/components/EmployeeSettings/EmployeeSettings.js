@@ -5,7 +5,7 @@ import { HiOutlinePhotograph } from 'react-icons/hi'
 import { useDispatch } from 'react-redux'
 import './EmployeeSettings.css'
 import photo from '../../img/userAvatar.png'
-import { getEmployeeInformation, updateEmployeeFormData } from '../../redux/actions/employeesActions'
+import { getEmployeeInformation, updateEmployeeFormData, uploadEmployeePhoto } from '../../redux/actions/employeesActions'
 import { employeesApi } from '../../api/Api'
 import Loading from '../Loading/Loading'
 
@@ -13,6 +13,7 @@ const EmployeeSettings = () => {
 
   const dispatch = useDispatch()
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
+  const [file, setFile] = useState(null)
 
   const initialValues = {
     photo: user.result[0].photo || '',
@@ -29,12 +30,17 @@ const EmployeeSettings = () => {
     store: user.result[0].store || '',
   }
 
+  const onChange = async (e) => {
+    e.preventDefault()
+    setFile(e.target.files[0])
+  }
+
   return (
 
     <div className='employeeSettings'>
       <div className="employeeSettingsWrapper">
         <div className='employeeSettingsPhotoCover'>
-          <img src={photo} alt='employeeSettingsPhoto' className='employeeSettingsPhoto' />
+          <img src='//localhost:5000/1629881842954KARE-52564-700x700.jpg' alt='employeeSettingsPhoto' className='employeeSettingsPhoto' />
         </div>
         <hr className='employeeSettingsHr' />
         <div className='employeeSettingsInformation'>
@@ -47,7 +53,11 @@ const EmployeeSettings = () => {
               })
             }
             onSubmit={async (values, actions) => {
+              const data = new FormData()
+              data.append('file', file)
+              await dispatch(uploadEmployeePhoto(data))
               await dispatch(updateEmployeeFormData({ ...values, userId: user.result[0].userId }))
+              window.location.reload();
             }}
           >
             {
@@ -57,6 +67,7 @@ const EmployeeSettings = () => {
                     <span className='employeeSettingsChooseFile' >Choose photo</span>
                     <HiOutlinePhotograph size={50} color='#2969c9' />
                     <Field
+                      onChange={onChange}
                       className='employeeSettingsPhotoInput employeeSettingsInput'
                       type='file'
                       placeholder='photo'

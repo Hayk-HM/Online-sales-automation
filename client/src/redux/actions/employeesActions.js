@@ -32,3 +32,11 @@ export const updateEmployeeFormData = (formData) => async (dispatch) => {
     console.log(error);
   }
 }
+
+export const uploadEmployeePhoto = (formData) => async (dispatch) => {
+  try {
+    const { data } = await employeesApi.uploadEmployeePhoto(formData)
+  } catch (error) {
+    console.log(error);
+  }
+}

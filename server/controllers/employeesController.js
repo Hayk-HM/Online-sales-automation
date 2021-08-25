@@ -1,5 +1,6 @@
 const mysql = require('mysql')
 const jwt = require('jsonwebtoken')
+const upload = require('../multer')
 
 const employeesController = async (req, res) => {
   const db = mysql.createConnection({
@@ -48,6 +49,21 @@ const employeeInfoController = async (req, res) => {
   }
 }
 
+const uploadEmployeeController = async (req, res) => {
+  try {
+    await upload.upload(req, res, (err) => {
+      if (err) {
+        res.status(500).json(err)
+      } else {
+        res.status(200).send(req.file)
+        // console.log(req.body);
+      }
+    })
+  } catch (error) {
+    console.log('uploadEmployeeController', error);
+  }
+}
+
 const updateEmployeeInformation = async (req, res) => {
 
   const db = mysql.createConnection({
@@ -57,19 +73,20 @@ const updateEmployeeInformation = async (req, res) => {
     database: req.body.companyName.trim().replaceAll(' ', '_')
   })
   try {
+
     await db.query(`UPDATE users SET photo = '${req.body.photo}',
-    firstName = '${req.body.firstName}',
-    lastName = '${req.body.lastName}',
-    photo = '${req.body.photo}',
-    email = '${req.body.email}',
-    position = '${req.body.position}',
-    department = '${req.body.department}',
-    cellPhoneOne = '${req.body.cellPhoneOne}',
-    cellPhoneTwo = '${req.body.cellPhoneTwo}',
-    phone = '${req.body.phone}',
-    address = '${req.body.address}',
-    store = '${req.body.store}' 
-    WHERE userId = '${req.params.userId}'`, async (err, result) => {
+      firstName = '${req.body.firstName}',
+      lastName = '${req.body.lastName}',
+      photo = '${req.body.photo}',
+      email = '${req.body.email}',
+      position = '${req.body.position}',
+      department = '${req.body.department}',
+      cellPhoneOne = '${req.body.cellPhoneOne}',
+      cellPhoneTwo = '${req.body.cellPhoneTwo}',
+      phone = '${req.body.phone}',
+      address = '${req.body.address}',
+      store = '${req.body.store}' 
+      WHERE userId = '${req.params.userId}'`, async (err, result) => {
       if (err) {
         console.log(err);
       } else {
@@ -88,4 +105,4 @@ const updateEmployeeInformation = async (req, res) => {
   }
 }
 
-module.exports = { employeesController, employeeInfoController, updateEmployeeInformation }
+module.exports = { employeesController, employeeInfoController, updateEmployeeInformation, uploadEmployeeController }

@@ -21,5 +21,6 @@ export const authApi = ({
 export const employeesApi = ({
   getAllEmployees(formData) { return instance.get(`/app/employees/${formData.company}`) },
   getEmployeeInformation(formData) { return instance.get(`/app/employees/${formData.companyName}/${formData.userId}`) },
-  updateEmployeeInformation(formData) { return instance.put(`/app/employees/${formData.companyName}/${formData.userId}`, formData,) }
+  updateEmployeeInformation(formData) { return instance.put(`/app/employees/${formData.companyName}/${formData.userId}`, formData,) },
+  uploadEmployeePhoto(formData) { return instance.post('app/employees/uploadPhoto', formData) }
 })
