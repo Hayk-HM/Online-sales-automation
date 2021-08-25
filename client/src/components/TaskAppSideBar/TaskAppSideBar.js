@@ -2,6 +2,7 @@ import React from 'react'
 import { BiTask, BiChat, BiUser } from 'react-icons/bi'
 import { FiSettings } from 'react-icons/fi'
 import { Link, useLocation } from 'react-router-dom'
+import { FaShippingFast } from 'react-icons/fa'
 import './TaskAppSideBar.css'
 
 const TaskAppSideBar = () => {
@@ -12,6 +13,13 @@ const TaskAppSideBar = () => {
   return (
     <div className='taskAppSideBar'>
       <div className='taskAppSideBarWrapper'>
+
+        <Link to='/app/orders'>
+          <div className={`taskAppSideBarTasks ${activeField === 'orders' ? 'activeField' : 'notActiveField'}`}>
+            <div className='taskAppSideBarLogo'><FaShippingFast size={20} /></div>
+            <div className='taskAppSideBarName'>Orders</div>
+          </div>
+        </Link>
 
         <Link to='/app/task'>
           <div className={`taskAppSideBarTasks ${activeField === 'task' ? 'activeField' : 'notActiveField'}`}>

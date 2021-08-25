@@ -81,7 +81,7 @@ const updateEmployeeInformation = async (req, res) => {
     await db.query(`UPDATE users SET 
       firstName = '${req.body.firstName}',
       lastName = '${req.body.lastName}',
-      photo = '${photo.filename}',
+      photo = '${photo?.filename || ""}',
       email = '${req.body.email}',
       position = '${req.body.position}',
       department = '${req.body.department}',

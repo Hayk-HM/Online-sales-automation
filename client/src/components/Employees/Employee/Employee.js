@@ -13,7 +13,7 @@ const Employee = ({ employee }) => {
         <div className='employeePhotoCover'>
           {
             employee.photo
-              ? <img className='employeePhoto' src={`//localhost:5000/${employee.photo}`} alt='employeePhoto' />
+              ? <img className='employeePhoto' src={`//localhost:5000/image/${employee.photo}`} alt='employeePhoto' />
               : <img className='employeePhoto' src={avatar} alt='employeePhoto' />
           }
         </div>

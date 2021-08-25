@@ -32,7 +32,13 @@ const EmployeeSettings = () => {
 
   const onChange = async (e) => {
     e.preventDefault()
-    setFile(e.target.files[0])
+    console.log(e.target.files[0]);
+    if (e.target.files[0].type === 'image/png' || e.target.files[0].type === 'image/jpeg') {
+      setFile(e.target.files[0])
+    } else {
+      setFile(null)
+      alert("Please check image")
+    }
   }
 
   return (
@@ -42,7 +48,7 @@ const EmployeeSettings = () => {
         <div className='employeeSettingsPhotoCover'>
           {
             user.result[0].photo
-              ? <img src={`//localhost:5000/${user.result[0].photo}`} alt='employeeSettingsPhoto' className='employeeSettingsPhoto' />
+              ? <img src={`//localhost:5000/image/${user.result[0].photo}`} alt='employeeSettingsPhoto' className='employeeSettingsPhoto' />
               : <img src={avatar} alt='employeeSettingsPhoto' className='employeeSettingsPhoto' />
           }
         </div>
