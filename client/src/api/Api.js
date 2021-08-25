@@ -9,7 +9,7 @@ const instance = axios.create({
 //     req.headers.Authorization(`Bearer ${JSON.parse(localStorage.getItem('user')).token}`)
 //   }
 //   return req
-// })
+// }) 
 
 export const authApi = ({
   signIn(formData) { return instance.post('/auth/signin', formData) },
@@ -23,4 +23,8 @@ export const employeesApi = ({
   getEmployeeInformation(formData) { return instance.get(`/app/employees/${formData.companyName}/${formData.userId}`) },
   updateEmployeeInformation(formData) { return instance.put(`/app/employees/${formData.companyName}/${formData.userId}`, formData,) },
   uploadEmployeePhoto(formData) { return instance.post('app/employees/uploadPhoto', formData) }
+})
+
+export const orderApi = ({
+  createNewOrder(formData) { return instance.post('/app/order/createneworder', formData) }
 })

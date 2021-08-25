@@ -43,30 +43,63 @@ const createTablesController = async (req, res) => {
   try {
     await db.query(`CREATE TABLE IF NOT EXISTS users  (_id INT(50) NOT NULL AUTO_INCREMENT,
          userId VARCHAR(100),
-         firstName VARCHAR(100),
-         lastName VARCHAR(100),
-         photo VARCHAR(10000),
-         company VARCHAR(100),
-         companyName VARCHAR(100),
-         email VARCHAR(50),
-         position VARCHAR(50),
-         department VARCHAR(50),
-         cellPhoneOne VARCHAR(50),
-         cellPhoneTwo VARCHAR(50),
-         phone VARCHAR(50),
-         address VARCHAR(100),
-         store VARCHAR(50),
-         password VARCHAR(100),
+         firstName VARCHAR(100) NULL DEFAULT NULL,
+         lastName VARCHAR(100) NULL DEFAULT NULL,
+         fullName VARCHAR(100) NULL DEFAULT NULL,
+         photo VARCHAR(100) NULL DEFAULT NULL,
+         company VARCHAR(100) NULL DEFAULT NULL,
+         companyName VARCHAR(100) NULL DEFAULT NULL,
+         email VARCHAR(50) NULL DEFAULT NULL,
+         position VARCHAR(50) NULL DEFAULT NULL,
+         department VARCHAR(50) NULL DEFAULT NULL,
+         cellPhoneOne VARCHAR(50) NULL DEFAULT NULL,
+         cellPhoneTwo VARCHAR(50) NULL DEFAULT NULL,
+         phone VARCHAR(50) NULL DEFAULT NULL,
+         address VARCHAR(100) NULL DEFAULT NULL,
+         store VARCHAR(50) NULL DEFAULT NULL,
+         password VARCHAR(100) NULL DEFAULT NULL,
     PRIMARY KEY(_id)
     )
-    `, (err, result) => {
+    `, async (err, result) => {
       if (err) {
         console.log(err)
       } else {
         console.log(`User table created successfully!!!`)
-        res.status(200).json({ message: `User table created successfully!!!` })
+        // res.status(200).json({ message: `User table created successfully!!!` })
+
+        await db.query(`CREATE TABLE IF NOT EXISTS orders (
+          _id INT NOT NULL AUTO_INCREMENT,
+          createDate DATETIME NULL DEFAULT NULL,
+          product VARCHAR(255) NULL DEFAULT NULL,
+          store VARCHAR(255) NULL DEFAULT NULL,
+          orderQuantity VARCHAR(255) NULL DEFAULT NULL,
+          shippedQuantity VARCHAR(255) NULL DEFAULT NULL,
+          price VARCHAR(255) NULL DEFAULT NULL,
+          purchasedQuantity VARCHAR(255) NULL DEFAULT NULL,
+          customerAddress VARCHAR(255) NULL DEFAULT NULL,
+          phoneNumberOne VARCHAR(255) NULL DEFAULT NULL,
+          phoneNumberTwo VARCHAR(255) NULL DEFAULT NULL,
+          customerName VARCHAR(255) NULL DEFAULT NULL,
+          Comment VARCHAR(255) NULL DEFAULT NULL,
+          orderPlace VARCHAR(255) NULL DEFAULT NULL,
+          orderCreatorId VARCHAR(255) NULL DEFAULT NULL,
+          orderCreatorUserId VARCHAR(255) NULL DEFAULT NULL,
+          orderCreator VARCHAR(255) NULL DEFAULT NULL,
+          whereTo VARCHAR(255) NULL DEFAULT NULL,
+          PRIMARY KEY(_id)
+     )`, (err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(`Order table created successfully!!!`)
+
+          }
+        })
+        res.status(200).json({ message: `Tables created successfully!!!` })
       }
     })
+
+
   } catch (error) {
     console.log('createUserController', error)
   }
@@ -89,7 +122,7 @@ const insertInfoController = async (req, res) => {
         console.log('SELECT ERROR FOR SIGNUP');
       } else {
         if (result.length === 0) {
-          await db.query(`INSERT INTO users (userId, firstName, lastName, company, companyName, email, password) VALUES ('${uuid.v4()}', '${data.firstName}', '${data.lastName}', '${data.company.trim().replaceAll(' ', '_')}', '${data.company.trim()}', '${data.email}', '${hashPassword}')`, async (err, result) => {
+          await db.query(`INSERT INTO users (userId, firstName, lastName, fullName, company, companyName, email, password) VALUES ('${uuid.v4()}', '${data.firstName}', '${data.lastName}', '${data.firstName} ${data.lastName}' , '${data.company.trim().replaceAll(' ', '_')}', '${data.company.trim()}', '${data.email}', '${hashPassword}')`, async (err, result) => {
             if (err) {
               console.log(err);
               res.status(500).json('err')

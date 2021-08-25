@@ -1,0 +1,69 @@
+.orderWrapper {
+  width: 100%;
+  margin-left: 20%;
+}
+
+.orderInput {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.signInError {
+  color: red;
+  font-size: 16px;
+  text-align: center;
+}
+
+.orderButtonWrapper {
+  margin-top: 20px;
+}
+
+.orderButtonNew {
+  width: 20%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: #263dee;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.orderButtonReset {
+  width: 20%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ee2626;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+}
+
+.orderForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.orderSpan {
+  display: inline-block;
+  width: 20%;
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 20px;
+  color: #93bbf7;
+}
+/*# sourceMappingURL=NewOrder.css.map */

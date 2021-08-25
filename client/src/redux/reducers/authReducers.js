@@ -5,7 +5,6 @@ const initialState = { user: null }
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'USER_SIGNUP': {
-      debugger
       localStorage.setItem('user', JSON.stringify({ ...action.payload.formData[action.payload.formData.length - 1].data }))
       if (action.payload?.formData) {
         action.payload.history.push('/app/task')

@@ -33,7 +33,6 @@ const SignIn = () => {
           onSubmit={(values, actions) => {
             const { email, password, company } = values
             dispatch(signInAction({ email, password, company: company.replaceAll(' ', '_') }, history))
-            console.log(history);
             actions.resetForm()
           }}
         >
@@ -44,6 +43,7 @@ const SignIn = () => {
                   SignIn
                 </div>
                 <Form className='signInForm'>
+
                   <Field
                     className='signInInputEmail'
                     type='email'

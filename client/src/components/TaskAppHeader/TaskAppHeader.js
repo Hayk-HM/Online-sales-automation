@@ -20,7 +20,7 @@ const TaskAppHeader = ({ user }) => {
         <div className='taskAppHeaderCompany'>
           <Link to='/app/task'>
             <div className='taskAppHeaderLogo'>
-              <SiCivicrm size={50} />
+              <SiCivicrm color='rgb(41, 105, 201)' size={50} />
             </div>
           </Link>
           <Link to='/app/task'>
