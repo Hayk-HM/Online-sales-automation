@@ -3,6 +3,7 @@ import { BiTask, BiChat, BiUser } from 'react-icons/bi'
 import { FiSettings } from 'react-icons/fi'
 import { Link, useLocation } from 'react-router-dom'
 import { FaPenNib } from 'react-icons/fa'
+import { RiAdminLine } from 'react-icons/ri'
 import './TaskAppSideBar.css'
 
 const TaskAppSideBar = () => {
@@ -46,6 +47,13 @@ const TaskAppSideBar = () => {
           <div className={`taskAppSideBarTasks ${activeField === 'settings' ? 'activeField' : 'notActiveField'}`}>
             <div className='taskAppSideBarLogo'><FiSettings size={20} /></div>
             <div className='taskAppSideBarName'>Settings</div>
+          </div>
+        </Link>
+
+        <Link to={`/app/administrationtools`}>
+          <div className={`taskAppSideBarTasks ${activeField === 'administrationtools' ? 'activeField' : 'notActiveField'}`}>
+            <div className='taskAppSideBarLogo'><RiAdminLine size={20} /></div>
+            <div className='taskAppSideBarName'>Administration Tools</div>
           </div>
         </Link>
 

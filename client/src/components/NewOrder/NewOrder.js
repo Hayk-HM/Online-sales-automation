@@ -25,7 +25,7 @@ const NewOrder = () => {
     orderPlace: '',
     orderCreator: `${user.result[0].fullName}`,
     whereTo: '',
-    Comment: '',
+    comment: '',
   }
 
   return (
@@ -36,7 +36,7 @@ const NewOrder = () => {
           initialValues={initialValues}
           onSubmit={(values, actions) => {
             console.log(values)
-            dispatch(createNewOrder({ ...values, company: user.result[0].company, user: user.result[0]._id, userId: user.result[0].userId }))
+            dispatch(createNewOrder({ ...values, company: user.result[0].company, user_id: user.result[0]._id, userId: user.result[0].userId }))
             actions.resetForm()
           }}
         >

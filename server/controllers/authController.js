@@ -80,12 +80,13 @@ const createTablesController = async (req, res) => {
           phoneNumberOne VARCHAR(255) NULL DEFAULT NULL,
           phoneNumberTwo VARCHAR(255) NULL DEFAULT NULL,
           customerName VARCHAR(255) NULL DEFAULT NULL,
-          Comment VARCHAR(255) NULL DEFAULT NULL,
           orderPlace VARCHAR(255) NULL DEFAULT NULL,
-          orderCreatorId VARCHAR(255) NULL DEFAULT NULL,
-          orderCreatorUserId VARCHAR(255) NULL DEFAULT NULL,
           orderCreator VARCHAR(255) NULL DEFAULT NULL,
           whereTo VARCHAR(255) NULL DEFAULT NULL,
+          comment VARCHAR(255) NULL DEFAULT NULL,
+          company VARCHAR(255) NULL DEFAULT NULL,
+          user_id INT(50) NULL DEFAULT NULL,
+          userId VARCHAR(255) NULL DEFAULT NULL,
           PRIMARY KEY(_id)
      )`, (err, result) => {
           if (err) {

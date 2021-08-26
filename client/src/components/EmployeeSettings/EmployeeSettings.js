@@ -59,6 +59,8 @@ const EmployeeSettings = () => {
             initialValues={initialValues}
             validationSchema={
               Yup.object().shape({
+                firstName: Yup.string().max(255).required('First name is required'),
+                lastName: Yup.string().max(255).required('Last name is required'),
                 email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
               })
             }
@@ -91,6 +93,7 @@ const EmployeeSettings = () => {
                     placeholder='first mame'
                     name='firstName'
                   />
+                  {touched.firstName && errors.firstName && <div className='signInError'>{errors.firstName}</div>}
 
                   <Field
                     className='employeeSettingsLastName employeeSettingsInput'
@@ -98,6 +101,7 @@ const EmployeeSettings = () => {
                     placeholder='last name'
                     name='lastName'
                   />
+                  {touched.lastName && errors.lastName && <div className='signInError'>{errors.lastName}</div>}
 
                   <Field
                     className='employeeSettingsCompanyName employeeSettingsInput'

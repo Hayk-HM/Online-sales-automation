@@ -81,16 +81,17 @@ const updateEmployeeInformation = async (req, res) => {
     await db.query(`UPDATE users SET 
       firstName = '${req.body.firstName}',
       lastName = '${req.body.lastName}',
-      photo = '${photo?.filename || ""}',
+      fullName = '${req.body.firstName + " " + req.body.lastName}',
+      ${photo?.filename ? `photo = '${photo?.filename}'` : `photo = NULL`},
       email = '${req.body.email}',
-      position = '${req.body.position}',
-      department = '${req.body.department}',
-      cellPhoneOne = '${req.body.cellPhoneOne}',
-      cellPhoneTwo = '${req.body.cellPhoneTwo}',
-      phone = '${req.body.phone}',
-      address = '${req.body.address}',
-      store = '${req.body.store}' 
-      WHERE userId = '${req.params.userId}'`, async (err, result) => {
+      ${req.body.position ? `position = '${req.body.position}'` : `position = NULL`},
+      ${req.body.department ? `department = '${req.body.department}'` : `department = NULL`},
+      ${req.body.cellPhoneOne ? `cellPhoneOne = '${req.body.cellPhoneOne}'` : `cellPhoneOne = NULL`},
+      ${req.body.cellPhoneTwo ? `cellPhoneTwo = '${req.body.cellPhoneTwo}'` : `cellPhoneTwo = NULL`},
+      ${req.body.phone ? `phone = '${req.body.phone}'` : `phone = NULL`},
+      ${req.body.address ? `address = '${req.body.address}'` : `address = NULL`},
+      ${req.body.store ? `store = '${req.body.store}'` : `store = NULL`}
+            WHERE userId = '${req.params.userId}'`, async (err, result) => {
       if (err) {
         console.log(err);
       } else {
