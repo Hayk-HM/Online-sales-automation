@@ -35,7 +35,7 @@ const createNewOrderController = async (req, res) => {
      ${req.body.shippedQuantity ? `'${req.body.shippedQuantity}'` : `NULL`},
      ${req.body.price ? `'${req.body.price}'` : `NULL`},
      ${req.body.purchasedQuantity ? `'${req.body.purchasedQuantity}'` : `NULL`},
-     ${req.body.customerAddress ? `c'${req.body.customerAddress}'` : `NULL`},
+     ${req.body.customerAddress ? `'${req.body.customerAddress}'` : `NULL`},
      ${req.body.phoneNumberOne ? `'${req.body.phoneNumberOne}'` : `NULL`},
      ${req.body.phoneNumberTwo ? `'${req.body.phoneNumberTwo}'` : `NULL`},
      ${req.body.customerName ? `'${req.body.customerName}'` : `NULL`},
@@ -59,4 +59,30 @@ const createNewOrderController = async (req, res) => {
   }
 }
 
-module.exports = { createNewOrderController }
+const getOrdersController = async (req, res) => {
+  const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'adminRoot',
+    database: req.query.company.trim().replaceAll(' ', '_')
+  })
+
+  const getAllOrders = `SELECT * FROM orders ORDER BY createDate`
+  const getOrder = `SELECT * FROM orders WHERE orders._id = '${req.query._id}' `
+
+  let query = req.query._id ? getOrder : getAllOrders
+
+  try {
+    await db.query(query, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.status(200).json(result)
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+module.exports = { createNewOrderController, getOrdersController }

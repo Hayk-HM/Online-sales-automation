@@ -1,0 +1,10 @@
+.administrationTools {
+  margin-left: 20px;
+}
+
+.administrationToolsWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=AdministrationPanel.css.map */

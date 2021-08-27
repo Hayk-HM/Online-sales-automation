@@ -7,7 +7,7 @@ import createNewOrderReducer from "../reducers/orderReducers";
 const rootReducer = combineReducers({
   user: userReducer,
   employees: EmployeesReducer,
-  newOrder: createNewOrderReducer,
+  order: createNewOrderReducer,
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

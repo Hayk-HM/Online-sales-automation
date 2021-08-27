@@ -19,7 +19,7 @@ const Employee = ({ employee }) => {
         </div>
         <div className='employeeInfoPartOne'>
           <div className='employeeFullName'>{`${employee.firstName} ${employee.lastName}`}</div>
-          <div className='employeePosition'>{employee.position}</div>
+          <div className='employeeOwnPosition'>{employee.position}</div>
           <div className='employeeDepartment'>{employee.department}</div>
         </div>
         <div className='employeeInfoPartTwo'>

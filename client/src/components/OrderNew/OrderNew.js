@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
-import './NewOrder.css'
+import './OrderNew.css'
 import { createNewOrder } from '../../redux/actions/orderActions'
 
-const NewOrder = () => {
+const OrderNew = () => {
 
   const dispatch = useDispatch()
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
@@ -46,11 +46,11 @@ const NewOrder = () => {
 
                 <div className='orderField'><span className='orderSpan'>Create date</span><Field name='createDate' placeholder='create date' type='date' className='orderInput' /></div>
                 <divc lassName='orderField'><span className='orderSpan'>Product</span><Field name='product' placeholder='product' type='text' className='orderInput' /></divc>
-                <divc lassName='orderField'><span className='orderSpan'>Store</span><Field name='store' placeholder='store' type='text' className='orderInput' /></divc>
-                <divc lassName='orderField'><span className='orderSpan'>Order quantity</span><Field name='orderQuantity' placeholder='order quantity' type='text' className='orderInput' /></divc>
+                {/* <divc lassName='orderField'><span className='orderSpan'>Store</span><Field name='store' placeholder='store' type='text' className='orderInput' /></divc> */}
+                {/* <divc lassName='orderField'><span className='orderSpan'>Order quantity</span><Field name='orderQuantity' placeholder='order quantity' type='text' className='orderInput' /></divc> */}
                 <divc lassName='orderField'><span className='orderSpan'>Shipped quantity</span><Field name='shippedQuantity' placeholder='shipped quantity' type='text' className='orderInput' /></divc>
                 <divc lassName='orderField'><span className='orderSpan'>Price</span><Field name='price' placeholder='price' type='text' className='orderInput' /></divc>
-                <divc lassName='orderField'><span className='orderSpan'>Purchased quantity</span><Field name='purchasedQuantity' placeholder='purchased quantity' type='text' className='orderInput' /></divc>
+                {/* <divc lassName='orderField'><span className='orderSpan'>Purchased quantity</span><Field name='purchasedQuantity' placeholder='purchased quantity' type='text' className='orderInput' /></divc> */}
                 <divc lassName='orderField'><span className='orderSpan'>Customer address</span><Field name='customerAddress' placeholder='customer address' type='text' className='orderInput' /></divc>
                 <divc lassName='orderField'><span className='orderSpan'>Phone numberOne</span><Field name='phoneNumberOne' placeholder='phone number' type='text' className='orderInput' /></divc>
                 <divc lassName='orderField'><span className='orderSpan'>Phone number</span><Field name='phoneNumberTwo' placeholder='phone number' type='text' className='orderInput' /></divc>
@@ -73,4 +73,4 @@ const NewOrder = () => {
   )
 }
 
-export default NewOrder
+export default OrderNew

@@ -4,7 +4,8 @@ import Chat from '../../components/Chat/Chat'
 import Tasks from '../../components/Tasks/Tasks'
 import Employees from '../Employees/Employees'
 import EmployeeSettings from '../EmployeeSettings/EmployeeSettings'
-import NewOrder from '../NewOrder/NewOrder'
+import OrderNew from '../OrderNew/OrderNew'
+import OrderList from '../OrderList/OrderList'
 import './TaskAppFeed.css'
 
 const TaskAppFeed = () => {
@@ -15,7 +16,8 @@ const TaskAppFeed = () => {
         <Route path='/app/task' render={() => <Tasks />} />
         <Route exact path='/app/employees' render={() => <Employees />} />
         <Route path='/app/employees/settings' render={() => <EmployeeSettings />} />
-        <Route path='/app/neworder' render={() => <NewOrder />} />
+        <Route path='/app/neworder' render={() => <OrderNew />} />
+        <Route path='/app/orderlist' render={() => <OrderList />} />
       </Switch>
     </div>
   )

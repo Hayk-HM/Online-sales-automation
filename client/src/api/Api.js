@@ -26,5 +26,7 @@ export const employeesApi = ({
 })
 
 export const orderApi = ({
-  createNewOrder(formData) { return instance.post('/app/order/createneworder', formData) }
+  createNewOrder(formData) { return instance.post('/app/order/createneworder', formData) },
+  getAllOrders(formData) { return instance.get(`/app/order/getorders?company=${formData.company}`) },
+  getOneOrder(formData) { return instance.get(`/app/order/getorders?company=${formData.company}&_id=${formData._id}`) },
 })

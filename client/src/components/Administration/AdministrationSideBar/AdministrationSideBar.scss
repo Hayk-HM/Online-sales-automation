@@ -1,0 +1,44 @@
+.administrationSideBar {
+  height: calc(100vh - 70px);
+  overflow-y: scroll;
+  position: sticky;
+  top: 70px;
+  min-width: 200px;
+  width: 200px;
+}
+
+.administrationSideBarWrapper {
+  margin: 20px;
+}
+
+.administrationSideBarTasks {
+  display: flex;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.administrationSideBarTasks:hover {
+  background-color: rgb(235, 235, 235);
+  border-radius: 10px;
+}
+
+.administrationSideBarActivTasks {
+  background-color: rgb(245, 245, 245);
+  border-radius: 10px;
+}
+
+.administrationSideBarLogo {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.administrationSideBarName {
+  font-size: 15px;
+}
+
+.activeField {
+  background-color: rgb(245, 245, 245);
+  border-radius: 10px;
+}
