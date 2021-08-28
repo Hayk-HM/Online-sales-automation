@@ -6,6 +6,7 @@ import { CgWorkAlt } from 'react-icons/cg'
 import { HiOutlineOfficeBuilding } from 'react-icons/hi'
 import { BsPersonPlus } from 'react-icons/bs'
 import { FaRegAddressBook } from 'react-icons/fa'
+import { AiOutlineBars } from 'react-icons/ai'
 import './AdministrationSideBar.css'
 
 const AdministrationSideBar = () => {
@@ -16,6 +17,13 @@ const AdministrationSideBar = () => {
   return (
     <div className='administrationSideBar'>
       <div className='administrationSideBarWrapper'>
+
+        <Link to='/administrationpanel/orderrequestcolumns'>
+          <div className={`administrationSideBarTasks ${activeField === 'orderrequestcolumns' ? 'activeField' : 'administrationSideBarNotActiveField'}`}>
+            <div className='administrationSideBarLogo'><AiOutlineBars size={20} /></div>
+            <div className='administrationSideBarName'>Order Request Columns</div>
+          </div>
+        </Link>
 
         <Link to='/administrationpanel/store'>
           <div className={`administrationSideBarTasks ${activeField === 'store' ? 'activeField' : 'administrationSideBarNotActiveField'}`}>

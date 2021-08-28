@@ -1,4 +1,4 @@
-const initialState = { newOrder: {}, orders: [], oneRequestedOrder: {} }
+const initialState = { newOrder: {}, orders: [], oneRequestedOrder: {}, orderColumns: [] }
 
 const createNewOrderReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -20,6 +20,12 @@ const createNewOrderReducer = (state = initialState, action) => {
       return {
         ...state,
         oneRequestedOrder: { ...action.payload }
+      }
+    }
+    case 'GET_ORDER_COLUMNS': {
+      return {
+        ...state,
+        orderColumns: [...action.payload]
       }
     }
     default:

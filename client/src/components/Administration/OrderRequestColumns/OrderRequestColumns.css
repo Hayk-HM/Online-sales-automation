@@ -1,0 +1,61 @@
+.orderRequestColumnsWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.orderColumnNameWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.orderColumnName {
+  color: #93bbf7;
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 3px;
+  width: 200px;
+  border-right: 1px solid #d2cece;
+}
+
+.orderRequestColumnsButton {
+  width: 50px;
+  height: 50px;
+  background-color: #2969c9;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.orderColumnDelete {
+  cursor: pointer;
+}
+
+.orderRequestColumnsAdd {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.activeColumnAddArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 99;
+}
+
+.diActiveColumnAddAre {
+  display: none;
+}
+/*# sourceMappingURL=OrderRequestColumns.css.map */

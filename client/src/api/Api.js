@@ -30,3 +30,9 @@ export const orderApi = ({
   getAllOrders(formData) { return instance.get(`/app/order/getorders?company=${formData.company}`) },
   getOneOrder(formData) { return instance.get(`/app/order/getorders?company=${formData.company}&_id=${formData._id}`) },
 })
+
+export const tableColumnsApi = ({
+  getOrderColumns(formData) { return instance.get(`/app/order/getordercolumns?company=${formData.company}&table=${formData.table}`) },
+  addOrderColumn(formData) { return instance.put('/app/order/addordercolumn', formData) },
+  deleteOrderColumn(formData) { return instance.put('/app/order/deleteordercolumn', formData) },
+})

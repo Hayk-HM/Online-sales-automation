@@ -85,4 +85,84 @@ const getOrdersController = async (req, res) => {
   }
 }
 
-module.exports = { createNewOrderController, getOrdersController }
+const getOrderColumnsController = async (req, res) => {
+
+  const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'adminRoot',
+    database: req.query.company.trim().replaceAll(' ', '_')
+  })
+
+  const query = `SELECT COLUMN_NAME
+  FROM INFORMATION_SCHEMA.COLUMNS
+  WHERE TABLE_NAME = 'orders'`
+
+  try {
+    await db.query(query, (err, result) => {
+      if (err) {
+        console.log(err)
+      } else {
+        res.status(200).json(result)
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const deleteOrderColumnsController = async (req, res) => {
+
+  const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'adminRoot',
+    database: req.body.company.trim().replaceAll(' ', '_')
+  })
+
+  const query = `ALTER TABLE orders DROP COLUMN ${req.body.tableColumnsName}`
+
+  try {
+    db.query(query, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.status(200).json({ message: 'Columns deleted successfully!!!' })
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const addOrderColumnsController = async (req, res) => {
+
+  const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'adminRoot',
+    database: req.body.company.trim().replaceAll(' ', '_')
+  })
+  const queryOrder = `ALTER TABLE orders 
+  ADD COLUMN ${req.body.columnName.trim().replaceAll(' ', '_')} VARCHAR(255) NULL DEFAULT NULL`
+  const queryOrderColumns = `INSERT INTO ordersColumns (dbColumnName, columnName, visibleInNewOrder, visibleInOrderList) VALUES ('${req.body.columnName.trim().replaceAll(' ', '_')}', '${req.body.columnName}', '${req.body.isVisibleInNewOrder}', '${req.body.isVisibleInOrderList}')`
+  try {
+    await db.query(queryOrder, async (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        await db.query(queryOrderColumns, (err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            res.status(200).json({ message: 'Columns created successfully!!!' })
+          }
+        })
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+module.exports = { createNewOrderController, getOrdersController, getOrderColumnsController, deleteOrderColumnsController, addOrderColumnsController }

@@ -1,0 +1,96 @@
+.addColumn {
+  min-height: 700px;
+  min-width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.addColumnWrapper {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  opacity: 1;
+  color: black;
+  -webkit-box-shadow: 5px 5px 15px 5px #a3a3a3;
+  box-shadow: 5px 5px 15px 5px #a3a3a3;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.addColumnHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.addColumnLeft {
+  margin-left: 30%;
+  font-size: 32px;
+  font-weight: 500;
+  color: rgb(41, 105, 201);
+}
+
+.addColumnRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  height: 42px;
+  width: 42px;
+  color: black;
+  cursor: pointer;
+}
+
+.addColumnRight:hover {
+  background-color: rgb(238, 235, 229);
+  border-radius: 50%;
+}
+
+.addColumnName {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 20px;
+  color: rgb(147, 187, 247);
+}
+
+.addColumnInput {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.addColumnSelect {
+  width: 50%;
+  height: 40px;
+  border: 1px solid rgb(233, 237, 226);
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.addColumnCreateButtonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addColumnCreateButton {
+  width: 20vw;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(41, 105, 201);
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+}

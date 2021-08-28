@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import './Create.css'
+import './CreateStore.css'
 
-const Create = () => {
+const CreateStore = () => {
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
 
@@ -24,4 +24,4 @@ const Create = () => {
   )
 }
 
-export default Create
+export default CreateStore

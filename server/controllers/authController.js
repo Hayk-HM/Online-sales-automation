@@ -68,7 +68,7 @@ const createTablesController = async (req, res) => {
         // res.status(200).json({ message: `User table created successfully!!!` })
 
         await db.query(`CREATE TABLE IF NOT EXISTS orders (
-          _id INT NOT NULL AUTO_INCREMENT,
+          _id INT(50) NOT NULL AUTO_INCREMENT,
           createDate DATETIME NULL DEFAULT NULL,
           product VARCHAR(255) NULL DEFAULT NULL,
           store VARCHAR(255) NULL DEFAULT NULL,
@@ -88,19 +88,31 @@ const createTablesController = async (req, res) => {
           user_id INT(50) NULL DEFAULT NULL,
           userId VARCHAR(255) NULL DEFAULT NULL,
           PRIMARY KEY(_id)
-     )`, (err, result) => {
+     )`, async (err, result) => {
           if (err) {
             console.log(err);
           } else {
             console.log(`Order table created successfully!!!`)
 
+            await db.query(`CREATE TABLE IF NOT EXISTS ordersColumns (
+              _id INT(50) NOT NULL AUTO_INCREMENT,
+              dbColumnName VARCHAR(255) NULL DEFAULT NULL,
+              columnName VARCHAR(255) NULL DEFAULT NULL,
+              visibleInNewOrder VARCHAR(255) NULL DEFAULT NULL,
+              visibleInOrderList VARCHAR(255) NULL DEFAULT NULL, 
+              PRIMARY KEY(_id)
+            )`, (err, result) => {
+              if (err) {
+                console.log(err);
+              } else {
+                console.log(`Order columns table created successfully!!!`)
+              }
+            })
           }
         })
         res.status(200).json({ message: `Tables created successfully!!!` })
       }
     })
-
-
   } catch (error) {
     console.log('createUserController', error)
   }
