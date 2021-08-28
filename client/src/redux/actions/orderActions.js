@@ -5,6 +5,7 @@ const orderActions = {
   getAllOrders: (formData) => ({ type: 'GET_ALL_ORDERS', payload: formData }),
   getOneOrder: (formData) => ({ type: 'GET_ONE_ORDER', payload: formData }),
   getOrderColumns: (formData) => ({ type: 'GET_ORDER_COLUMNS', payload: formData }),
+  getOrdersAdmissibility: (formData) => ({ type: 'GET_ORDERS_ADMISSIBILITY', payload: formData })
 }
 
 export const createNewOrder = (formData) => async (dispatch) => {
@@ -60,5 +61,14 @@ export const addOrderColumn = (formData) => async (dispatch) => {
     dispatch(getOrderColumns(formData))
   } catch (error) {
     console.log('addOrderColumn', error);
+  }
+}
+
+export const getOrdersAdmissibility = (formData) => async (dispatch) => {
+  try {
+    const { data } = await tableColumnsApi.getOrdersAdmissibility(formData)
+    dispatch(orderActions.getOrdersAdmissibility(data))
+  } catch (error) {
+    console.log('getOrdersAdmissibility', error);
   }
 }

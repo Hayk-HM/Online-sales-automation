@@ -35,4 +35,5 @@ export const tableColumnsApi = ({
   getOrderColumns(formData) { return instance.get(`/app/order/getordercolumns?company=${formData.company}&table=${formData.table}`) },
   addOrderColumn(formData) { return instance.put('/app/order/addordercolumn', formData) },
   deleteOrderColumn(formData) { return instance.put('/app/order/deleteordercolumn', formData) },
+  getOrdersAdmissibility(formData) { return instance.get(`/app/order/getOrdersAdmissibility?company=${formData.company}`) },
 })

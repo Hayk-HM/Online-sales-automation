@@ -1,4 +1,10 @@
-const initialState = { newOrder: {}, orders: [], oneRequestedOrder: {}, orderColumns: [] }
+const initialState = {
+  newOrder: {},
+  orders: [],
+  oneRequestedOrder: {},
+  orderColumns: [],
+  ordersAdmissibility: [],
+}
 
 const createNewOrderReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -28,6 +34,13 @@ const createNewOrderReducer = (state = initialState, action) => {
         orderColumns: [...action.payload]
       }
     }
+    case 'GET_ORDERS_ADMISSIBILITY': {
+      return {
+        ...state,
+        ordersAdmissibility: [...action.payload]
+      }
+    }
+
     default:
       return state
   }
