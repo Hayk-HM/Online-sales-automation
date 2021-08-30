@@ -47,3 +47,20 @@
 .diActiveColumnAddAre {
   display: none;
 }
+
+.activeORC {
+  background-color: rgb(201, 196, 196);
+  padding: 5px;
+  border-radius: 10px;
+  color: black;
+  cursor: pointer;
+}
+
+.notActiveORC {
+  cursor: pointer;
+}
+
+.orderRequestColumnsChecking {
+  display: flex;
+  justify-content: space-around;
+}

@@ -36,4 +36,5 @@ export const tableColumnsApi = ({
   addOrderColumn(formData) { return instance.put('/app/order/addordercolumn', formData) },
   deleteOrderColumn(formData) { return instance.put('/app/order/deleteordercolumn', formData) },
   getOrdersAdmissibility(formData) { return instance.get(`/app/order/getOrdersAdmissibility?company=${formData.company}`) },
+  changeOrdersVisibility(formData) { return instance.put(`/app/order/changeordersvisibility?company=${formData.company}`, formData) }
 })

@@ -58,4 +58,24 @@
 .diActiveColumnAddAre {
   display: none;
 }
+
+.activeORC {
+  background-color: #c9c4c4;
+  padding: 5px;
+  border-radius: 10px;
+  color: black;
+  cursor: pointer;
+}
+
+.notActiveORC {
+  cursor: pointer;
+}
+
+.orderRequestColumnsChecking {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
 /*# sourceMappingURL=OrderRequestColumns.css.map */

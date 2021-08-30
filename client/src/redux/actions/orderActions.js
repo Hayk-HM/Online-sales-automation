@@ -5,7 +5,8 @@ const orderActions = {
   getAllOrders: (formData) => ({ type: 'GET_ALL_ORDERS', payload: formData }),
   getOneOrder: (formData) => ({ type: 'GET_ONE_ORDER', payload: formData }),
   getOrderColumns: (formData) => ({ type: 'GET_ORDER_COLUMNS', payload: formData }),
-  getOrdersAdmissibility: (formData) => ({ type: 'GET_ORDERS_ADMISSIBILITY', payload: formData })
+  getOrdersAdmissibility: (formData) => ({ type: 'GET_ORDERS_ADMISSIBILITY', payload: formData }),
+  changeOrdersVisibility: (formData) => ({ type: 'CHANGE_ORDERS_VISIBILITY', payload: formData }),
 }
 
 export const createNewOrder = (formData) => async (dispatch) => {
@@ -49,7 +50,7 @@ export const getOrderColumns = (formData) => async (dispatch) => {
 export const deleteOrderColumn = (formData) => async (dispatch) => {
   try {
     await tableColumnsApi.deleteOrderColumn(formData)
-    dispatch(getOrderColumns(formData))
+    dispatch(getOrdersAdmissibility(formData))
   } catch (error) {
     console.log('deleteOrderColumn', deleteOrderColumn);
   }
@@ -58,7 +59,7 @@ export const deleteOrderColumn = (formData) => async (dispatch) => {
 export const addOrderColumn = (formData) => async (dispatch) => {
   try {
     await tableColumnsApi.addOrderColumn(formData)
-    dispatch(getOrderColumns(formData))
+    dispatch(getOrdersAdmissibility(formData))
   } catch (error) {
     console.log('addOrderColumn', error);
   }
@@ -70,5 +71,19 @@ export const getOrdersAdmissibility = (formData) => async (dispatch) => {
     dispatch(orderActions.getOrdersAdmissibility(data))
   } catch (error) {
     console.log('getOrdersAdmissibility', error);
+  }
+}
+
+export const changeOrdersVisibility = (formData) => async (dispatch) => {
+
+  try {
+    new Promise(async (resolve, reject) => {
+      await tableColumnsApi.changeOrdersVisibility(formData)
+      resolve(formData)
+    }
+    )
+      .then(data => dispatch(getOrdersAdmissibility(data)))
+  } catch (error) {
+    console.log('changeOrdersVisibility', error);
   }
 }

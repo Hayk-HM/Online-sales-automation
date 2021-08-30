@@ -40,6 +40,12 @@ const createNewOrderReducer = (state = initialState, action) => {
         ordersAdmissibility: [...action.payload]
       }
     }
+    case 'CHANGE_ORDERS_VISIBILITY': {
+      return {
+        ...state,
+        ordersAdmissibility: [...action.payload]
+      }
+    }
 
     default:
       return state

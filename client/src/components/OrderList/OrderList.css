@@ -1,5 +1,5 @@
 .orderList {
-  width: 60%;
+  width: 100%;
   overflow-x: scroll;
 }
 
@@ -10,7 +10,7 @@
 .orderTable {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 150%;
+  width: 80%;
 }
 
 .orderTable td,

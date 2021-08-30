@@ -79,7 +79,7 @@ const getOrderColumnsController = async (req, res) => {
 }
 
 const deleteOrderColumnsController = async (req, res) => {
-
+  console.log(req.body);
   const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -87,14 +87,23 @@ const deleteOrderColumnsController = async (req, res) => {
     database: req.body.company.trim().replaceAll(' ', '_')
   })
 
-  const query = `ALTER TABLE orders DROP COLUMN ${req.body.tableColumnsName}`
+  const queryOrders = `ALTER TABLE ${req.body.table} DROP COLUMN ${req.body.tableColumnsName}`
+  const queryOrderColumns = `DELETE FROM ordersColumns WHERE _id = ${req.body._id}`
+
 
   try {
-    db.query(query, (err, result) => {
+    await db.query(queryOrders, async (err, result) => {
       if (err) {
         console.log(err);
       } else {
-        res.status(200).json({ message: 'Columns deleted successfully!!!' })
+        await db.query(queryOrderColumns, (err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            res.status(200).json({ message: 'Columns deleted successfully!!!' })
+          }
+        })
+
       }
     })
   } catch (error) {
@@ -157,4 +166,33 @@ const getOrdersAdmissibilityController = async (req, res) => {
   }
 }
 
-module.exports = { createNewOrderController, getOrdersController, getOrderColumnsController, deleteOrderColumnsController, addOrderColumnsController, getOrdersAdmissibilityController }
+const changeOrdersVisibilityController = async (req, res) => {
+  const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'adminRoot',
+    database: req.body.company.trim().replaceAll(' ', '_')
+  })
+  const query = `UPDATE ${req.body.table} SET ${req.body.field} = '${req.body.value}' WHERE (_id = '${req.body._id}');`
+  try {
+    db.query(query, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.status(200).json(result)
+      }
+    })
+  } catch (error) {
+    console.log(err);
+  }
+}
+
+module.exports = {
+  createNewOrderController,
+  getOrdersController,
+  getOrderColumnsController,
+  deleteOrderColumnsController,
+  addOrderColumnsController,
+  getOrdersAdmissibilityController,
+  changeOrdersVisibilityController
+}
