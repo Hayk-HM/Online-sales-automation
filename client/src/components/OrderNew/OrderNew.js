@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Formik, Form, Field } from 'formik'
-import * as Yup from 'yup'
 import './OrderNew.css'
 import { createNewOrder, getOrdersAdmissibility } from '../../redux/actions/orderActions'
 
@@ -20,6 +19,8 @@ const OrderNew = () => {
     orderCreator: `${user.fullName}`,
   }
 
+  newOrdersAdmissibility.map(ele => initialValues[ele.dbColumnName] = "")
+
   return (
     <div className='order'>
       <div className='orderWrapper'>
@@ -34,7 +35,7 @@ const OrderNew = () => {
           }}
         >
           {
-            (errors, isSubmitting, touched) => (
+            ({ errors, isSubmitting, touched, resetForm }) => (
               <Form className='orderForm'>
                 <div className='orderField'><span className='orderSpan'>Create date</span><Field name='createDate' placeholder='create date' type='date' className='orderInput' /></div>
                 <div lassName='orderField'><span className='orderSpan'>Order creator</span><Field disabled name='orderCreator' placeholder='order creator' type='text' className='orderInput' /></div>
@@ -47,7 +48,7 @@ const OrderNew = () => {
                 }
                 <div className='orderButtonWrapper'>
                   <button className='orderButtonNew' disabled={isSubmitting} type='submit'>Create new order</button>
-                  <button className='orderButtonReset' disabled={isSubmitting} type='button' >Clear order</button>
+                  <button className='orderButtonReset' disabled={isSubmitting} type='button' onClick={() => resetForm()} >Clear order</button>
                 </div>
               </Form>
             )

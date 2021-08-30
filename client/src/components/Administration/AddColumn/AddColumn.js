@@ -42,7 +42,8 @@ const AddColumn = ({ setAddArea, addArea }) => {
             }}
           >
             <Form>
-              <div className='addColumnName'>New Column</div><Field name='columnName' className='addColumnInput' type='text' />
+              <div className='addColumnName'>New Column</div>
+              <Field name='columnName' className='addColumnInput' type='text' />
               <div className='addColumnName'>Visibility in new order</div>
               <div>
                 <Field name='isVisibleInNewOrder' component='select' className='addColumnSelect' >
