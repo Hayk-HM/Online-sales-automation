@@ -1,68 +1,15 @@
 import React from 'react'
+import CharSideBar from './CharSideBar/CharSideBar'
 import './Chat.css'
+import ChatMain from './ChatMain/ChatMain'
 
 const Chat = () => {
   return (
     <div className='chat'>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
-      <div>Chat</div>
+      <div className='chatWrapper'>
+        <CharSideBar />
+        <ChatMain />
+      </div>
     </div>
   )
 }

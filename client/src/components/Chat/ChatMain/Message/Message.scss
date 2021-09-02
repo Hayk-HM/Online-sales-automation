@@ -1,0 +1,15 @@
+.message {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(235, 229, 229);
+  min-height: 40px;
+}
+
+.messageWrapper {
+  margin: 10px;
+  max-width: 500px;
+  overflow-x: hidden;
+  word-wrap: inherit;
+}

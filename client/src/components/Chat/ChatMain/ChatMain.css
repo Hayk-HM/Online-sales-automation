@@ -1,0 +1,108 @@
+.ChatMain {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 9;
+      -ms-flex: 9;
+          flex: 9;
+  height: 80vh;
+}
+
+.ChatMainWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.chatMainMessages {
+  overflow: scroll;
+}
+
+.chatMainLeft {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.chatMainRight {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.messageReq {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.messageForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.messageInput {
+  -webkit-box-flex: 10;
+      -ms-flex: 10;
+          flex: 10;
+  margin-left: 10px;
+  border: none;
+  border-bottom: 1px solid #2969c9;
+  outline: none;
+  padding-left: 10px;
+}
+
+.messageInput:hover {
+  outline: none;
+}
+
+.messageButtonWrapper {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.messageButton {
+  background-color: #2969c9;
+  border: none;
+  color: white;
+  font-weight: 500;
+  height: 50px;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+/*# sourceMappingURL=ChatMain.css.map */

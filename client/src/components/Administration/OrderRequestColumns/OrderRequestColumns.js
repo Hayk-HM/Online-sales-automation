@@ -44,8 +44,8 @@ const OrderRequestColumns = () => {
         {
           ordersAdmissibility.map(orderColum => (
             <div className='orderColumnNameWrapper'>
-              <div className='orderColumnName'>{orderColum.dbColumnName}</div>
-              <div className='orderColumnName'>{orderColum.columnName}</div>
+              <div className='orderColumnNameDb'>{orderColum.dbColumnName}</div>
+              <div className='orderColumnNameDb'>{orderColum.columnName}</div>
               <div className='orderColumnName'><span>Visible in new order </span>
                 <div className='orderRequestColumnsChecking'>
                   <div className={orderColum.visibleInNewOrder === 'true' ? 'activeORC' : 'notActiveORC'}

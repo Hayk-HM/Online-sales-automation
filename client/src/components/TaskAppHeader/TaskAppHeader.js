@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import { SiCivicrm } from 'react-icons/si'
 import { authActions } from '../../redux/actions/authActions'
 import './TaskAppHeader.css'
+import { io } from "socket.io-client"
+import { userActions } from '../../redux/actions/userActions'
+import { getAllEmployees } from '../../redux/actions/employeesActions'
+
+export let socket
 
 const TaskAppHeader = ({ user }) => {
 
@@ -13,6 +18,28 @@ const TaskAppHeader = ({ user }) => {
   const handleSignOut = () => {
     dispatch(authActions.logOut(history))
   }
+
+  useEffect(() => {
+    const { result } = JSON.parse(localStorage.getItem('user'))
+    dispatch(getAllEmployees({ company: result[0].companyName }))
+  }, [])
+
+  useEffect(() => {
+    socket = io('http://localhost:5000')
+    return () => {
+      socket.close()
+    }
+  }, [])
+
+  useEffect(() => {
+    socket.emit('addActiveUser', { userId: user.userId })
+  }, [user])
+
+  useEffect(() => {
+    socket.on('getActiveUsers', data => {
+      dispatch(userActions.getActiveUsers(data))
+    })
+  }, [dispatch])
 
   return (
     <div className='taskAppHeader'>

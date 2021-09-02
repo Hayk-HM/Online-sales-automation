@@ -1,0 +1,61 @@
+.chatSideBarEmployee {
+}
+
+.chatSideBar {
+  flex: 3;
+  height: 80vh;
+  border-right: 1px solid rgb(230, 224, 224);
+}
+
+.chatSideBarEmployeePhoto {
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.chatSideBarEmployeePhoto:hover {
+  background-color: rgb(230, 224, 224);
+}
+
+.chatSideBarEmployeeActive {
+  background-color: rgb(230, 224, 224);
+}
+
+.chatSideBarEmployeeIsActive {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid white;
+  background-color: green;
+  position: absolute;
+  top: 7px;
+  left: 30px;
+}
+
+.chatSideBarEmployeeIsNotActive {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid white;
+  background-color: red;
+  position: absolute;
+  top: 7px;
+  left: 30px;
+}
+
+.chatSideBarPhoto {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chatSideBarEmployeeFullName {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}

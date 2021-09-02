@@ -10,6 +10,7 @@
 }
 
 .employeePhotoCover {
+  position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -23,6 +24,28 @@
   -o-object-fit: cover;
      object-fit: cover;
   border: 1px solid white;
+}
+
+.employeeActive {
+  height: 15px;
+  width: 15px;
+  background-color: green;
+  border-radius: 50%;
+  border: 1px solid white;
+  position: absolute;
+  top: 0;
+  left: 45px;
+}
+
+.employeeNotActive {
+  height: 15px;
+  width: 15px;
+  background-color: red;
+  border-radius: 50%;
+  border: 1px solid white;
+  position: absolute;
+  top: 0;
+  left: 45px;
 }
 
 .employeeInfoPartOne {

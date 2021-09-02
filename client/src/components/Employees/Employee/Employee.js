@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { AiTwotonePhone } from 'react-icons/ai'
 import { BsPhone } from 'react-icons/bs'
 import { AiFillHome } from 'react-icons/ai'
@@ -7,6 +8,9 @@ import avatar from '../../../img/userAvatar.png'
 
 const Employee = ({ employee }) => {
 
+  const activeUsers = useSelector(state => state.activeUsers)
+  const allUsers = useSelector(state => state.employees.employees)
+  console.log(activeUsers.some(user => user.userId === employee.userId));
   return (
     <div className='employee'>
       <div className='employeeWrapper'>
@@ -16,7 +20,9 @@ const Employee = ({ employee }) => {
               ? <img className='employeePhoto' src={`//localhost:5000/image/${employee.photo}`} alt='employeePhoto' />
               : <img className='employeePhoto' src={avatar} alt='employeePhoto' />
           }
+          <div className={activeUsers.some(user => user.userId === employee.userId) ? `employeeActive` : `employeeNotActive`}></div>
         </div>
+
         <div className='employeeInfoPartOne'>
           <div className='employeeFullName'>{`${employee.firstName} ${employee.lastName}`}</div>
           <div className='employeeOwnPosition'>{employee.position}</div>

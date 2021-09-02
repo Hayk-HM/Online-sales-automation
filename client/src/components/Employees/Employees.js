@@ -12,7 +12,6 @@ const Employees = () => {
   useEffect(() => {
     const { result } = JSON.parse(localStorage.getItem('user'))
     dispatch(getAllEmployees({ company: result[0].companyName }))
-
   }, [dispatch])
 
 
