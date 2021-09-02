@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@open-wa/wa-automate": "^4.20.4",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
@@ -18,6 +19,8 @@
     "multer": "^1.4.3",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.12",
-    "uuid": "^8.3.2"
+    "socket.io": "^4.2.0",
+    "uuid": "^8.3.2",
+    "wbm": "^1.1.16"
   }
 }

@@ -81,7 +81,10 @@ const createTablesController = async (req, res) => {
           } else {
             console.log(`Order table created successfully!!!`)
 
-            await db.query(`CREATE TABLE IF NOT EXISTS ordersColumns (
+            await db.query(`SELECT * FROM ordersColumns`, async (err, result) => {
+              if (err) {
+                console.log(err)
+                await db.query(`CREATE TABLE IF NOT EXISTS ordersColumns (
               _id INT(50) NOT NULL AUTO_INCREMENT,
               dbColumnName VARCHAR(255) NULL DEFAULT NULL,
               columnName VARCHAR(255) NULL DEFAULT NULL,
@@ -89,22 +92,25 @@ const createTablesController = async (req, res) => {
               visibleInOrderList VARCHAR(255) NULL DEFAULT NULL, 
               PRIMARY KEY(_id)
             )`, async (err, result) => {
-              if (err) {
-                console.log(err);
-              } else {
-                await db.query(` INSERT INTO ordersColumns (dbColumnName, columnName, visibleInNewOrder, visibleInOrderList) VALUES ('_id', 'Id', 'false', 'true');`, async (err, result) => {
                   if (err) {
-                    console.log(err)
+                    console.log(err);
                   } else {
-                    await db.query(`INSERT INTO ordersColumns (dbColumnName, columnName, visibleInNewOrder, visibleInOrderList) VALUES ('createDate', 'Create Date', 'false', 'true')`, async (err, result) => {
+                    await db.query(` INSERT INTO ordersColumns (dbColumnName, columnName, visibleInNewOrder, visibleInOrderList) VALUES ('_id', 'Id', 'false', 'true');`, async (err, result) => {
                       if (err) {
                         console.log(err)
                       } else {
-                        await db.query(`INSERT INTO ordersColumns (dbColumnName, columnName, visibleInNewOrder, visibleInOrderList) VALUES ('orderCreator', 'Order Creator', 'false', 'true')`, (err, result) => {
+                        await db.query(`INSERT INTO ordersColumns (dbColumnName, columnName, visibleInNewOrder, visibleInOrderList) VALUES ('createDate', 'Create Date', 'false', 'true')`, async (err, result) => {
                           if (err) {
                             console.log(err)
                           } else {
-                            console.log(`Order columns table created successfully!!!`)
+                            await db.query(`INSERT INTO ordersColumns (dbColumnName, columnName, visibleInNewOrder, visibleInOrderList) VALUES ('orderCreator', 'Order Creator', 'false', 'true')`, (err, result) => {
+                              if (err) {
+                                console.log(err)
+                              } else {
+                                console.log(`Order columns table created successfully!!!`)
+                              }
+                            })
+
                           }
                         })
 
@@ -113,9 +119,12 @@ const createTablesController = async (req, res) => {
 
                   }
                 })
-
+              } else {
+                console.log('Order columns table already exist')
               }
             })
+
+
           }
         })
         res.status(200).json({ message: `Tables created successfully!!!` })

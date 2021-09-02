@@ -2,6 +2,7 @@ const http = require('http')
 const express = require('express')
 const dotenv = require('dotenv')
 const cors = require('cors')
+const socket = require('socket.io')
 const { authRouter } = require('./routers/authRouter')
 const { employeesRouter } = require('./routers/employeesRouter')
 const { orderRouter } = require('./routers/orderRouter')
@@ -9,6 +10,37 @@ const { orderRouter } = require('./routers/orderRouter')
 dotenv.config()
 const app = express()
 const server = http.createServer(app)
+const io = socket(server, {
+  cors: {
+    origin: ["http://localhost:3000"],
+  }
+})
+
+let activeUsers = []
+
+const addActiveUser = (activeUser) => {
+  !activeUsers.some(user => user.userId === activeUser.userId) && activeUsers.push(activeUser)
+}
+
+const removeActiveUser = (socketId) => {
+  activeUsers = activeUsers.filter(user => user.socketId !== socketId)
+}
+
+
+io.on("connection", (socket) => {
+  console.log(`User connected - ${socket.id}`);
+
+  socket.on('addActiveUser', (data) => {
+    addActiveUser({ ...data, socketId: socket.id })
+    io.emit('getActiveUsers', activeUsers)
+  })
+
+  socket.on('disconnect', () => {
+    console.log(`User was disconnected - ${socket.id}`)
+    removeActiveUser(socket.id)
+    io.emit("getActiveUsers", activeUsers);
+  })
+});
 
 app.use(cors())
 app.use(express.json())
