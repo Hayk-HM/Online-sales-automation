@@ -7,6 +7,7 @@ import { HiOutlineOfficeBuilding } from 'react-icons/hi'
 import { BsPersonPlus } from 'react-icons/bs'
 import { FaRegAddressBook } from 'react-icons/fa'
 import { AiOutlineBars } from 'react-icons/ai'
+import { BiSelectMultiple } from 'react-icons/bi'
 import './AdministrationSideBar.css'
 
 const AdministrationSideBar = () => {
@@ -22,6 +23,13 @@ const AdministrationSideBar = () => {
           <div className={`administrationSideBarTasks ${activeField === 'orderrequestcolumns' ? 'activeField' : 'administrationSideBarNotActiveField'}`}>
             <div className='administrationSideBarLogo'><AiOutlineBars size={20} /></div>
             <div className='administrationSideBarName'>Order Request Columns</div>
+          </div>
+        </Link>
+
+        <Link to='/administrationpanel/orderrequestcolumnsmulti'>
+          <div className={`administrationSideBarTasks ${activeField === 'orderrequestcolumnsmulti' ? 'activeField' : 'administrationSideBarNotActiveField'}`}>
+            <div className='administrationSideBarLogo'><BiSelectMultiple size={20} /></div>
+            <div className='administrationSideBarName'>Order Request Columns Multi</div>
           </div>
         </Link>
 

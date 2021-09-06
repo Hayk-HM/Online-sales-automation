@@ -21,6 +21,15 @@
   font-size: 20px;
 }
 
+.multiFieldsSpan {
+  display: inline-block;
+  width: 20%;
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 20px;
+  color: #93bbf7;
+}
+
 .signInError {
   color: red;
   font-size: 16px;
@@ -72,6 +81,15 @@
   font-size: 20px;
   font-weight: 500;
   margin-right: 20px;
+  color: #93bbf7;
+}
+
+.orderSpanTitle {
+  display: inline-block;
+  width: 20%;
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 20%;
   color: #93bbf7;
 }
 /*# sourceMappingURL=OrderNew.css.map */

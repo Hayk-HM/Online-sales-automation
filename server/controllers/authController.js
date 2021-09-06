@@ -108,6 +108,7 @@ const createTablesController = async (req, res) => {
                                 console.log(err)
                               } else {
                                 console.log(`Order columns table created successfully!!!`)
+
                               }
                             })
 
@@ -118,9 +119,39 @@ const createTablesController = async (req, res) => {
                     })
 
                   }
+
+                  await db.query(`CREATE TABLE IF NOT EXISTS multiOrdersColumns (
+                  _id INT(50) NOT NULL AUTO_INCREMENT,
+                  dbColumnName VARCHAR(255) NULL DEFAULT NULL,
+                  columnName VARCHAR(255) NULL DEFAULT NULL,
+                  visibleInNewOrder VARCHAR(255) NULL DEFAULT NULL,
+                  visibleInOrderList VARCHAR(255) NULL DEFAULT NULL, 
+                  value VARCHAR(255) NULL DEFAULT NULL, 
+                  PRIMARY KEY(_id)
+                )`, async (err, result) => {
+                    if (err) {
+                      console.log(err);
+                    } else {
+                      console.log('Multi order columns table created successfully!!!')
+                      await db.query(`CREATE TABLE IF NOT EXISTS multiOrders (
+                        _id INT(50) NOT NULL AUTO_INCREMENT,
+                        value VARCHAR(500) NULL DEFAULT NULL,
+                        orderId INT(50) NULL DEFAULT NULL,
+                        PRIMARY KEY(_id)
+                      )`, async (err, result) => {
+                        if (err) {
+                          console.log(err);
+                        } else {
+                          console.log('Multi order table created successfully!!!');
+                        }
+                      })
+                    }
+                  })
+
                 })
               } else {
                 console.log('Order columns table already exist')
+
               }
             })
 

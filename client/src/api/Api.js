@@ -34,7 +34,12 @@ export const orderApi = ({
 export const tableColumnsApi = ({
   getOrderColumns(formData) { return instance.get(`/app/order/getordercolumns?company=${formData.company}&table=${formData.table}`) },
   addOrderColumn(formData) { return instance.put('/app/order/addordercolumn', formData) },
+  addMultiOrdersColumns(formData) { return instance.put('/app/order/addmultiorderscolumns', formData) },
   deleteOrderColumn(formData) { return instance.put('/app/order/deleteordercolumn', formData) },
+  deleteMultiOrderColumn(formData) { return instance.put('/app/order/deletemultiordercolumn', formData) },
   getOrdersAdmissibility(formData) { return instance.get(`/app/order/getOrdersAdmissibility?company=${formData.company}`) },
-  changeOrdersVisibility(formData) { return instance.put(`/app/order/changeordersvisibility?company=${formData.company}`, formData) }
+  changeOrdersVisibility(formData) { return instance.put(`/app/order/changeordersvisibility?company=${formData.company}`, formData) },
+  changeMultiOrdersVisibility(formData) { return instance.put(`/app/order/changemultiordersvisibility?company=${formData.company}`, formData) },
+  getMultiOrdersColumnsAdmissibility(formData) { return instance.get(`./app/order/getmultiorderscolumnsadmissibility?company=${formData.company}`) }
 })
+

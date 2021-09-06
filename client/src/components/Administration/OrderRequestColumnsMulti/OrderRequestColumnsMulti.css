@@ -1,0 +1,28 @@
+.orderRequestColumnsMultiButtonWrapper {
+  width: 100vw;
+}
+
+.orderRequestColumnsMultiButton {
+  width: 50px;
+  height: 50px;
+  background-color: #2969c9;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  font-size: 36px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 40%;
+}
+
+.activeMultiColumnAddArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 99;
+}
+
+.diActiveMultiColumnAddAre {
+  display: none;
+}
+/*# sourceMappingURL=OrderRequestColumnsMulti.css.map */

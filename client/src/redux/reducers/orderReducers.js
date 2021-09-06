@@ -4,6 +4,7 @@ const initialState = {
   oneRequestedOrder: {},
   orderColumns: [],
   ordersAdmissibility: [],
+  multiOrdersAdmissibility: [],
 }
 
 const createNewOrderReducer = (state = initialState, action) => {
@@ -44,6 +45,12 @@ const createNewOrderReducer = (state = initialState, action) => {
       return {
         ...state,
         ordersAdmissibility: [...action.payload]
+      }
+    }
+    case 'GET_MULTI_ORDERS_COLUMNS_ADMISSIBILITY': {
+      return {
+        ...state,
+        multiOrdersAdmissibility: [...action.payload]
       }
     }
 
