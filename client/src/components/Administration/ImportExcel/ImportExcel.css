@@ -1,0 +1,67 @@
+.importExcelField {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.importExcelTitle {
+  font-size: 24px;
+  font-weight: 500;
+  color: #2969c9;
+  width: 80vw;
+  text-align: center;
+}
+
+.importExcelButton {
+  border: none;
+  border: 10px;
+  background-color: #3f75c7;
+  border-radius: 10px;
+  color: white;
+  padding: 5px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.importExcelButton:hover {
+  background-color: #0066ff;
+}
+
+.importExcelField {
+  display: none;
+}
+
+.importExcelLabel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.importExcelSpan {
+  font-size: 24px;
+  font-weight: 500;
+  color: #1a6de8;
+}
+
+.importExcelChosenFile {
+  font-size: 24px;
+  font-weight: 500;
+  color: #9fb6da;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.importExcelExistedFiles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+  font-weight: 500;
+  color: #9fb6da;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+/*# sourceMappingURL=ImportExcel.css.map */

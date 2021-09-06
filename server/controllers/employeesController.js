@@ -14,7 +14,7 @@ const employeesController = async (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        db.query(`SELECT * from users`, (err, result) => {
+        db.query(`SELECT * FROM users`, (err, result) => {
           if (err) {
             console.log('Employees error');
           } else (
@@ -59,7 +59,6 @@ const uploadEmployeeController = async (req, res) => {
       } else {
         photo = req.file
         res.status(200).send(req.file)
-        // console.log(req.body);
       }
     })
   } catch (error) {

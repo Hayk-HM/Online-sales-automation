@@ -43,3 +43,7 @@ export const tableColumnsApi = ({
   getMultiOrdersColumnsAdmissibility(formData) { return instance.get(`./app/order/getmultiorderscolumnsadmissibility?company=${formData.company}`) }
 })
 
+export const excelApi = ({
+  uploadExcelStockBalances(formData) { return instance.post(`/app/excel/uploadexcelstockbalance?company=${formData.company}`, formData.data) },
+  getExcels(formData) { return instance.get(`/app/excel/getexcels?company=${formData.company}`) }
+})
