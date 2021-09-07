@@ -5,7 +5,7 @@ import { HiOutlinePhotograph } from 'react-icons/hi'
 import './ImportExcel.css'
 import { useDispatch, useSelector } from 'react-redux'
 import moment from 'moment'
-import { getExcelsAction, uploadExcelStockBalancesAction } from '../../../redux/actions/excelActions'
+import { getDailyBalanceAction, getExcelsAction, uploadExcelStockBalancesAction } from '../../../redux/actions/excelActions'
 
 const ImportExcel = () => {
 
@@ -53,7 +53,8 @@ const ImportExcel = () => {
             if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
               || file.type === 'application/vnd.ms-excel') {
               await dispatch(uploadExcelStockBalancesAction({ data, company: user.company }))
-              dispatch(getExcelsAction({ company: user.company }))
+              await dispatch(getExcelsAction({ company: user.company }))
+              await dispatch(getDailyBalanceAction({ company: user.company }))
             } else {
               return
             }
@@ -85,9 +86,10 @@ const ImportExcel = () => {
         {
           excels.map(excel => (
             <div className='importExcelExistedFiles'>
-              <div>{excel._id} -  </div>
-              <div>{moment(+excel.createDate).format('lll')} - </div>
-              <div>{excel.originalName}</div>
+              <div className='importExcelId'>{excel._id}</div>
+              {/* <div className='importExcelDate'>{moment(+excel.createDate).format('lll')} - </div> */}
+              <div className='importExcelDate'>{excel.createDate}</div>
+              <div className='importExcelName'>{excel.originalName}</div>
             </div>
           ))
         }

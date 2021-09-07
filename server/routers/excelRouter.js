@@ -1,11 +1,13 @@
 const express = require('express')
 const {
   uploadExcelStockBalanceController,
-  getExcelsController } = require('../controllers/excelController')
+  getBalanceExcelsController,
+  readExcelFileBalance } = require('../controllers/excelController')
 
 const excelRouter = express.Router()
 
 excelRouter.post('/uploadexcelstockbalance', uploadExcelStockBalanceController)
-excelRouter.get('/getexcels', getExcelsController)
+excelRouter.get('/getexcels', getBalanceExcelsController)
+excelRouter.get('/getdailybalance', readExcelFileBalance)
 
 module.exports = { excelRouter }

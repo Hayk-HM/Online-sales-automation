@@ -45,5 +45,6 @@ export const tableColumnsApi = ({
 
 export const excelApi = ({
   uploadExcelStockBalances(formData) { return instance.post(`/app/excel/uploadexcelstockbalance?company=${formData.company}`, formData.data) },
-  getExcels(formData) { return instance.get(`/app/excel/getexcels?company=${formData.company}`) }
+  getExcels(formData) { return instance.get(`/app/excel/getexcels?company=${formData.company}`) },
+  getDailyBalance(formData) { return instance.get(`app/excel/getdailybalance?company=${formData.company}`) },
 })

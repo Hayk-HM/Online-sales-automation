@@ -58,10 +58,28 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   color: #9fb6da;
   margin-top: 5px;
   margin-bottom: 5px;
+  width: 100%;
+  cursor: default;
+}
+
+.importExcelExistedFiles:hover {
+  background-color: #ebe1e1;
+}
+
+.importExcelId {
+  width: 100px;
+}
+
+.importExcelDate {
+  width: 300px;
+}
+
+.importExcelName {
+  width: 200px;
 }
 /*# sourceMappingURL=ImportExcel.css.map */

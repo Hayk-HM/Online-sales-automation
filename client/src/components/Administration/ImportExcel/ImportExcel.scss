@@ -58,9 +58,27 @@
 
 .importExcelExistedFiles {
   display: flex;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   color: rgb(159, 182, 218);
   margin-top: 5px;
   margin-bottom: 5px;
+  width: 100%;
+  cursor: default;
+}
+
+.importExcelExistedFiles:hover {
+  background-color: rgb(235, 225, 225);
+}
+
+.importExcelId {
+  width: 100px;
+}
+
+.importExcelDate {
+  width: 300px;
+}
+
+.importExcelName {
+  width: 200px;
 }
