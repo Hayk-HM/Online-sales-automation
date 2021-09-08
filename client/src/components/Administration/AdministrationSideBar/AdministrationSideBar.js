@@ -34,10 +34,17 @@ const AdministrationSideBar = () => {
           </div>
         </Link>
 
-        <Link to='/administrationpanel/importexcel'>
-          <div className={`taskAppSideBarTasks ${activeField === 'importexcel' ? 'activeField' : 'notActiveField'}`}>
+        <Link to='/administrationpanel/importexcelbalance'>
+          <div className={`taskAppSideBarTasks ${activeField === 'importexcelbalance' ? 'activeField' : 'notActiveField'}`}>
             <div className='taskAppSideBarLogo'><SiMicrosoftexcel size={20} /></div>
-            <div className='taskAppSideBarName'>Import Excel</div>
+            <div className='taskAppSideBarName'>Import Excel Balance</div>
+          </div>
+        </Link>
+
+        <Link to='/administrationpanel/importexcelweborder'>
+          <div className={`taskAppSideBarTasks ${activeField === 'importexcelweborder' ? 'activeField' : 'notActiveField'}`}>
+            <div className='taskAppSideBarLogo'><SiMicrosoftexcel size={20} /></div>
+            <div className='taskAppSideBarName'>Import Excel Web Order</div>
           </div>
         </Link>
 

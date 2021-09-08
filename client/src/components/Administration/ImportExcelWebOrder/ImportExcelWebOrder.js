@@ -2,21 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import { HiOutlinePhotograph } from 'react-icons/hi'
-import './ImportExcel.css'
+import './ImportExcelWebOrder.css'
 import { useDispatch, useSelector } from 'react-redux'
-import moment from 'moment'
-import { getDailyBalanceAction, getExcelsAction, uploadExcelStockBalancesAction } from '../../../redux/actions/excelActions'
+import { RiDeleteBin6Line } from 'react-icons/ri'
+import { deleteExcelWebOrderAction, getDailyWebOrderAction, getExcelsWebOrderAction, uploadExcelWebOrderAction } from '../../../redux/actions/excelActions'
 
-const ImportExcel = () => {
+const ImportExcelWebOrder = () => {
 
   const [file, setFile] = useState('')
   const [chosenFile, setChosenFile] = useState('')
   const dispatch = useDispatch()
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')).result[0])
-  const excels = useSelector(state => state.excels.excels)
+  const excels = useSelector(state => state.excels.excelWebOrder)
 
   useEffect(() => {
-    dispatch(getExcelsAction({ company: user.company }))
+    dispatch(getExcelsWebOrderAction({ company: user.company }))
   }, [dispatch, user])
 
   const initialValues = ({
@@ -35,10 +35,15 @@ const ImportExcel = () => {
     }
   }
 
+  const handleClick = async (id, name) => {
+    await dispatch(deleteExcelWebOrderAction({ company: user.company, id, name }))
+    await dispatch(getExcelsWebOrderAction({ company: user.company }))
+  }
+
   return (
     <div className='importExcel'>
       <div className='importExcelWrapper'>
-        <div className='importExcelTitle'>Import 1C file with stock balances </div>
+        <div className='importExcelTitle'>Import web order file</div>
         <Formik
           initialValues={initialValues}
           validationSchema={
@@ -52,9 +57,9 @@ const ImportExcel = () => {
             if (!file) return
             if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
               || file.type === 'application/vnd.ms-excel') {
-              await dispatch(uploadExcelStockBalancesAction({ data, company: user.company }))
-              await dispatch(getExcelsAction({ company: user.company }))
-              await dispatch(getDailyBalanceAction({ company: user.company }))
+              await dispatch(uploadExcelWebOrderAction({ data, company: user.company }))
+              await dispatch(getExcelsWebOrderAction({ company: user.company }))
+              await dispatch(getDailyWebOrderAction({ company: user.company }))
             } else {
               return
             }
@@ -90,6 +95,7 @@ const ImportExcel = () => {
               {/* <div className='importExcelDate'>{moment(+excel.createDate).format('lll')} - </div> */}
               <div className='importExcelDate'>{excel.createDate}</div>
               <div className='importExcelName'>{excel.originalName}</div>
+              <div className='importExcelDelete' onClick={() => handleClick(excel._id, excel.excel)}><RiDeleteBin6Line /></div>
             </div>
           ))
         }
@@ -99,4 +105,4 @@ const ImportExcel = () => {
   )
 }
 
-export default ImportExcel
+export default ImportExcelWebOrder

@@ -82,4 +82,13 @@
 .importExcelName {
   width: 200px;
 }
-/*# sourceMappingURL=ImportExcel.css.map */
+
+.importExcelDelete {
+  width: 50px;
+  cursor: pointer;
+}
+
+.importExcelDelete:hover {
+  color: red;
+}
+/*# sourceMappingURL=ImportExcelBalance.css.map */

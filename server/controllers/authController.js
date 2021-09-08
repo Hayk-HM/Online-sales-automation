@@ -154,11 +154,38 @@ const createTablesController = async (req, res) => {
                                 _id INT(50) NOT NULL AUTO_INCREMENT,
                                 balance VARCHAR(500) NULL DEFAULT NULL,
                                 PRIMARY KEY(_id)
-                              )`, (err, result) => {
+                              )`, async (err, result) => {
                                 if (err) {
                                   console.log(err)
                                 } else {
                                   console.log('Daily balance table created successfully!!!')
+
+                                  await db.query(`CREATE TABLE IF NOT EXISTS webOrderExcel (
+                                  _id INT(50) NOT NULL AUTO_INCREMENT,
+                                  createDate VARCHAR(500) NULL DEFAULT NULL,
+                                  excel VARCHAR(500) NULL DEFAULT NULL,
+                                  originalName VARCHAR(500) NULL DEFAULT NULL,
+                                  PRIMARY KEY(_id)
+                                 )`, async (err, result) => {
+                                    if (err) {
+                                      console.log(err)
+                                    } else {
+                                      console.log('Web Order Excel table created successfully!!!')
+                                      await db.query(`CREATE TABLE IF NOT EXISTS dailyWebOrder (
+                                        _id INT(50) NOT NULL AUTO_INCREMENT,
+                                        createDate VARCHAR(500) NULL DEFAULT NULL,
+                                        balance VARCHAR(500) NULL DEFAULT NULL,
+                                        webOrderExcelId VARCHAR(500) NULL DEFAULT NULL,
+                                        PRIMARY KEY(_id)
+                                      )`, async (err, result) => {
+                                        if (err) {
+                                          console.log(err)
+                                        } else {
+                                          console.log('Daily Web Order table created successfully!!!')
+                                        }
+                                      })
+                                    }
+                                  })
                                 }
                               })
                             }
