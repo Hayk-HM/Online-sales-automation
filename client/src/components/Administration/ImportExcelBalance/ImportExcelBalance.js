@@ -8,6 +8,8 @@ import { RiDeleteBin6Line } from 'react-icons/ri'
 import moment from 'moment'
 import { deleteExcelBalanceAction, getDailyBalanceAction, getExcelsBalanceAction, uploadExcelStockBalancesAction } from '../../../redux/actions/excelActions'
 import { excelApi } from '../../../api/Api'
+import { loadingActions } from '../../../redux/actions/loadingActions'
+import Loading from '../../Loading/Loading'
 
 const ImportExcelBalance = () => {
 
@@ -16,6 +18,7 @@ const ImportExcelBalance = () => {
   const dispatch = useDispatch()
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')).result[0])
   const excels = useSelector(state => state.excels.excels)
+  const isLoading = useSelector(state => state.isLoading.isLoading)
 
   useEffect(() => {
     dispatch(getExcelsBalanceAction({ company: user.company }))
@@ -38,12 +41,18 @@ const ImportExcelBalance = () => {
   }
 
   const handleClick = async (id, name) => {
-    await dispatch(deleteExcelBalanceAction({ company: user.company, id, name }))
-    await dispatch(getExcelsBalanceAction({ company: user.company }))
+    if (window.confirm('Are you sure you want to delete this?. \nYou can no longer restore it !!!?')) {
+      dispatch(loadingActions.loadingStart())
+      Promise.all([await dispatch(deleteExcelBalanceAction({ company: user.company, id, name })),
+      await dispatch(getExcelsBalanceAction({ company: user.company }))])
+        .then(dispatch(loadingActions.loadingEnd()))
+    } else {
+      console.log('Keep');
+    }
   }
 
   return (
-    <div className='importExcel'>
+    isLoading ? <Loading /> : <div className='importExcel'>
       <div className='importExcelWrapper'>
         <div className='importExcelTitle'>Import 1C file with stock balances </div>
         <Formik
@@ -59,9 +68,11 @@ const ImportExcelBalance = () => {
             if (!file) return
             if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
               || file.type === 'application/vnd.ms-excel') {
+              dispatch(loadingActions.loadingStart())
               await dispatch(uploadExcelStockBalancesAction({ data, company: user.company }))
               await dispatch(getExcelsBalanceAction({ company: user.company }))
               await dispatch(getDailyBalanceAction({ company: user.company }))
+              dispatch(loadingActions.loadingEnd())
             } else {
               return
             }
@@ -104,6 +115,7 @@ const ImportExcelBalance = () => {
 
       </div>
     </div >
+
   )
 }
 

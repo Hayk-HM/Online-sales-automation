@@ -4,6 +4,8 @@ import { RiDeleteBin6Line } from 'react-icons/ri'
 import { changeOrdersVisibility, deleteOrderColumn, getOrderColumns, getOrdersAdmissibility } from '../../../redux/actions/orderActions'
 import './OrderRequestColumns.css'
 import AddColumn from '../AddColumn/AddColumn'
+import Loading from '../../Loading/Loading'
+import { loadingActions } from '../../../redux/actions/loadingActions'
 
 const OrderRequestColumns = () => {
 
@@ -12,16 +14,23 @@ const OrderRequestColumns = () => {
   console.log(ordersAdmissibility);
   const [addArea, setAddArea] = useState(false)
   const dispatch = useDispatch()
+  const isLoading = useSelector(state => state.isLoading.isLoading)
 
   useEffect(() => {
-    dispatch(getOrderColumns({ company: user.company, table: 'orders' }))
-    dispatch(getOrdersAdmissibility({ company: user.company }))
+    const getOrder = async () => {
+      dispatch(loadingActions.loadingStart())
+      await dispatch(getOrderColumns({ company: user.company, table: 'orders' }))
+      await dispatch(getOrdersAdmissibility({ company: user.company }))
+      dispatch(loadingActions.loadingEnd())
+    }
+    getOrder()
   }, [user.company, dispatch])
 
-  const handleDelete = (deletedColumnsName, id) => {
-
+  const handleDelete = async (deletedColumnsName, id) => {
     if (window.confirm('Are you sure you want to delete this?. \nYou can no longer restore it !!!?')) {
-      dispatch(deleteOrderColumn({ company: user.company, table: 'orders', tableColumnsName: deletedColumnsName, _id: id }))
+      dispatch(loadingActions.loadingStart())
+      await dispatch(deleteOrderColumn({ company: user.company, table: 'orders', tableColumnsName: deletedColumnsName, _id: id }))
+      dispatch(loadingActions.loadingEnd())
     } else {
       console.log('Keep');
     }
@@ -32,8 +41,7 @@ const OrderRequestColumns = () => {
   }
 
   return (
-    <div className='orderRequestColumns'>
-
+    isLoading ? <Loading /> : <div className='orderRequestColumns'>
       <div className={addArea ? 'activeColumnAddArea' : 'diActiveColumnAddAre'}>
         <AddColumn setAddArea={setAddArea} addArea={addArea} />
       </div>

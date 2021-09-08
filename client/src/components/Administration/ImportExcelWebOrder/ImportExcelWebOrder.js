@@ -6,6 +6,8 @@ import './ImportExcelWebOrder.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { deleteExcelWebOrderAction, getDailyWebOrderAction, getExcelsWebOrderAction, uploadExcelWebOrderAction } from '../../../redux/actions/excelActions'
+import Loading from '../../Loading/Loading'
+import { loadingActions } from '../../../redux/actions/loadingActions'
 
 const ImportExcelWebOrder = () => {
 
@@ -14,6 +16,7 @@ const ImportExcelWebOrder = () => {
   const dispatch = useDispatch()
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')).result[0])
   const excels = useSelector(state => state.excels.excelWebOrder)
+  const isLoading = useSelector(state => state.isLoading.isLoading)
 
   useEffect(() => {
     dispatch(getExcelsWebOrderAction({ company: user.company }))
@@ -36,12 +39,19 @@ const ImportExcelWebOrder = () => {
   }
 
   const handleClick = async (id, name) => {
-    await dispatch(deleteExcelWebOrderAction({ company: user.company, id, name }))
-    await dispatch(getExcelsWebOrderAction({ company: user.company }))
+    if (window.confirm('Are you sure you want to delete this?. \nYou can no longer restore it !!!?')) {
+      dispatch(loadingActions.loadingStart())
+      Promise.all([await dispatch(deleteExcelWebOrderAction({ company: user.company, id, name })),
+      await dispatch(getExcelsWebOrderAction({ company: user.company }))])
+        .then(dispatch(loadingActions.loadingEnd()))
+    } else {
+      console.log('Keep');
+    }
+
   }
 
   return (
-    <div className='importExcel'>
+    isLoading ? <Loading /> : <div className='importExcel'>
       <div className='importExcelWrapper'>
         <div className='importExcelTitle'>Import web order file</div>
         <Formik
@@ -57,9 +67,11 @@ const ImportExcelWebOrder = () => {
             if (!file) return
             if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
               || file.type === 'application/vnd.ms-excel') {
+              dispatch(loadingActions.loadingStart())
               await dispatch(uploadExcelWebOrderAction({ data, company: user.company }))
               await dispatch(getExcelsWebOrderAction({ company: user.company }))
               await dispatch(getDailyWebOrderAction({ company: user.company }))
+              dispatch(loadingActions.loadingEnd())
             } else {
               return
             }

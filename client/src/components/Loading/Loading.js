@@ -3,9 +3,7 @@ import './Loading.css'
 
 const Loading = () => {
   return (
-    <div>
-      LOADING ...
-    </div>
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
   )
 }
 

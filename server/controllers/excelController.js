@@ -147,6 +147,7 @@ const deleteFileWebOrder = async (req, res) => {
 
   const pathExcel = path.join(__dirname, '..', 'public', 'excel', `${req.body.name}`)
   const query = `DELETE FROM webOrderExcel WHERE _id=${req.body.id}`
+  const queryDeleteDailyWebOrder = `DELETE FROM dailyWebOrder WHERE webOrderExcelId=${req.body.id}`
   try {
     await fs.unlinkSync(pathExcel)
     await db.query(query, (err, result) => {
@@ -154,6 +155,10 @@ const deleteFileWebOrder = async (req, res) => {
         console.log(err);
       } else {
         console.log('Deleted successfully!!!');
+        db.query(queryDeleteDailyWebOrder, (err, result) => {
+          if (err) throw err
+          console.log('Daily web order deleted successfully!!!');
+        })
       }
     })
     res.status(200).json({ message: 'Deleted successfully!!!' })

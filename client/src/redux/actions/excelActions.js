@@ -63,7 +63,7 @@ export const getDailyWebOrderAction = (formData) => async (dispatch) => {
 
 export const deleteExcelBalanceAction = (formData) => async (dispatch) => {
   try {
-    const { data } = await dispatch(excelApi.deleteExcelBalance(formData))
+    const { data } = await excelApi.deleteExcelBalance(formData)
   } catch (error) {
     console.log('deleteExcelBalanceAction', error);
   }
@@ -71,7 +71,7 @@ export const deleteExcelBalanceAction = (formData) => async (dispatch) => {
 
 export const deleteExcelWebOrderAction = (formData) => async (dispatch) => {
   try {
-    const { data } = await dispatch(excelApi.deleteExcelWebOrder(formData))
+    const { data } = await excelApi.deleteExcelWebOrder(formData)
   } catch (error) {
     console.log('deleteExcelBalanceAction', error);
   }

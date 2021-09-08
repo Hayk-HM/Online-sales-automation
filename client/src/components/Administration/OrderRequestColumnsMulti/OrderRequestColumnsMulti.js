@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changeMultiOrdersVisibility, deleteMultiOrderColumn, getMultiOrdersColumnsAdmissibility } from '../../../redux/actions/orderActions'
 import AddMultiColumn from '../AddMultiColumn/AddMultiColumn'
 import './OrderRequestColumnsMulti.css'
+import Loading from '../../Loading/Loading'
+import { loadingActions } from '../../../redux/actions/loadingActions'
 
 const OrderRequestColumnsMulti = () => {
 
@@ -11,26 +13,34 @@ const OrderRequestColumnsMulti = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')).result[0])
   const multiOrdersAdmissibility = useSelector(state => state.order.multiOrdersAdmissibility)
   const [addArea, setAddArea] = useState(false)
+  const isLoading = useSelector(state => state.isLoading.isLoading)
 
   useEffect(() => {
-    dispatch(getMultiOrdersColumnsAdmissibility({ company: user.company }))
+    const getMultiOrders = async () => {
+      dispatch(loadingActions.loadingStart())
+      await dispatch(getMultiOrdersColumnsAdmissibility({ company: user.company }))
+      dispatch(loadingActions.loadingEnd())
+    }
+    getMultiOrders()
   }, [dispatch, user])
 
   const handleButton = () => {
     setAddArea(!addArea)
   }
 
-  const handleDelete = (deletedColumnsName, id) => {
+  const handleDelete = async (deletedColumnsName, id) => {
 
     if (window.confirm('Are you sure you want to delete this?. \nYou can no longer restore it !!!?')) {
-      dispatch(deleteMultiOrderColumn({ company: user.company, table: 'orders', tableColumnsName: deletedColumnsName, _id: id }))
+      dispatch(loadingActions.loadingStart())
+      await dispatch(deleteMultiOrderColumn({ company: user.company, table: 'orders', tableColumnsName: deletedColumnsName, _id: id }))
+      dispatch(loadingActions.loadingEnd())
     } else {
       console.log('Keep');
     }
   }
 
   return (
-    <div className='orderRequestColumnsMulti'>
+    isLoading ? <Loading /> : <div className='orderRequestColumnsMulti'>
       <div className={addArea ? 'activeMultiColumnAddArea' : 'diActiveMultiColumnAddAre'}>
         <AddMultiColumn setAddArea={setAddArea} addArea={addArea} />
       </div>
