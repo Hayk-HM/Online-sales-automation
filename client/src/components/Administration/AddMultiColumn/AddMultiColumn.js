@@ -22,7 +22,7 @@ const AddMultiColumn = ({ setAddArea, addArea }) => {
 
   const handleClickAddButton = () => {
     setNewArray([...newArray, value])
-    multiColumns[value] = ''
+    multiColumns[`${fieldName}_${value}`] = ''
     setValue('')
   }
 
@@ -39,6 +39,7 @@ const AddMultiColumn = ({ setAddArea, addArea }) => {
 
     setAddArea(!addArea)
     setNewArray([])
+    setMultiColumns({})
     setFieldName('')
     setValue('')
   }
