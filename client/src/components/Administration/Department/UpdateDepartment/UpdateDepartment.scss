@@ -1,0 +1,53 @@
+.updateDepartmentHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.updateDepartmentTitle {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 32px;
+  font-weight: 500;
+  color: rgb(41, 105, 201);
+}
+
+.updateDepartmentClose {
+  margin-top: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.updateDepartmentForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.updateDepartmentInput {
+  width: 50%;
+  height: 30px;
+  margin: 10px;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid rgb(41, 105, 201);
+  background-color: rgb(245, 245, 245);
+  padding-left: 10px;
+  outline: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.updateDepartmentButtonWrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.updateDepartmentButton {
+  width: 100px;
+  height: 50px;
+  border: none;
+  background-color: rgb(41, 105, 201);
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+}

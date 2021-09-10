@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunkMiddleware from "redux-thunk";
 import userReducer from "../reducers/authReducers";
+import departmentReducer from "../reducers/departmentReducers";
 import EmployeesReducer from "../reducers/employessReducer";
 import { getExcelsReducer } from "../reducers/excelReducers";
 import { loadingReducer } from "../reducers/loadingReducers";
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   activeUsers: getActiveUsers,
   excels: getExcelsReducer,
   isLoading: loadingReducer,
+  department: departmentReducer,
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

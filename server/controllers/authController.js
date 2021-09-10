@@ -41,7 +41,8 @@ const createTablesController = async (req, res) => {
   })
 
   try {
-    await db.query(`CREATE TABLE IF NOT EXISTS users  (_id INT(50) NOT NULL AUTO_INCREMENT,
+    await db.query(`CREATE TABLE IF NOT EXISTS users(
+         _id INT(50) NOT NULL AUTO_INCREMENT,
          userId VARCHAR(100),
          firstName VARCHAR(100) NULL DEFAULT NULL,
          lastName VARCHAR(100) NULL DEFAULT NULL,
@@ -56,8 +57,8 @@ const createTablesController = async (req, res) => {
          cellPhoneTwo VARCHAR(50) NULL DEFAULT NULL,
          phone VARCHAR(50) NULL DEFAULT NULL,
          address VARCHAR(100) NULL DEFAULT NULL,
-         store VARCHAR(50) NULL DEFAULT NULL,
          password VARCHAR(100) NULL DEFAULT NULL,
+         positionId INT(50) NULL DEFAULT NULL,
     PRIMARY KEY(_id)
     )
     `, async (err, result) => {
@@ -152,7 +153,7 @@ const createTablesController = async (req, res) => {
                               console.log('Excel table created successfully!!!')
                               await db.query(`CREATE TABLE IF NOT EXISTS dailyBalance (
                                 _id INT(50) NOT NULL AUTO_INCREMENT,
-                                balance VARCHAR(500) NULL DEFAULT NULL,
+                                balance VARCHAR(5000) NULL DEFAULT NULL,
                                 PRIMARY KEY(_id)
                               )`, async (err, result) => {
                                 if (err) {
@@ -182,6 +183,44 @@ const createTablesController = async (req, res) => {
                                           console.log(err)
                                         } else {
                                           console.log('Daily Web Order table created successfully!!!')
+                                          db.query(`CREATE TABLE IF NOT EXISTS departments(
+                                            _id INT(50) NOT NULL AUTO_INCREMENT,
+                                            address VARCHAR(255) NULL DEFAULT NULL,
+                                            departmentName VARCHAR(255) NULL DEFAULT NULL,
+                                            phoneNumber VARCHAR(255) NULL DEFAULT NULL,
+                                            manager VARCHAR(255) NULL DEFAULT NULL,
+                                            PRIMARY KEY(_id)
+                                          )`, (err, result) => {
+                                            if (err) {
+                                              console.log(err);
+                                            } else {
+                                              console.log('Departments table created successfully!!!')
+                                              db.query(`CREATE TABLE IF NOT EXISTS customers(
+                                                _id INT(50) NOT NULL AUTO_INCREMENT,
+                                                firstName VARCHAR(255) NULL DEFAULT NULL,
+                                                lastName VARCHAR(255) NULL DEFAULT NULL,
+                                                phoneNumberOne VARCHAR(255) NULL DEFAULT NULL,
+                                                phoneNumberTwo VARCHAR(255) NULL DEFAULT NULL,
+                                                sendSms VARCHAR(255) NULL DEFAULT NULL,
+                                                email VARCHAR(255) NULL DEFAULT NULL,
+                                                sendEmail VARCHAR(255) NULL DEFAULT NULL,
+                                                address VARCHAR(255) NULL DEFAULT NULL,
+                                                dateOfBirth VARCHAR(255) NULL DEFAULT NULL,
+                                                PRIMARY KEY(_id)
+                                              )`, (err, result) => {
+                                                if (err) {
+                                                  console.log(err);
+                                                } else {
+                                                  console.log('Customers table created successfully!!!')
+                                                  db.query(`CREATE TABLE IF NOT EXISTS employeesPositions(
+                                                    _id INT(50) NOT NULL AUTO_INCREMENT,
+                                                    position VARCHAR(255) NULL DEFAULT NULL,
+                                                    PRIMARY KEY(_id)
+                                                  )`,)
+                                                }
+                                              })
+                                            }
+                                          })
                                         }
                                       })
                                     }
@@ -227,7 +266,7 @@ const insertInfoController = async (req, res) => {
         console.log('SELECT ERROR FOR SIGNUP');
       } else {
         if (result.length === 0) {
-          await db.query(`INSERT INTO users (userId, firstName, lastName, fullName, company, companyName, email, password) VALUES ('${uuid.v4()}', '${data.firstName}', '${data.lastName}', '${data.firstName} ${data.lastName}' , '${data.company.trim().replaceAll(' ', '_')}', '${data.company.trim()}', '${data.email}', '${hashPassword}')`, async (err, result) => {
+          await db.query(`INSERT INTO users(userId, firstName, lastName, fullName, company, companyName, email, password) VALUES('${uuid.v4()}', '${data.firstName}', '${data.lastName}', '${data.firstName} ${data.lastName}', '${data.company.trim().replaceAll(' ', '_')}', '${data.company.trim()}', '${data.email}', '${hashPassword}')`, async (err, result) => {
             if (err) {
               console.log(err);
               res.status(500).json('err')

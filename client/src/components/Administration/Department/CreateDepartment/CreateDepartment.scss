@@ -1,0 +1,78 @@
+.createDepartment {
+}
+
+.createDepartmentWrapper {
+}
+.createDepartmentHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.createDepartmentClose {
+  cursor: pointer;
+}
+
+.createDepartmentTitle {
+  font-size: 32px;
+  font-weight: 500;
+  color: rgb(69, 225, 101);
+  text-align: center;
+}
+
+.createDepartmentForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.createDepartmentInputWrapper {
+  margin-top: 10px;
+  font-size: 20px;
+  color: rgb(85, 179, 237);
+}
+
+.createDepartmentInputSpan {
+  display: inline-block;
+  width: 350px;
+  margin-left: 10px;
+}
+
+.createDepartmentInput {
+  font-size: 20px;
+  width: 40%;
+  border: none;
+  border-bottom: 1px solid rgb(41, 105, 201);
+  outline: none;
+  background-color: rgb(245, 245, 245);
+  margin-bottom: 20px;
+}
+
+.createDepartmentButtonWrapper {
+  width: 100%;
+  margin-left: 35%;
+}
+
+.createDepartmentButton {
+  width: 100px;
+  height: 50px;
+  background-color: rgb(41, 105, 201);
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.createDepartmentButtonClear {
+  width: 100px;
+  height: 50px;
+  background-color: red;
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}

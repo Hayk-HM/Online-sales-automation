@@ -1,0 +1,83 @@
+.createDepartmentHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+}
+
+.createDepartmentClose {
+  cursor: pointer;
+}
+
+.createDepartmentTitle {
+  font-size: 32px;
+  font-weight: 500;
+  color: #45e165;
+  text-align: center;
+}
+
+.createDepartmentForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.createDepartmentInputWrapper {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #55b3ed;
+}
+
+.createDepartmentInputSpan {
+  display: inline-block;
+  width: 350px;
+  margin-left: 10px;
+}
+
+.createDepartmentInput {
+  font-size: 20px;
+  width: 40%;
+  border: none;
+  border-bottom: 1px solid #2969c9;
+  outline: none;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+}
+
+.createDepartmentButtonWrapper {
+  width: 100%;
+  margin-left: 35%;
+}
+
+.createDepartmentButton {
+  width: 100px;
+  height: 50px;
+  background-color: #2969c9;
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.createDepartmentButtonClear {
+  width: 100px;
+  height: 50px;
+  background-color: red;
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=CreateDepartment.css.map */

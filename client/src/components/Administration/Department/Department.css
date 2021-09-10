@@ -1,0 +1,102 @@
+.department {
+  width: 80vw;
+}
+
+.departmentTitle {
+  font-size: 30px;
+  font-weight: 500;
+  color: #2969c9;
+  text-align: center;
+}
+
+.departmentCenter {
+  margin-top: 10px;
+}
+
+.departmentAddButtonCover {
+  margin-bottom: 10px;
+}
+
+.departmentAddButton {
+  width: 50px;
+  height: 50px;
+  background-color: #2969c9;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  font-size: 40px;
+  font-weight: 500;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.depAddress,
+.depDepartmentName,
+.depManager,
+.depPhoneNumber {
+  font-size: 18px;
+  font-weight: 400;
+  color: #7a86de;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 300px;
+}
+
+.depDepartmentName,
+.depManager,
+.depPhoneNumber {
+  width: 200px;
+}
+
+.depEdit {
+  color: #2969c9;
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.depDelete {
+  color: red;
+  cursor: pointer;
+}
+
+.departmentCreateDepartment {
+  position: absolute;
+  top: 80px;
+  background-color: whitesmoke;
+  width: 50%;
+  height: calc(100vh - 80px);
+}
+
+.departmentDeActive {
+  position: absolute;
+  right: -100%;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.departmentActive {
+  position: absolute;
+  right: 0;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.depWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: default;
+}
+
+.depWrapper:hover {
+  background-color: whitesmoke;
+}
+/*# sourceMappingURL=Department.css.map */

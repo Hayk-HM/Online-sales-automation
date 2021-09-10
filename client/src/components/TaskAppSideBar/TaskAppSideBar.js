@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { FaPenNib } from 'react-icons/fa'
 import { RiAdminLine } from 'react-icons/ri'
 import { CgList } from 'react-icons/cg'
+import { MdBorderColor } from 'react-icons/md'
 import './TaskAppSideBar.css'
 
 const TaskAppSideBar = () => {
@@ -27,6 +28,13 @@ const TaskAppSideBar = () => {
           <div className={`taskAppSideBarTasks ${activeField === 'orderlist' ? 'activeField' : 'notActiveField'}`}>
             <div className='taskAppSideBarLogo'><CgList size={20} /></div>
             <div className='taskAppSideBarName'>Order List</div>
+          </div>
+        </Link>
+
+        <Link to='/app/booking'>
+          <div className={`taskAppSideBarTasks ${activeField === 'booking' ? 'activeField' : 'notActiveField'}`}>
+            <div className='taskAppSideBarLogo'><MdBorderColor size={20} /></div>
+            <div className='taskAppSideBarName'>Booking</div>
           </div>
         </Link>
 

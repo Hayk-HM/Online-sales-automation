@@ -22,7 +22,6 @@ const EmployeeInformation = () => {
           <div className='employeeInformationCellPhoneTwo'></div>
           <div className='employeeInformationPhone'></div>
           <div className='employeeInformationAddress'></div>
-          <div className='employeeInformationStore'></div>
         </div>
       </div>
     </div>

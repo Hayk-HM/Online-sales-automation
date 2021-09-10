@@ -48,13 +48,6 @@ const AdministrationSideBar = () => {
           </div>
         </Link>
 
-        <Link to='/administrationpanel/store'>
-          <div className={`administrationSideBarTasks ${activeField === 'store' ? 'activeField' : 'administrationSideBarNotActiveField'}`}>
-            <div className='administrationSideBarLogo'><BiStore size={20} /></div>
-            <div className='administrationSideBarName'>Store</div>
-          </div>
-        </Link>
-
         <Link to='/administrationpanel/employees'>
           <div className={`administrationSideBarTasks ${activeField === 'employees' ? 'activeField' : 'administrationSideBarNotActiveField'}`}>
             <div className='administrationSideBarLogo'><FiUsers size={20} /></div>
@@ -65,7 +58,7 @@ const AdministrationSideBar = () => {
         <Link to='/administrationpanel/position'>
           <div className={`administrationSideBarTasks ${activeField === 'position' ? 'activeField' : 'notActiveField'}`}>
             <div className='administrationSideBarLogo'><CgWorkAlt size={20} /></div>
-            <div className='administrationSideBarName'>Position</div>
+            <div className='administrationSideBarName'>Employess Positions</div>
           </div>
         </Link>
 

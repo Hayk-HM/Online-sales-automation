@@ -27,7 +27,6 @@ const EmployeeSettings = () => {
     cellPhoneTwo: user.result[0].cellPhoneTwo || '',
     phone: user.result[0].phone || '',
     address: user.result[0].address || '',
-    store: user.result[0].store || '',
   }
 
   const onChange = async (e) => {
@@ -161,12 +160,6 @@ const EmployeeSettings = () => {
                     name='address'
                   />
 
-                  <Field
-                    className='employeeSettingsStore employeeSettingsInput'
-                    type='text'
-                    placeholder='store'
-                    name='store'
-                  />
                   <div className='employeeSettingsButtonWrapper'>
                     <button className='employeeSettingsInButton' disabled={isSubmitting} type='submit'>Save</button>
                   </div>

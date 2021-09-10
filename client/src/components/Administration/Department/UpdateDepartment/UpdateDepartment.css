@@ -1,0 +1,63 @@
+.updateDepartmentHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.updateDepartmentTitle {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 32px;
+  font-weight: 500;
+  color: #2969c9;
+}
+
+.updateDepartmentClose {
+  margin-top: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.updateDepartmentForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.updateDepartmentInput {
+  width: 50%;
+  height: 30px;
+  margin: 10px;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid #2969c9;
+  background-color: whitesmoke;
+  padding-left: 10px;
+  outline: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.updateDepartmentButtonWrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.updateDepartmentButton {
+  width: 100px;
+  height: 50px;
+  border: none;
+  background-color: #2969c9;
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+}
+/*# sourceMappingURL=UpdateDepartment.css.map */

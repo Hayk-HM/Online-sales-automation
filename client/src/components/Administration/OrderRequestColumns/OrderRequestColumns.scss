@@ -54,10 +54,19 @@
 .activeColumnAddArea {
   display: flex;
   z-index: 99;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease;
 }
 
 .diActiveColumnAddAre {
-  display: none;
+  display: flex;
+  z-index: 99;
+  position: absolute;
+  top: -150%;
+  left: 0;
+  transition: all 0.5s ease;
 }
 
 .activeORC {

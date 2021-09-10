@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://localhost:3000/administrationpanel/department -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3000/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./React App_files/css2" rel="stylesheet">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <style>body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvQXBwLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFNBQVM7RUFDVCxVQUFVO0VBQ1YsaUNBQWlDO0VBQ2pDLGtCQUFrQjtBQUNwQiIsInNvdXJjZXNDb250ZW50IjpbImJvZHkge1xuICBtYXJnaW46IDA7XG4gIHBhZGRpbmc6IDA7XG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xuICBvdmVyZmxvdy14OiBoaWRkZW47XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>.description {
+  margin: 10px;
+  font-size: 60px;
+  font-weight: 500;
+  max-width: 80%;
+  text-transform: uppercase;
+}
+
+.descriptionWrapper {
+  color: #7ce38b;
+  margin-left: 30px;
+}
+/*# sourceMappingURL=Description.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9EZXNjcmlwdGlvbi9EZXNjcmlwdGlvbi5zY3NzIiwid2VicGFjazovL3NyYy9jb21wb25lbnRzL0Rlc2NyaXB0aW9uL0Rlc2NyaXB0aW9uLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFlBQVk7RUFDWixlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLGNBQWM7RUFDZCx5QkFBeUI7QUNDM0I7O0FERUE7RUFDRSxjQUF5QjtFQUN6QixpQkFBaUI7QUNDbkI7QUFDQSwwQ0FBMEMiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.MainPageHeader {
+  width: calc(100% - 20px);
+  height: 50px;
+  background-color: whitesmoke;
+  padding: 10px;
+  z-index: 10;
+}
+
+.MainPageHeaderWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.MainPageHeaderLogo {
+  flex: 10 1;
+}
+
+.MainPageHeaderCompanyName {
+  margin-left: 20px;
+  font-size: 40px;
+  font-weight: 500;
+  color: #2969c9;
+}
+
+.MainPageHeaderLog {
+  display: flex;
+  flex: 2 1;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 50px;
+}
+
+.MainPageHeaderSignInButton {
+  width: 100px;
+  height: 40px;
+  border: none;
+  background-color: #75a3e9;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.MainPageHeaderSignInButton:hover {
+  background-color: #2f76e1;
+}
+
+.MainPageHeaderSignUpButton {
+  width: 100px;
+  height: 40px;
+  border: none;
+  background-color: #75a3e9;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.MainPageHeaderSignUpButton:hover {
+  background-color: #2f76e1;
+}
+/*# sourceMappingURL=MainPageHeader.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9NYWluUGFnZUhlYWRlci9NYWluUGFnZUhlYWRlci5zY3NzIiwid2VicGFjazovL3NyYy9jb21wb25lbnRzL01haW5QYWdlSGVhZGVyL01haW5QYWdlSGVhZGVyLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHdCQUF3QjtFQUN4QixZQUFZO0VBQ1osNEJBQW9DO0VBQ3BDLGFBQWE7RUFDYixXQUFXO0FDQ2I7O0FERUE7RUFHRSxhQUFBO0VBR0YsbUJBQW9CO0VDR1YsOEJBQThCO0FEQ3hDOztBQ0VBO0VER0MsVUFBQTtBQ0NEOztBQUVBO0VEQ0UsaUJBQU87RUFDUCxlQUFhO0VBQ2IsZ0JBQWU7RUFDZixjQUFjO0FDQ2hCOztBRFFBO0VBR0UsYUFBWTtFQUdaLFNBQWU7RUNIUCxtQkFBbUI7RURRNUIsOEJBQUE7RUNKQyxrQkFBa0I7QURNcEI7O0FDSEE7RURNRSxZQUFZO0VBQ1osWUFBQTtFQUNBLFlBQVk7RUFDWix5QkFBbUI7RUFDbkIsWUFBUTtFQUNULG1CQUFBO0VDSkMsZUFBZTtBREtqQjs7QUNGQTtFQUNFLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLFlBQVk7RUFDWixZQUFZO0VBQ1osWUFBWTtFQUNaLHlCQUF5QjtFQUN6QixZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLGVBQWU7QUFDakI7O0FBRUE7RUFDRSx5QkFBeUI7QUFDM0I7QUFDQSw2Q0FBNkMiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.signIn {
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+  min-height: 80%;
+}
+
+.signInForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.signInTitle {
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: #263dee;
+}
+
+.signInFormInputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signInInputEmail {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.signInInputPassword {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.signInInputCompany {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.signInError {
+  color: red;
+  font-size: 16px;
+  text-align: center;
+}
+
+.signInButtonWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.signInButton {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: #263dee;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+}
+/*# sourceMappingURL=SignIn.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9TaWduSW4vU2lnbkluLnNjc3MiLCJ3ZWJwYWNrOi8vc3JjL2NvbXBvbmVudHMvU2lnbkluL1NpZ25Jbi5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLGNBQWM7RUFDZCxlQUFlO0FDQ2pCOztBREVBO0VBR0UsYUFBYTtFQUlmLHNCQUFhO0VBR0osbUJBQWdCO0VBQ3hCLFdBQUE7QUNDRDs7QUFFQTtFRENFLGVBQWE7RUFDYixtQkFBZ0I7RUFDaEIsY0FBYTtBQ0NmOztBREVBO0VBQ0UsV0FBVztFQUdYLGFBQVk7RUFJYixzQkFBQTtFQUdRLG1CQUFJO0FDQ2I7O0FBRUE7RURDRSxXQUFRO0VBQ1Isa0JBQWtCO0VBQ2xCLGFBQVc7RUFDWixZQUFBO0VDQ0Msc0JBQXNCO0VEQ3hCLGtCQUFvQjtFQUNsQixlQUFXO0FDQ2I7O0FBRUE7RURDRSxXQUFRO0VBQ1Isa0JBQWtCO0VBQ2xCLGFBQVc7RUFDWixZQUFBO0VDQ0Msc0JBQXNCO0VEQ3hCLGtCQUFhO0VBQ1gsZUFBVTtBQ0NaOztBQUVBO0VBQ0UsV0FBVztFRENiLGtCQUFvQjtFQUNsQixhQUFhO0VBQ2IsWUFBVztFQUNYLHNCQUFXO0VBQ1gsa0JBQWdCO0VBQ2pCLGVBQUE7QUNDRDs7QUFFQTtFRENFLFVBQVE7RUFDUixlQUFZO0VBQ1osa0JBQWU7QUNDakI7O0FBRUE7RURHQyxhQUFBO0VDR1MsbUJBQW1CO0VBQzNCLFdBQVc7RUFDWCxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLFlBQVk7RUFDWixtQkFBbUI7RUFDbkIseUJBQXlCO0VBQ3pCLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQSxxQ0FBcUMiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.signUp {
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+  min-height: 80%;
+}
+
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.signUpTitle {
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: #263dee;
+}
+
+.signUpFormInputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signUpInputFirstName {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.signUpInputLastName {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.signUpInputEmail {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.signUpInputPassword {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.signUpInputCompany {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.signUpError {
+  color: red;
+  font-size: 16px;
+  text-align: center;
+}
+
+.signUpButtonWrapper {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.signUpButton {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: #263dee;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+}
+/*# sourceMappingURL=SignUp.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9TaWduVXAvU2lnblVwLnNjc3MiLCJ3ZWJwYWNrOi8vc3JjL2NvbXBvbmVudHMvU2lnblVwL1NpZ25VcC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLGNBQWM7RUFDZCxlQUFlO0FDQ2pCOztBREVBO0VBR0UsYUFBYTtFQUlmLHNCQUFhO0VBR0osbUJBQWdCO0VBQ3hCLFdBQUE7QUNDRDs7QUFFQTtFRENFLGVBQWM7RUFDZCxtQkFBbUI7RUFDcEIsY0FBQTtBQ0NEOztBQUVBO0VER0UsYUFBWTtFQUliLHNCQUFBO0VBR1EsbUJBQUk7QUNDYjs7QUFFQTtFRENFLFdBQVE7RUFDUixrQkFBa0I7RUFDbEIsYUFBVztFQUNaLFlBQUE7RUNDQyxzQkFBc0I7RURDeEIsa0JBQWtCO0VBQ2hCLGVBQVc7QUNDYjs7QUFFQTtFRENFLFdBQVE7RUFDUixrQkFBa0I7RUFDbEIsYUFBVztFQUNaLFlBQUE7RUNDQyxzQkFBc0I7RURDeEIsa0JBQW9CO0VBQ2xCLGVBQVc7QUNDYjs7QUFFQTtFRENFLFdBQVE7RUFDUixrQkFBa0I7RUFDbEIsYUFBVztFQUNaLFlBQUE7RUNDQyxzQkFBc0I7RURDeEIsa0JBQW9CO0VBQ2xCLGVBQVc7QUNDYjs7QUFFQTtFRENFLFdBQVE7RUFDUixrQkFBa0I7RUFDbEIsYUFBVztFQUNaLFlBQUE7RUNDQyxzQkFBc0I7RURDeEIsa0JBQWE7RUFDWCxlQUFVO0FDQ1o7O0FBRUE7RUFDRSxXQUFXO0VEQ2Isa0JBQW9CO0VBQ2xCLGFBQVc7RUFDWCxZQUFZO0VBQ2Isc0JBQUE7RUNDQyxrQkFBa0I7RURDcEIsZUFBYztBQ0NkOztBQUVBO0VEQ0UsVUFBQTtFQUNBLGVBQUE7RUFDQSxrQkFBZTtBQ0NqQjs7QUFFQTtFRENDLFdBQUE7RUNDQyxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLFlBQVk7RUFDWixtQkFBbUI7RUFDbkIseUJBQXlCO0VBQ3pCLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQSxxQ0FBcUMiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.MainPageCenter {
+  display: flex;
+  margin-top: 50px;
+}
+
+.MainPageDescription {
+  flex: 6 1;
+}
+
+.MainPageLog {
+  flex: 6 1;
+}
+/*# sourceMappingURL=MainPage.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvcGFnZXMvTWFpblBhZ2UvTWFpblBhZ2Uuc2NzcyIsIndlYnBhY2s6Ly9zcmMvcGFnZXMvTWFpblBhZ2UvTWFpblBhZ2UuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBR0MsYUFBQTtFQ0NDLGdCQUFnQjtBRENsQjs7QUNFQTtFREdTLFNBQUE7QUNDVDs7QUFFQTtFQUdVLFNBQU87QUFDakI7QUFDQSx1Q0FBdUMiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.chatSideBar {
+  flex: 3 1;
+  height: 80vh;
+  border-right: 1px solid #e6e0e0;
+}
+
+.chatSideBarEmployeePhoto {
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.chatSideBarEmployeePhoto:hover {
+  background-color: #e6e0e0;
+}
+
+.chatSideBarEmployeeActive {
+  background-color: #e6e0e0;
+}
+
+.chatSideBarEmployeeIsActive {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid white;
+  background-color: green;
+  position: absolute;
+  top: 7px;
+  left: 30px;
+}
+
+.chatSideBarEmployeeIsNotActive {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid white;
+  background-color: red;
+  position: absolute;
+  top: 7px;
+  left: 30px;
+}
+
+.chatSideBarPhoto {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chatSideBarEmployeeFullName {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+/*# sourceMappingURL=CharSideBar.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9DaGF0L0NoYXJTaWRlQmFyL0NoYXJTaWRlQmFyLnNjc3MiLCJ3ZWJwYWNrOi8vc3JjL2NvbXBvbmVudHMvQ2hhdC9DaGFyU2lkZUJhci9DaGFyU2lkZUJhci5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR0E7RUFHRSxTQUFjO0VBQ2YsWUFBQTtFQ0ZDLCtCQUErQjtBRElqQzs7QUNEQTtFRE1FLGFBQWE7RUFDYixlQUFlO0VBQ2YsbUJBQWtCO0VBQ25CLGtCQUFBO0VDRkMsYUFBYTtFRElmLG1CQUFBO0VBQ0Usa0JBQWtCO0FDRnBCOztBREtBO0VBQ0UseUJBQW9DO0FDRnRDOztBREtBO0VBQ0UseUJBQVc7QUNGYjs7QUFFQTtFRElFLFdBQUE7RUFDQSxZQUFVO0VBQ1Ysa0JBQVE7RUFDUix1QkFBVTtFQUNYLHVCQUFBO0VDRkMsa0JBQWtCO0VESXBCLFFBQUE7RUFDRSxVQUFPO0FDRlQ7O0FBRUE7RURJRSxXQUFBO0VBQ0EsWUFBVTtFQUNWLGtCQUFRO0VBQ1IsdUJBQVU7RUFDWCxxQkFBQTtFQ0ZDLGtCQUFrQjtFRElwQixRQUFBO0VBQ0UsVUFBTztBQ0ZUOztBQUVBO0VESUMsV0FBQTtFQ0ZDLFlBQVk7RURJZCxrQkFBQTtFQUVFLGlCQUFtQjtBQ0ZyQjs7QUFFQTtFQUdFLGFBQWE7RUFHTCxtQkFBbUI7RUFDM0IsZ0JBQWdCO0FBQ2xCO0FBQ0EsMENBQTBDIiwic291cmNlUm9vdCI6IiJ9 */</style><style>.chatWrapper {
+  display: flex;
+}
+/*# sourceMappingURL=Chat.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9DaGF0L0NoYXQuc2NzcyIsIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9DaGF0L0NoYXQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VDR0UsYUFBYTtBQUNmO0FBQ0EsbUNBQW1DIiwic291cmNlUm9vdCI6IiJ9 */</style><style>.ChatMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 9 1;
+  height: 80vh;
+}
+
+.ChatMainWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.chatMainMessages {
+  overflow: scroll;
+}
+
+.chatMainLeft {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.chatMainRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.messageReq {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.messageForm {
+  display: flex;
+}
+
+.messageInput {
+  flex: 10 1;
+  margin-left: 10px;
+  border: none;
+  border-bottom: 1px solid #2969c9;
+  outline: none;
+  padding-left: 10px;
+}
+
+.messageInput:hover {
+  outline: none;
+}
+
+.messageButtonWrapper {
+  flex: 2 1;
+}
+
+.messageButton {
+  background-color: #2969c9;
+  border: none;
+  color: white;
+  font-weight: 500;
+  height: 50px;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+/*# sourceMappingURL=ChatMain.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9DaGF0L0NoYXRNYWluL0NoYXRNYWluLnNjc3MiLCJ3ZWJwYWNrOi8vc3JjL2NvbXBvbmVudHMvQ2hhdC9DaGF0TWFpbi9DaGF0TWFpbi5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFHRSxhQUFBO0VDSVEsc0JBQXNCO0VERzlCLDhCQUFzQjtFQUd0QixTQUFZO0VBQ2IsWUFBQTtBQ0NEOztBQUVBO0VER0EsYUFBYztFQUliLHNCQUFBO0VBR1EseUJBQU07RUFDYixZQUFXO0VBQ1gsa0JBQWlCO0FDQ25COztBREVBO0VBQ0UsZ0JBQWE7QUNDZjs7QUFFQTtFREdFLGFBQWE7RUFHZixtQkFBYztFQUdKLDJCQUFJO0FDQ2Q7O0FBRUE7RURHQSxhQUFhO0VDR0gsbUJBQW1CO0VERzVCLHlCQUFBO0FDQ0Q7O0FBRUE7RURHRSxhQUFhO0VBSWQsc0JBQUE7RUNDQyxXQUFXO0FBQ2I7O0FBRUE7RUFHRSxhQUFhO0FBQ2Y7O0FBRUE7RUFHVSxVQUFRO0VBQ2hCLGlCQUFpQjtFQUNqQixZQUFZO0VBQ1osZ0NBQWdDO0VBQ2hDLGFBQWE7RUFDYixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxhQUFhO0FBQ2Y7O0FBRUE7RUFHVSxTQUFPO0FBQ2pCOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLFlBQVk7RUFDWixtQkFBbUI7RUFDbkIsaUJBQWlCO0FBQ25CO0FBQ0EsdUNBQXVDIiwic291cmNlUm9vdCI6IiJ9 */</style><style>.message {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid #ebe5e5;
+  min-height: 40px;
+}
+
+.messageWrapper {
+  margin: 10px;
+  max-width: 500px;
+  overflow-x: hidden;
+  word-wrap: inherit;
+}
+/*# sourceMappingURL=Message.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9DaGF0L0NoYXRNYWluL01lc3NhZ2UvTWVzc2FnZS5zY3NzIiwid2VicGFjazovL3NyYy9jb21wb25lbnRzL0NoYXQvQ2hhdE1haW4vTWVzc2FnZS9NZXNzYWdlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUdFLGFBQVk7RUFHWixtQkFBZ0I7RUFDakIsWUFBQTtFQ0NDLG1CQUFtQjtFRENyQix5QkFBZ0I7RUFDZCxnQkFBWTtBQ0NkOztBQUVBO0VEQ0MsWUFBQTtFQ0NDLGdCQUFnQjtFQUNoQixrQkFBa0I7RUFDbEIsa0JBQWtCO0FBQ3BCO0FBQ0Esc0NBQXNDIiwic291cmNlUm9vdCI6IiJ9 */</style><style>/* No CSS *//*# sourceMappingURL=Tasks.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9UYXNrcy9UYXNrcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsV0FBVyxDQUFDLG9DQUFvQyIsInNvdXJjZVJvb3QiOiIifQ== */</style><style>.employeeWrapper {
+  display: flex;
+  box-shadow: 5px 5px 15px 5px #a3a3a3;
+  border-radius: 5px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.employeePhotoCover {
+  position: relative;
+  flex: 1 1;
+  margin: 10px;
+}
+
+.employeePhoto {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid white;
+}
+
+.employeeActive {
+  height: 15px;
+  width: 15px;
+  background-color: green;
+  border-radius: 50%;
+  border: 1px solid white;
+  position: absolute;
+  top: 0;
+  left: 45px;
+}
+
+.employeeNotActive {
+  height: 15px;
+  width: 15px;
+  background-color: red;
+  border-radius: 50%;
+  border: 1px solid white;
+  position: absolute;
+  top: 0;
+  left: 45px;
+}
+
+.employeeInfoPartOne {
+  display: flex;
+  flex: 3 1;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.employeeInfoPartTwo {
+  display: flex;
+  flex: 3 1;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.employeeInfoPartThree {
+  display: flex;
+  flex: 3 1;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.employeeFullName {
+  font-size: 14px;
+  font-weight: 500;
+  color: #4ecdcd;
+  margin-bottom: 2px;
+}
+
+.employeeOwnPosition {
+  font-size: 10px;
+  font-weight: 400;
+  color: #c9c1c1;
+  margin-bottom: 2px;
+}
+
+.employeeDepartment {
+  font-size: 10px;
+  font-weight: 400;
+  color: #c9c1c1;
+}
+
+.employeePhoneNumber {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #c9c1c1;
+  margin-bottom: 2px;
+}
+
+.employeeCellPhoneNumber {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #c9c1c1;
+  margin-bottom: 2px;
+}
+
+.employeeAddress {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4ecdcd;
+  margin-bottom: 2px;
+}
+/*# sourceMappingURL=Employee.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9FbXBsb3llZXMvRW1wbG95ZWUvRW1wbG95ZWUuc2NzcyIsIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9FbXBsb3llZXMvRW1wbG95ZWUvRW1wbG95ZWUuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdBO0VBR0UsYUFBWTtFQUVaLG9DQUFhO0VBQ2Isa0JBQWU7RUFDaEIsYUFBQTtFQ0ZDLGVBQWU7QURJakI7O0FDREE7RURJRSxrQkFBWTtFQUdkLFNBQWU7RUFDYixZQUFZO0FDRmQ7O0FBRUE7RURJRSxZQUFRO0VBQ1QsV0FBQTtFQ0ZDLGtCQUFrQjtFREtsQixpQkFBWTtFQUNaLHVCQUFXO0FDRmI7O0FBRUE7RURJRSxZQUFVO0VBQ1YsV0FBTTtFQUNOLHVCQUFVO0VBQ1gsa0JBQUE7RUNGQyx1QkFBdUI7RURJekIsa0JBQW1CO0VBQ2pCLE1BQU07RUFDTixVQUFPO0FDRlQ7O0FBRUE7RURJRSxZQUFVO0VBQ1YsV0FBTTtFQUNOLHFCQUFVO0VBQ1gsa0JBQUE7RUNGQyx1QkFBdUI7RURJekIsa0JBQW9CO0VBQ2xCLE1BQUE7RUFDQSxVQUFPO0FDRlQ7O0FBRUE7RURNQSxhQUFBO0VBR0UsU0FBYztFQ0NOLHNCQUFzQjtFREloQyxnQkFBQTtFQUNFLG1CQUFhO0FDRmY7O0FBRUE7RUFHRSxhQUFhO0VETWIsU0FBYTtFQ0NMLHNCQUFzQjtFREloQyxnQkFBQTtFQUNFLG1CQUFlO0FDRmpCOztBQUVBO0VETUEsYUFBQTtFQUdTLFNBQU87RUFJUCxzQkFBTTtFQUNiLGdCQUFhO0VBQ2IsbUJBQWU7QUNGakI7O0FBRUE7RURJQyxlQUFBO0VDRkMsZ0JBQWdCO0VESWxCLGNBQUE7RUFDRSxrQkFBYTtBQ0ZmOztBQUVBO0VESUUsZUFBYztFQUNkLGdCQUFlO0VBQ2hCLGNBQUE7RUNGQyxrQkFBa0I7QURJcEI7O0FDREE7RURJRSxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLGNBQXdCO0FDRjFCOztBQUVBO0VBR0UsYUFBYTtFQUdMLG1CQUFtQjtFQUMzQixlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLGNBQWM7RUFDZCxrQkFBa0I7QUFDcEI7O0FBRUE7RUFHRSxhQUFhO0VBR0wsbUJBQW1CO0VBQzNCLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsY0FBYztFQUNkLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUdFLGFBQWE7RUFHTCxtQkFBbUI7RUFDM0IsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixjQUFjO0VBQ2Qsa0JBQWtCO0FBQ3BCO0FBQ0EsdUNBQXVDIiwic291cmNlUm9vdCI6IiJ9 */</style><style>.employeesWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px 20px;
+}
+/*# sourceMappingURL=Employees.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9FbXBsb3llZXMvRW1wbG95ZWVzLnNjc3MiLCJ3ZWJwYWNrOi8vc3JjL2NvbXBvbmVudHMvRW1wbG95ZWVzL0VtcGxveWVlcy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFFRSxhQUFBO0VBRUQscUNBQUE7RUNDQyxtQkFBbUI7QUFDckI7QUFDQSx3Q0FBd0MiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.employeeSettings {
+  height: 100%;
+  width: 50vw;
+  margin: auto;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 5px 5px 15px 5px #a3a3a3;
+}
+
+.employeeSettingsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.employeeSettingsPhotoCover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.employeeSettingsPhoto {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.employeeSettingsHr {
+  width: 100%;
+  margin: 30px 0;
+}
+
+.employeeSettingsInput {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.employeeSettingsForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.employeeSettingsButtonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+  margin-left: auto;
+}
+
+.employeeSettingsInButton {
+  width: 80%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: #263dee;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+}
+
+.employeeSettingsPhotoInput {
+  border: none;
+}
+
+.employeeSettingsPhotoLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.employeeSettingsPhotoInput {
+  display: none;
+}
+
+.employeeSettingsChooseFile {
+  font-size: 20px;
+  font-weight: 500;
+  color: #2969c9;
+}
+/*# sourceMappingURL=EmployeeSettings.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9FbXBsb3llZVNldHRpbmdzL0VtcGxveWVlU2V0dGluZ3Muc2NzcyIsIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9FbXBsb3llZVNldHRpbmdzL0VtcGxveWVlU2V0dGluZ3MuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLGFBQWE7RUFFYixvQ0FBb0M7QUNDdEM7O0FERUE7RUFHQyxhQUFBO0VBSUMsc0JBQXVCO0FDQ3pCOztBQUVBO0VER0UsYUFBWTtFQUdiLHVCQUFBO0VBR1EsbUJBQUk7QUNDYjs7QUFFQTtFRElBLGFBQUE7RUFDRSxZQUFVO0VBQ1Ysa0JBQWtCO0VBRWxCLGlCQUFZO0FDRmQ7O0FBRUE7RURJQyxXQUFBO0VDRkMsY0FBYztBREloQjs7QUNEQTtFRElFLFVBQUE7RUFDRCxrQkFBQTtFQ0ZDLGFBQWE7RURJZixZQUFBO0VBQ0Usc0JBQWE7RUFDYixrQkFBYTtFQUNiLGVBQWU7QUNGakI7O0FBRUE7RURNQSxhQUFBO0VBSUUsc0JBQW1CO0VBR25CLG1CQUFnQjtBQ0ZsQjs7QUFFQTtFRE1FLGFBQVk7RUFHZCxtQkFBNEI7RUFHMUIsdUJBQW1CO0VBQ25CLFdBQVE7RUFDVCxnQkFBQTtFQ0ZDLGlCQUFpQjtBREluQjs7QUNEQTtFQUNFLFVBQVU7RURJWixZQUFBO0VBQ0UsWUFBVztFQUNYLG1CQUFnQjtFQUNoQix5QkFBYztFQUNmLGVBQUE7RUNGQyxnQkFBZ0I7RUFDaEIsWUFBWTtFQUNaLGVBQWU7QUFDakI7O0FBRUE7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFHRSxhQUFhO0VBR0wsdUJBQXVCO0VBR3ZCLG1CQUFtQjtFQUMzQixlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsYUFBYTtBQUNmOztBQUVBO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixjQUFjO0FBQ2hCO0FBQ0EsK0NBQStDIiwic291cmNlUm9vdCI6IiJ9 */</style><style>.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-left: 30vw;
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #686262 transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=Loading.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9Mb2FkaW5nL0xvYWRpbmcuc2NzcyIsIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9Mb2FkaW5nL0xvYWRpbmcuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UscUJBQXFCO0VBQ3JCLGtCQUFrQjtFQUNsQixXQUFXO0VBQ1gsWUFBWTtFQUNaLGlCQUFpQjtBQ0NuQjs7QURDQTtFQUVTLHNCQUFPO0VBQ2QsY0FBVTtFQUNWLGtCQUFXO0VBQ1gsV0FBUTtFQUNSLFlBQVc7RUFDWCxXQUFRO0VBQ1Isc0JBQWtCO0VBQ2xCLGtCQUFXO0VBRVosOERBQUE7RUNFQyx5REFBeUQ7QUREM0Q7O0FDSUE7RUREVSx1QkFBaUI7QUNJM0I7O0FBRUE7RURGRSxzQkFBdUI7QUNLekI7O0FESEE7RUFFSSx1QkFBdUI7QUNNM0I7O0FBYUE7RUFDRTtJQUVVLHVCQUF1QjtFQUNqQztFQUNBO0lBRVUseUJBQXlCO0VBQ25DO0FBQ0Y7QUFDQSxzQ0FBc0MiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.orderWrapper {
+  width: 100%;
+  margin-left: 20%;
+}
+
+.requestTitle {
+  font-size: 32px;
+  font-weight: 500;
+  color: #2969c9;
+  margin-left: 30%;
+  margin-bottom: 20px;
+}
+
+.orderInput {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.multiFieldsSpan {
+  display: inline-block;
+  width: 20%;
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 20px;
+  color: #93bbf7;
+}
+
+.signInError {
+  color: red;
+  font-size: 16px;
+  text-align: center;
+}
+
+.orderButtonWrapper {
+  margin-top: 20px;
+}
+
+.orderButtonNew {
+  width: 20%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: #263dee;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.orderButtonReset {
+  width: 20%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ee2626;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+}
+
+.orderForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderSpan {
+  display: inline-block;
+  width: 20%;
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 20px;
+  color: #93bbf7;
+}
+
+.orderSpanTitle {
+  display: inline-block;
+  width: 20%;
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 20%;
+  color: #93bbf7;
+}
+/*# sourceMappingURL=OrderNew.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9PcmRlck5ldy9PcmRlck5ldy5zY3NzIiwid2VicGFjazovL3NyYy9jb21wb25lbnRzL09yZGVyTmV3L09yZGVyTmV3LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHQTtFQUNFLFdBQVc7RUFDWCxnQkFBZ0I7QUNGbEI7O0FES0E7RUFDRSxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLGNBQXdCO0VBQ3hCLGdCQUFnQjtFQUNoQixtQkFBbUI7QUNGckI7O0FES0E7RUFDRSxVQUFVO0VBQ1Ysa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLGtCQUFrQjtFQUNsQixlQUFlO0FDRmpCOztBREtBO0VBQ0UscUJBQXFCO0VBQ3JCLFVBQVU7RUFDVixlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQixjQUF5QjtBQ0YzQjs7QURLQTtFQUNFLFVBQVU7RUFDVixlQUFlO0VBQ2Ysa0JBQWtCO0FDRnBCOztBREtBO0VBQ0UsZ0JBQWdCO0FDRmxCOztBREtBO0VBQ0UsVUFBVTtFQUNWLFlBQVk7RUFDWixZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLHlCQUFrQztFQUNsQyxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLFlBQVk7RUFDWixlQUFlO0VBQ2Ysa0JBQWtCO0FDRnBCOztBRElBO0VBQ0UsVUFBVTtFQUNWLFlBQVk7RUFDWixZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLHlCQUFrQztFQUNsQyxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLFlBQVk7RUFDWixlQUFlO0FDRGpCOztBRElBO0VBR0MsYUFBQTtFQUlRLHNCQUFHO0FDRFo7O0FBRUE7RURHRSxxQkFBeUI7RUFDMUIsVUFBQTtFQ0RDLGVBQWU7RURHakIsZ0JBQWdCO0VBQ2Qsa0JBQVM7RUFDVCxjQUFVO0FDRFo7O0FBRUE7RURHRSxxQkFBeUI7RUFDMUIsVUFBQTtFQ0RDLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLGNBQWM7QUFDaEI7QUFDQSx1Q0FBdUMiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.orderList {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.orderListWrapper {
+  width: 150%;
+}
+
+.orderTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+.orderTable td,
+.orderTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.orderTable tr {
+  cursor: pointer;
+}
+
+.orderTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.orderTable tr:hover {
+  background-color: #ddd;
+}
+
+.orderTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+}
+/*# sourceMappingURL=OrderList.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9PcmRlckxpc3QvT3JkZXJMaXN0LnNjc3MiLCJ3ZWJwYWNrOi8vc3JjL2NvbXBvbmVudHMvT3JkZXJMaXN0L09yZGVyTGlzdC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFXO0VBQ1gsa0JBQWtCO0FDQ3BCOztBREVBO0VBQ0UsV0FBVztBQ0NiOztBREVBO0VBQ0UseUNBQXlDO0VBQ3pDLHlCQUF5QjtFQUN6QixVQUFVO0FDQ1o7O0FERUE7O0VBRUUsc0JBQXNCO0VBQ3RCLFlBQVk7QUNDZDs7QURFQTtFQUNFLGVBQWU7QUNDakI7O0FERUE7RUFDRSx5QkFBeUI7QUNDM0I7O0FERUE7RUFDRSxzQkFBc0I7QUNDeEI7O0FERUE7RUFDRSxpQkFBaUI7RUFDakIsb0JBQW9CO0VBQ3BCLGdCQUFnQjtFQUNoQix5QkFBeUI7RUFDekIsWUFBWTtBQ0NkO0FBQ0Esd0NBQXdDIiwic291cmNlUm9vdCI6IiJ9 */</style><style>.taskAppFeed {
+  flex: 10 1;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=TaskAppFeed.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9UYXNrQXBwRmVlZC9UYXNrQXBwRmVlZC5zY3NzIiwid2VicGFjazovL3NyYy9jb21wb25lbnRzL1Rhc2tBcHBGZWVkL1Rhc2tBcHBGZWVkLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUdFLFVBQWU7RUFDaEIsYUFBQTtFQ0NDLG1CQUFtQjtBQUNyQjtBQUNBLDBDQUEwQyIsInNvdXJjZVJvb3QiOiIifQ== */</style><style>.taskAppHeader {
+  height: 50px;
+  width: calc(100% - 20px);
+  background-color: whitesmoke;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 10px;
+}
+
+.taskAppHeaderWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.taskAppHeaderCompany {
+  display: flex;
+  flex: 9 1;
+}
+
+.taskAppHeaderCompanyName {
+  margin-left: 20px;
+  font-size: 40px;
+  font-weight: 500;
+  color: #2969c9;
+}
+
+.taskAppHeaderUserInfo {
+  display: flex;
+  align-items: center;
+  flex: 3 1;
+}
+
+.taskAppHeaderUsername {
+  font-size: 20px;
+  font-weight: 400;
+  margin-right: 30px;
+  color: #2969c9;
+}
+
+.taskAppHeaderSignOutButton {
+  width: 100px;
+  height: 40px;
+  border: none;
+  background-color: #ed5656;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.taskAppHeaderSignOutButton:hover {
+  background-color: #e12f2f;
+}
+/*# sourceMappingURL=TaskAppHeader.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9UYXNrQXBwSGVhZGVyL1Rhc2tBcHBIZWFkZXIuc2NzcyIsIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9UYXNrQXBwSGVhZGVyL1Rhc2tBcHBIZWFkZXIuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtFQUNaLHdCQUF3QjtFQUN4Qiw0QkFBb0M7RUFHOUIsbUJBQUE7RUFFTixnQkFBYTtFQUNkLE1BQUE7RUNDQyxZQUFZO0VEQ2QsYUFBQTtBQ0NBOztBQUVBO0VER0UsYUFBYTtFQ0dMLG1CQUFtQjtBREM3Qjs7QUNFQTtFREdDLGFBQUE7RUFHUSxTQUFNO0FDQ2Y7O0FBRUE7RUFDRSxpQkFBaUI7RURDbkIsZUFBQTtFQUNFLGdCQUFlO0VBQ2YsY0FBYTtBQ0NmOztBQUVBO0VETUUsYUFBWTtFQUdaLG1CQUFrQztFQUcxQixTQUFPO0FDRmpCOztBRElBO0VBQ0UsZUFBQTtFQUNELGdCQUFBO0VDREMsa0JBQWtCO0VBQ2xCLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osWUFBWTtFQUNaLFlBQVk7RUFDWix5QkFBeUI7RUFDekIsWUFBWTtFQUNaLG1CQUFtQjtFQUNuQixlQUFlO0FBQ2pCOztBQUVBO0VBQ0UseUJBQXlCO0FBQzNCO0FBQ0EsNENBQTRDIiwic291cmNlUm9vdCI6IiJ9 */</style><style>a {
+  text-decoration: none;
+  color: black;
+}
+
+.taskAppSideBar {
+  flex: 2 1;
+  height: calc(100vh - 70px);
+  overflow-y: scroll;
+  position: sticky;
+  top: 70px;
+  min-width: 200px;
+}
+
+.taskAppSideBarWrapper {
+  margin: 20px;
+}
+
+.taskAppSideBarTasks {
+  display: flex;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.taskAppSideBarTasks:hover {
+  background-color: #ebebeb;
+  border-radius: 10px;
+}
+
+.activeField {
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.taskAppSideBarLogo {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.taskAppSideBarName {
+  font-size: 15px;
+}
+/*# sourceMappingURL=TaskAppSideBar.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9UYXNrQXBwU2lkZUJhci9UYXNrQXBwU2lkZUJhci5zY3NzIiwid2VicGFjazovL3NyYy9jb21wb25lbnRzL1Rhc2tBcHBTaWRlQmFyL1Rhc2tBcHBTaWRlQmFyLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHFCQUFxQjtFQUNyQixZQUFZO0FDQ2Q7O0FERUE7RUFHRSxTQUFZO0VBQ1osMEJBQWdCO0VBQ2hCLGtCQUFTO0VBRVYsZ0JBQUE7RUNDQyxTQUFTO0VEQ1gsZ0JBQUE7QUNDQTs7QUFFQTtFRENBLFlBQUE7QUNDQTs7QUFFQTtFQUdFLGFBQWE7RURDZixtQkFBb0I7RUFDbEIsZUFBQTtFQUNBLGFBQWE7QUNDZjs7QURFQTtFQUNFLHlCQUFrQjtFQUNsQixtQkFBbUI7QUNDckI7O0FERUE7RUFDRSw0QkFBYTtFQUNiLG1CQUFtQjtBQ0NyQjs7QUFFQTtFREdDLGFBQUE7RUNHUyxtQkFBbUI7RUFDM0Isa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBLDZDQUE2QyIsInNvdXJjZVJvb3QiOiIifQ== */</style><style>.createDepartmentHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.createDepartmentClose {
+  cursor: pointer;
+}
+
+.createDepartmentTitle {
+  font-size: 32px;
+  font-weight: 500;
+  color: #45e165;
+  text-align: center;
+}
+
+.createDepartmentForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.createDepartmentInputWrapper {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #55b3ed;
+}
+
+.createDepartmentInputSpan {
+  display: inline-block;
+  width: 350px;
+  margin-left: 10px;
+}
+
+.createDepartmentInput {
+  font-size: 20px;
+  width: 40%;
+  border: none;
+  border-bottom: 1px solid #2969c9;
+  outline: none;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+}
+
+.createDepartmentButtonWrapper {
+  width: 100%;
+  margin-left: 35%;
+}
+
+.createDepartmentButton {
+  width: 100px;
+  height: 50px;
+  background-color: #2969c9;
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.createDepartmentButtonClear {
+  width: 100px;
+  height: 50px;
+  background-color: red;
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=CreateDepartment.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9BZG1pbmlzdHJhdGlvbi9EZXBhcnRtZW50L0NyZWF0ZURlcGFydG1lbnQvQ3JlYXRlRGVwYXJ0bWVudC5zY3NzIiwid2VicGFjazovL3NyYy9jb21wb25lbnRzL0FkbWluaXN0cmF0aW9uL0RlcGFydG1lbnQvQ3JlYXRlRGVwYXJ0bWVudC9DcmVhdGVEZXBhcnRtZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLQTtFQUdFLGFBQWE7RUFHZiw4QkFBdUI7RUFDckIsYUFBUTtBQ0pWOztBRE9BO0VBQ0UsZUFBZTtBQ0pqQjs7QUFFQTtFRE1DLGVBQUE7RUNKQyxnQkFBZ0I7RURNbEIsY0FBQTtFQUNFLGtCQUFhO0FDSmY7O0FBRUE7RURRRSxhQUFXO0VBSWIsc0JBQTJCO0FDSjNCOztBQUVBO0VETUMsZ0JBQUE7RUNKQyxlQUFlO0VETWpCLGNBQUE7QUNKQTs7QUFFQTtFRE1FLHFCQUFtQjtFQUNuQixZQUFTO0VBQ1QsaUJBQWdCO0FDSmxCOztBQUVBO0VETUEsZUFBQTtFQUNFLFVBQU87RUFDUCxZQUFXO0VBQ1osZ0NBQUE7RUNKQyxhQUFhO0VETWYsNEJBQXdCO0VBQ3RCLG1CQUFZO0FDSmQ7O0FBRUE7RURNRSxXQUFXO0VBQ1gsZ0JBQWdCO0FDSmxCOztBQUVBO0VETUUsWUFBWTtFQUNiLFlBQUE7RUNKQyx5QkFBeUI7RURNM0IsWUFBQTtFQUNFLGVBQVk7RUFDWixnQkFBWTtFQUNaLFlBQUE7RUFDQSxtQkFBWTtFQUNaLGVBQWU7RUFDZixrQkFBZ0I7QUNKbEI7O0FBRUE7RURNQyxZQUFBO0VDSkMsWUFBWTtFQUNaLHFCQUFxQjtFQUNyQixZQUFZO0VBQ1osZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLGVBQWU7QUFDakI7QUFDQSwrQ0FBK0MiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.department {
+  width: 80vw;
+}
+
+.departmentTitle {
+  font-size: 30px;
+  font-weight: 500;
+  color: #2969c9;
+  text-align: center;
+}
+
+.departmentCenter {
+  margin-top: 10px;
+}
+
+.departmentAddButtonCover {
+  margin-bottom: 10px;
+}
+
+.departmentAddButton {
+  width: 50px;
+  height: 50px;
+  background-color: #2969c9;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  font-size: 40px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.depAddress,
+.depDepartmentName,
+.depManager,
+.depPhoneNumber {
+  font-size: 18px;
+  font-weight: 400;
+  color: #7a86de;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 300px;
+}
+
+.depDepartmentName,
+.depManager,
+.depPhoneNumber {
+  width: 200px;
+}
+
+.depEdit {
+  color: #2969c9;
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.depDelete {
+  color: red;
+  cursor: pointer;
+}
+
+.departmentCreateDepartment {
+  position: absolute;
+  top: 80px;
+  background-color: whitesmoke;
+  width: 50%;
+  height: calc(100vh - 80px);
+}
+
+.departmentDeActive {
+  position: absolute;
+  right: -100%;
+  transition: all 1s ease;
+}
+
+.departmentActive {
+  position: absolute;
+  right: 0;
+  transition: all 1s ease;
+}
+
+.depWrapper {
+  display: flex;
+  cursor: default;
+}
+
+.depWrapper:hover {
+  background-color: whitesmoke;
+}
+/*# sourceMappingURL=Department.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9BZG1pbmlzdHJhdGlvbi9EZXBhcnRtZW50L0RlcGFydG1lbnQuc2NzcyIsIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9BZG1pbmlzdHJhdGlvbi9EZXBhcnRtZW50L0RlcGFydG1lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztBQ0NiOztBREtBO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixjQUF3QjtFQUN4QixrQkFBa0I7QUNGcEI7O0FES0E7RUFDRSxnQkFBZ0I7QUNGbEI7O0FES0E7RUFDRSxtQkFBbUI7QUNGckI7O0FES0E7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLHlCQUFtQztFQUNuQyxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLGVBQWU7RUFHZixhQUFhO0VBR2YsdUJBQVc7RUFHWCxtQkFBZ0I7QUNGaEI7O0FBRUE7Ozs7RURPQyxlQUFBO0VDRkMsZ0JBQWdCO0VER2xCLGNBQUE7RUFDQSxlQUFXO0VBQ1gsa0JBQWdCO0VBQ2QsWUFBWTtBQ0RkOztBRElBOzs7RUFHRSxZQUFZO0FDRGQ7O0FER0E7RUFDRSxjQUFVO0VBQ1YsZUFBZTtFQUNoQixrQkFBQTtBQ0FEOztBQUVBO0VERUUsVUFBUztFQUNULGVBQUE7QUNBRjs7QUFFQTtFQUNFLGtCQUFrQjtFREVwQixTQUFBO0VBQ0UsNEJBQWtCO0VBQ2xCLFVBQU87RUFDUCwwQkFBdUI7QUNBekI7O0FER0E7RUFDRSxrQkFBa0I7RUFDbEIsWUFBUTtFQUVULHVCQUFBO0FDQUQ7O0FBRUE7RURFRSxrQkFBZTtFQUNoQixRQUFBO0VBRUQsdUJBQWtCO0FDQWxCOztBQUVBO0VBR0UsYUFBYTtFQUNiLGVBQWU7QUFDakI7O0FBRUE7RUFDRSw0QkFBNEI7QUFDOUI7QUFDQSx5Q0FBeUMiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.updateDepartmentHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.updateDepartmentTitle {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 32px;
+  font-weight: 500;
+  color: #2969c9;
+}
+
+.updateDepartmentClose {
+  margin-top: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.updateDepartmentForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.updateDepartmentInput {
+  width: 50%;
+  height: 30px;
+  margin: 10px;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid #2969c9;
+  background-color: whitesmoke;
+  padding-left: 10px;
+  outline: none;
+  margin-left: auto;
+  margin-left: auto;
+}
+
+.updateDepartmentButtonWrapper {
+  margin-left: 45%;
+}
+
+.updateDepartmentButton {
+  width: 100px;
+  height: 50px;
+}
+/*# sourceMappingURL=UpdateDepartment.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9BZG1pbmlzdHJhdGlvbi9EZXBhcnRtZW50L1VwZGF0ZURlcGFydG1lbnQvVXBkYXRlRGVwYXJ0bWVudC5zY3NzIiwid2VicGFjazovL3NyYy9jb21wb25lbnRzL0FkbWluaXN0cmF0aW9uL0RlcGFydG1lbnQvVXBkYXRlRGVwYXJ0bWVudC9VcGRhdGVEZXBhcnRtZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUdDLGFBQUE7RUFHQyw4QkFBZ0I7QUNDbEI7O0FBRUE7RURDRSxnQkFBd0I7RUFDekIsaUJBQUE7RUNDQyxlQUFlO0VEQ2pCLGdCQUFBO0VBQ0UsY0FBWTtBQ0NkOztBQUVBO0VBQ0UsZ0JBQWdCO0VEQ2xCLGtCQUFBO0VBQ0UsZUFBYTtBQ0NmOztBQUVBO0VER0UsYUFBWTtFQUlaLHNCQUF5QjtBQ0MzQjs7QUFFQTtFRENFLFVBQUE7RUFDQSxZQUFXO0VBQ1osWUFBQTtFQ0NDLGVBQWU7RURDakIsWUFBQTtFQUNFLGdDQUFnQjtFQUNqQiw0QkFBQTtFQ0NDLGtCQUFrQjtFRENwQixhQUFBO0VBQ0UsaUJBQVk7RUFDWixpQkFBWTtBQ0NkOztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsWUFBWTtFQUNaLFlBQVk7QUFDZDtBQUNBLCtDQUErQyIsInNvdXJjZVJvb3QiOiIifQ== */</style><style>.importExcelField {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.importExcelTitle {
+  font-size: 24px;
+  font-weight: 500;
+  color: #2969c9;
+  width: 80vw;
+  text-align: center;
+}
+
+.importExcelButton {
+  border: none;
+  border: 10px;
+  background-color: #3f75c7;
+  border-radius: 10px;
+  color: white;
+  padding: 5px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.importExcelButton:hover {
+  background-color: #0066ff;
+}
+
+.importExcelField {
+  display: none;
+}
+
+.importExcelLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.importExcelSpan {
+  font-size: 24px;
+  font-weight: 500;
+  color: #1a6de8;
+}
+
+.importExcelChosenFile {
+  font-size: 24px;
+  font-weight: 500;
+  color: #9fb6da;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.importExcelExistedFiles {
+  display: flex;
+  font-size: 20px;
+  font-weight: 500;
+  color: #9fb6da;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  cursor: default;
+}
+
+.importExcelExistedFiles:hover {
+  background-color: #ebe1e1;
+}
+
+.importExcelId {
+  width: 100px;
+}
+
+.importExcelDate {
+  width: 300px;
+}
+
+.importExcelName {
+  width: 200px;
+}
+
+.importExcelDelete {
+  width: 50px;
+  cursor: pointer;
+}
+
+.importExcelDelete:hover {
+  color: red;
+}
+/*# sourceMappingURL=ImportExcelBalance.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9BZG1pbmlzdHJhdGlvbi9JbXBvcnRFeGNlbEJhbGFuY2UvSW1wb3J0RXhjZWxCYWxhbmNlLnNjc3MiLCJ3ZWJwYWNrOi8vc3JjL2NvbXBvbmVudHMvQWRtaW5pc3RyYXRpb24vSW1wb3J0RXhjZWxCYWxhbmNlL0ltcG9ydEV4Y2VsQmFsYW5jZS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBTUE7RUFDRSxnQkFBZ0I7RUFDaEIsbUJBQW1CO0FDTHJCOztBRFFBO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixjQUF3QjtFQUN4QixXQUFXO0VBQ1gsa0JBQWtCO0FDTHBCOztBRFFBO0VBQ0UsWUFBWTtFQUNaLFlBQVk7RUFDWix5QkFBbUM7RUFDbkMsbUJBQW1CO0VBQ25CLFlBQVk7RUFDWixZQUFZO0VBQ1osZUFBZTtFQUNmLGVBQWU7QUNMakI7O0FEUUE7RUFDRSx5QkFBa0M7QUNMcEM7O0FEUUE7RUFDRSxhQUFhO0FDTGY7O0FEUUE7RUFHRSxhQUFRO0VBR1YsbUJBQWlCO0VBQ2YsZUFBZTtBQ0xqQjs7QUFFQTtFQUNFLGVBQWU7RURPakIsZ0JBQUE7RUFDRSxjQUFXO0FDTGI7O0FBRUE7RURPRSxlQUFlO0VBQ2hCLGdCQUFBO0VDTEMsY0FBYztFRE9oQixnQkFBQTtFQUNFLG1CQUFhO0FDTGY7O0FBRUE7RURTRSxhQUFXO0VBQ1gsZUFBZTtFQUNoQixnQkFBQTtFQ0xDLGNBQWM7RURPaEIsZUFBQTtFQUNFLGtCQUFrQjtFQUNuQixXQUFBO0VDTEMsZUFBZTtBRE9qQjs7QUNKQTtFQUNFLHlCQUF5QjtBRE8zQjs7QUNKQTtFQUNFLFlBQVk7QURPZDs7QUNKQTtFQUNFLFlBQVk7QURPZDs7QUNKQTtFRE9DLFlBQUE7QUNMRDs7QUFFQTtFRE9DLFdBQUE7RUNMQyxlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsVUFBVTtBQUNaO0FBQ0EsaURBQWlEIiwic291cmNlUm9vdCI6IiJ9 */</style><style>/* No CSS *//*# sourceMappingURL=ImportExcelWebOrder.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9BZG1pbmlzdHJhdGlvbi9JbXBvcnRFeGNlbFdlYk9yZGVyL0ltcG9ydEV4Y2VsV2ViT3JkZXIuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLFdBQVcsQ0FBQyxrREFBa0QiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.orderRequestColumnsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.orderColumnNameWrapper {
+  display: flex;
+}
+
+.orderColumnName {
+  color: #93bbf7;
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 3px;
+  width: 200px;
+  border-right: 1px solid #d2cece;
+}
+
+.orderColumnNameDb {
+  color: #93bbf7;
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 3px;
+  width: 200px;
+  border-right: 1px solid #d2cece;
+  cursor: pointer;
+}
+
+.orderRequestColumnsButton {
+  width: 50px;
+  height: 50px;
+  background-color: #2969c9;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.orderColumnDelete {
+  cursor: pointer;
+}
+
+.orderRequestColumnsAdd {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.activeColumnAddArea {
+  display: flex;
+  z-index: 99;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease;
+}
+
+.diActiveColumnAddAre {
+  display: flex;
+  z-index: 99;
+  position: absolute;
+  top: -150%;
+  left: 0;
+  transition: all 0.5s ease;
+}
+
+.activeORC {
+  background-color: #c9c4c4;
+  padding: 5px;
+  border-radius: 10px;
+  color: black;
+  cursor: pointer;
+}
+
+.notActiveORC {
+  cursor: pointer;
+}
+
+.orderRequestColumnsChecking {
+  display: flex;
+  justify-content: space-around;
+}
+/*# sourceMappingURL=OrderRequestColumns.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9BZG1pbmlzdHJhdGlvbi9PcmRlclJlcXVlc3RDb2x1bW5zL09yZGVyUmVxdWVzdENvbHVtbnMuc2NzcyIsIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9BZG1pbmlzdHJhdGlvbi9PcmRlclJlcXVlc3RDb2x1bW5zL09yZGVyUmVxdWVzdENvbHVtbnMuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBR0UsYUFBYTtFQUlOLHNCQUFNO0VBR2YsbUJBQWlCO0FDQ2pCOztBQUVBO0VER0UsYUFBQTtBQ0NGOztBQUVBO0VBQ0UsY0FBYztFRENoQixlQUFBO0VBQ0UsZ0JBQXlCO0VBQ3pCLGtCQUFlO0VBQ2YsbUJBQWdCO0VBQ2hCLG1CQUFrQjtFQUNsQixZQUFBO0VBQ0EsK0JBQW1CO0FDQ3JCOztBQUVBO0VEQ0MsY0FBQTtFQ0NDLGVBQWU7RURDakIsZ0JBQUE7RUFDRSxrQkFBVztFQUNYLG1CQUFZO0VBQ1osbUJBQWtCO0VBQ2xCLFlBQUE7RUFDQSwrQkFBWTtFQUNaLGVBQVk7QUNDZDs7QUFFQTtFQUNFLFdBQVc7RURDYixZQUFBO0VBQ0UseUJBQWU7RUFDaEIsa0JBQUE7RUNDQyxZQUFZO0VEQ2QsWUFBQTtFQUNFLGVBQWM7RUFDZCxnQkFBZTtBQ0NqQjs7QURFQTtFQUNFLGVBQWE7QUNDZjs7QUFFQTtFRENFLGNBQU87RUFDUCxtQkFBWTtBQ0NkOztBREVBO0VBR0UsYUFBVTtFQUNWLFdBQVU7RUFDVixrQkFBTztFQUNQLE1BQUE7RUFDRCxPQUFBO0VBRUQseUJBQVc7QUNDWDs7QUFFQTtFREdDLGFBQUE7RUNDQyxXQUFXO0VEQ2Isa0JBQWM7RUFDWixVQUFRO0VBQ1QsT0FBQTtFQUVELHlCQUFBO0FDQ0E7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1osZUFBZTtBQUNqQjs7QUFFQTtFQUNFLGVBQWU7QUFDakI7O0FBRUE7RUFHRSxhQUFhO0VBRVQsNkJBQTZCO0FBQ25DO0FBQ0Esa0RBQWtEIiwic291cmNlUm9vdCI6IiJ9 */</style><style>.addColumn {
+  min-height: 700px;
+  min-width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.addColumnWrapper {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  opacity: 1;
+  color: black;
+  box-shadow: 5px 5px 15px 5px #a3a3a3;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.addColumnHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.addColumnLeft {
+  margin-left: 30%;
+  font-size: 32px;
+  font-weight: 500;
+  color: #2969c9;
+}
+
+.addColumnRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  height: 42px;
+  width: 42px;
+  color: black;
+  cursor: pointer;
+}
+
+.addColumnRight:hover {
+  background-color: #eeebe5;
+  border-radius: 50%;
+}
+
+.addColumnName {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 20px;
+  color: #93bbf7;
+}
+
+.addColumnInput {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.addColumnSelect {
+  width: 50%;
+  height: 40px;
+  border: 1px solid #e9ede2;
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.addColumnCreateButtonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addColumnCreateButton {
+  width: 20vw;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #2969c9;
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+}
+/*# sourceMappingURL=AddColumn.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9BZG1pbmlzdHJhdGlvbi9BZGRDb2x1bW4vQWRkQ29sdW1uLnNjc3MiLCJ3ZWJwYWNrOi8vc3JjL2NvbXBvbmVudHMvQWRtaW5pc3RyYXRpb24vQWRkQ29sdW1uL0FkZENvbHVtbi5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQixNQUFNO0VBQ04sT0FBTztBQ0NUOztBREVBO0VBQ0Usa0JBQWtCO0VBQ2xCLFFBQVE7RUFDUixTQUFTO0VBQ1QsVUFBVTtFQUNWLFdBQVc7RUFDWCx1QkFBdUI7RUFDdkIsVUFBVTtFQUNWLFlBQVk7RUFFWixvQ0FBb0M7RUFDcEMsa0JBQWtCO0VBQ2xCLGFBQWE7QUNDZjs7QURFQTtFQUdDLGFBQUE7RUFHQyw4QkFBZ0I7QUNDbEI7O0FBRUE7RURDQyxnQkFBQTtFQ0NDLGVBQWU7RURDakIsZ0JBQWdCO0VBQ2QsY0FBYTtBQ0NmOztBQUVBO0VER0UsYUFBWTtFQ0dKLG1CQUFtQjtFREczQix1QkFBa0I7RUFDbkIsZUFBQTtFQ0NDLFlBQVk7RURDZCxXQUFBO0VBQ0UsWUFBUztFQUNULGVBQWU7QUNDakI7O0FBRUE7RURDQyx5QkFBQTtFQ0NDLGtCQUFrQjtBRENwQjs7QUNFQTtFRENFLHFCQUFhO0VBQ2IsZUFBWTtFQUNaLGdCQUFRO0VBQ1Isa0JBQWtCO0VBQ2xCLGNBQVc7QUNDYjs7QURFQTtFQUNFLFVBQVU7RUFDVixrQkFBWTtFQUNaLGFBQVk7RUFDWixZQUFZO0VBQ1osc0JBQWU7RUFDZixrQkFBZ0I7RUFDakIsZUFBQTtBQ0NEOztBQUVBO0VEQ0UsVUFBQTtFQUNBLFlBQUE7RUFDRCx5QkFBQTtFQ0NDLGtCQUFrQjtFRENwQixlQUFBO0VBQ0UsZ0JBQVc7QUNDYjs7QUFFQTtFREdFLGFBQWE7RUFHYixtQkFBZ0I7RUNHUix1QkFBdUI7QUFDakM7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1oseUJBQXlCO0VBQ3pCLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsWUFBWTtFQUNaLGVBQWU7RUFDZixnQkFBZ0I7QUFDbEI7QUFDQSx3Q0FBd0MiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.addMultiColumn {
+  min-height: 1000px;
+  min-width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.addMultiColumnWrapper {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  opacity: 1;
+  color: black;
+  box-shadow: 5px 5px 15px 5px #a3a3a3;
+  border-radius: 5px;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+.addMultiColumnInput {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.addColumnCreateButton {
+  width: 20vw;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #2969c9;
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.addMultiColumnButtonCreate {
+  width: 20vw;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #2969c9;
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.addMultiColumnButtonAdd {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #2969c9;
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+}
+
+.addMultiColumnNewField {
+  display: flex;
+  align-items: center;
+}
+
+.addMultiColumnField {
+  font-size: 32px;
+  font-weight: 500;
+  color: #2969c9;
+}
+
+.addMultiColumnName {
+  font-size: 24px;
+  font-weight: 500;
+  color: #93bbf7;
+  width: 300px;
+}
+
+.addMultiColumnSelect {
+  width: 50%;
+  height: 40px;
+  border: 1px solid #e9ede2;
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.addMultiColumnActive {
+  font-size: 24px;
+  font-weight: 500;
+  color: #2969c9;
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #eeeeee;
+}
+
+.addMultiColumnNotActive {
+  font-size: 24px;
+  font-weight: 500;
+  color: #2969c9;
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.addMultiColumnVisibility {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+/*# sourceMappingURL=AddMultiColumn.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9BZG1pbmlzdHJhdGlvbi9BZGRNdWx0aUNvbHVtbi9BZGRNdWx0aUNvbHVtbi5zY3NzIiwid2VicGFjazovL3NyYy9jb21wb25lbnRzL0FkbWluaXN0cmF0aW9uL0FkZE11bHRpQ29sdW1uL0FkZE11bHRpQ29sdW1uLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLE1BQU07RUFDTixPQUFPO0FDQ1Q7O0FERUE7RUFDRSxrQkFBa0I7RUFDbEIsUUFBUTtFQUNSLFNBQVM7RUFDVCxVQUFVO0VBQ1YsV0FBVztFQUNYLHVCQUF1QjtFQUN2QixVQUFVO0VBQ1YsWUFBWTtFQUVaLG9DQUFvQztFQUNwQyxrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLGtCQUFrQjtBQ0NwQjs7QURFQTtFQUNFLFVBQVU7RUFDVixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLFlBQVk7RUFDWixzQkFBc0I7RUFDdEIsa0JBQWtCO0VBQ2xCLGVBQWU7QUNDakI7O0FERUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1oseUJBQW1DO0VBQ25DLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsWUFBWTtFQUNaLGVBQWU7RUFDZixnQkFBZ0I7QUNDbEI7O0FERUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1oseUJBQW1DO0VBQ25DLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsWUFBWTtFQUNaLGVBQWU7RUFDZixnQkFBZ0I7QUNDbEI7O0FERUE7RUFDRSxZQUFZO0VBQ1osWUFBWTtFQUNaLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1oseUJBQW1DO0VBQ25DLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsWUFBWTtFQUNaLGVBQWU7QUNDakI7O0FERUE7RUFHQyxhQUFBO0VBR0MsbUJBQWU7QUNDakI7O0FBRUE7RUFDRSxlQUFlO0VEQ2pCLGdCQUFBO0VBQ0UsY0FBVztBQ0NiOztBQUVBO0VEQ0MsZUFBQTtFQ0NDLGdCQUFnQjtFRENsQixjQUFBO0VBQ0UsWUFBVTtBQ0NaOztBQUVBO0VEQ0UsVUFBUztFQUNULFlBQVc7RUFDWix5QkFBQTtFQ0NDLGtCQUFrQjtFRENwQixlQUFBO0VBQ0UsZ0JBQWU7QUNDakI7O0FBRUE7RURDRSxlQUFhO0VBQ2IsZ0JBQWU7RUFDZixjQUFBO0VBQ0QsaUJBQUE7RUNDQyxhQUFhO0VEQ2YsbUJBQUE7RUFDRSx5QkFBZTtBQ0NqQjs7QUFFQTtFRENFLGVBQWE7RUFDYixnQkFBZTtFQUNoQixjQUFBO0VDQ0MsaUJBQWlCO0VEQ25CLGFBQUE7RUFDRSxtQkFBYTtBQ0NmOztBQUVBO0VBR0UsYUFBYTtFQUdMLG1CQUFtQjtFQUMzQixnQkFBZ0I7QUFDbEI7QUFDQSw2Q0FBNkMiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.orderRequestColumnsMultiButtonWrapper {
+  width: 75vw;
+}
+
+.orderRequestColumnsMultiButton {
+  width: 50px;
+  height: 50px;
+  background-color: #2969c9;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  font-size: 36px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 40%;
+}
+
+.activeMultiColumnAddArea {
+  display: flex;
+  z-index: 99;
+}
+
+.diActiveMultiColumnAddAre {
+  display: none;
+}
+/*# sourceMappingURL=OrderRequestColumnsMulti.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9BZG1pbmlzdHJhdGlvbi9PcmRlclJlcXVlc3RDb2x1bW5zTXVsdGkvT3JkZXJSZXF1ZXN0Q29sdW1uc011bHRpLnNjc3MiLCJ3ZWJwYWNrOi8vc3JjL2NvbXBvbmVudHMvQWRtaW5pc3RyYXRpb24vT3JkZXJSZXF1ZXN0Q29sdW1uc011bHRpL09yZGVyUmVxdWVzdENvbHVtbnNNdWx0aS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBTUE7RUFDRSxXQUFXO0FDTGI7O0FEUUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLHlCQUFtQztFQUNuQyxrQkFBa0I7RUFDbEIsWUFBWTtFQUNaLFlBQVk7RUFDWixlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLGVBQWU7RUFDZixnQkFBZ0I7QUNMbEI7O0FEUUE7RUFHQyxhQUFBO0VDTEMsV0FBVztBRE9iOztBQ0pBO0VBQ0UsYUFBYTtBQUNmO0FBQ0EsdURBQXVEIiwic291cmNlUm9vdCI6IiJ9 */</style><style>.AdministrationFeed {
+  margin-top: 20px;
+}
+/*# sourceMappingURL=AdministrationFeed.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9BZG1pbmlzdHJhdGlvbi9BZG1pbmlzdHJhdGlvbkZlZWQvQWRtaW5pc3RyYXRpb25GZWVkLnNjc3MiLCJ3ZWJwYWNrOi8vc3JjL2NvbXBvbmVudHMvQWRtaW5pc3RyYXRpb24vQWRtaW5pc3RyYXRpb25GZWVkL0FkbWluaXN0cmF0aW9uRmVlZC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0I7QUNDbEI7QUFDQSxpREFBaUQiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.administrationSideBar {
+  height: calc(100vh - 70px);
+  overflow-y: scroll;
+  position: sticky;
+  top: 70px;
+  min-width: 200px;
+  width: 250px;
+}
+
+.administrationSideBarWrapper {
+  margin: 20px;
+}
+
+.administrationSideBarTasks {
+  display: flex;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.administrationSideBarTasks:hover {
+  background-color: #ebebeb;
+  border-radius: 10px;
+}
+
+.administrationSideBarActivTasks {
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.administrationSideBarLogo {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.administrationSideBarName {
+  font-size: 15px;
+}
+
+.activeField {
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=AdministrationSideBar.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9BZG1pbmlzdHJhdGlvbi9BZG1pbmlzdHJhdGlvblNpZGVCYXIvQWRtaW5pc3RyYXRpb25TaWRlQmFyLnNjc3MiLCJ3ZWJwYWNrOi8vc3JjL2NvbXBvbmVudHMvQWRtaW5pc3RyYXRpb24vQWRtaW5pc3RyYXRpb25TaWRlQmFyL0FkbWluaXN0cmF0aW9uU2lkZUJhci5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwwQkFBMEI7RUFDMUIsa0JBQWtCO0VBRWxCLGdCQUFTO0VBQ1QsU0FBUztFQUNULGdCQUFZO0VBQ2IsWUFBQTtBQ0NEOztBQUVBO0VEQ0MsWUFBQTtBQ0NEOztBQUVBO0VER0UsYUFBYTtFQUNkLG1CQUFBO0VDQ0MsZUFBZTtFRENqQixhQUFBO0FDQ0E7O0FBRUE7RUFDRSx5QkFBeUI7RURDM0IsbUJBQUE7QUNDQTs7QUFFQTtFQUNFLDRCQUE0QjtFREM5QixtQkFBQTtBQ0NBOztBQUVBO0VER0EsYUFBQTtFQ0dVLG1CQUFtQjtFREM3QixrQkFBYTtBQ0NiOztBQUVBO0VBQ0UsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLDRCQUE0QjtFQUM1QixtQkFBbUI7QUFDckI7QUFDQSxvREFBb0QiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.administrationTools {
+  margin-left: 20px;
+}
+
+.administrationToolsWrapper {
+  display: flex;
+}
+/*# sourceMappingURL=AdministrationPanel.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvcGFnZXMvQWRtaW5pc3RyYXRpb25QYW5lbC9BZG1pbmlzdHJhdGlvblBhbmVsLnNjc3MiLCJ3ZWJwYWNrOi8vc3JjL3BhZ2VzL0FkbWluaXN0cmF0aW9uUGFuZWwvQWRtaW5pc3RyYXRpb25QYW5lbC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQkFBaUI7QUNDbkI7O0FERUE7RUNHRSxhQUFhO0FBQ2Y7QUFDQSxrREFBa0QiLCJzb3VyY2VSb290IjoiIn0= */</style><style>.body {
+  display: flex;
+  width: 100%;
+}
+/*# sourceMappingURL=TasksApp.css.map */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvcGFnZXMvVGFza0FwcC9UYXNrc0FwcC5zY3NzIiwid2VicGFjazovL3NyYy9wYWdlcy9UYXNrQXBwL1Rhc2tzQXBwLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUdDLGFBQUE7RUNDQyxXQUFXO0FBQ2I7QUFDQSx1Q0FBdUMiLCJzb3VyY2VSb290IjoiIn0= */</style><script charset="utf-8" src="./React App_files/main.bdf63ce4cbf55cec83eb.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.be82c608969895f7a4f9.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.ebe212b3504bac3494d0.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.9b1e6f798de28b4df311.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.e8592ce4fe66bf87f87a.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.9986fc9cef911e76dad6.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.3ab152d10a4219f7e817.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.08e9367b196454bdaa59.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.46413239e5d783a8c2a2.hot-update.js"></script></head>
+  <body data-new-gr-c-s-check-loaded="14.1028.0" data-gr-ext-installed="">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="taskApp"><div class="taskAppHeader"><div class="taskAppHeaderWrapper"><div class="taskAppHeaderCompany"><a href="http://localhost:3000/app/task"><div class="taskAppHeaderLogo"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" role="img" color="rgb(41, 105, 201)" height="50" width="50" xmlns="http://www.w3.org/2000/svg" style="color: rgb(41, 105, 201);"><title></title><path d="M22.565 9.054c.248-.477.45-1.125.235-1.786-.25-.766-.939-1.275-2.051-1.511l-7.052-1.5L6.496.405C6.418.363 5.717 0 4.951 0 4.38 0 3.888.198 3.527.571c-.337.349-.539.834-.603 1.444a3.184 3.184 0 0 0-.199-.006c-1.089 0-1.648.456-1.926.839C.369 3.44.315 4.241.638 5.23l2.649 8.118.251 7.033c.044 1.222.719 2.536 2.098 2.537.264 0 .537-.051.82-.15.328.556.92 1.232 1.864 1.232.666 0 1.324-.357 1.956-1.063l5.11-5.697 6.783-4.283c.147-.094 1.444-.95 1.398-2.229-.022-.642-.362-1.202-1.002-1.674zM7.396 20.166l-2.328-7.134-.316-8.847 8.326 1.771 6.771 3.622-5.63 6.279-6.823 4.309zM20.377 7.51c.545.116.709.279.72.313.021.063-.017.196-.087.344l-1.623-.868.99.211zM4.951 1.792c.269 0 .607.145.7.193l1.738.929-2.693-.573c.013-.323.08-.484.12-.526.012-.011.062-.023.135-.023zm-2.61 2.882c-.195-.595-.093-.773-.092-.774.019-.026.167-.099.476-.099.083 0 .159.005.221.011l.109 3.05-.714-2.188zm2.988 15.642l-.029-.798.514 1.574a.68.68 0 0 1-.178.034c-.146 0-.293-.5-.307-.81zm3.614 1.424c-.414.463-.62.468-.622.468-.058 0-.185-.132-.301-.317l1.818-1.148-.895.997zm12.27-10.299l-1.445.913 1.695-1.89c.249.174.313.298.314.329.006.133-.287.468-.564.648z"></path></svg></div></a><a href="http://localhost:3000/app/task"><div class="taskAppHeaderCompanyName">HA Group</div></a></div><div class="taskAppHeaderUserInfo"><div class="taskAppHeaderUsername">Hayk Manvelyan</div><div class="taskAppHeaderSignOut"><button class="taskAppHeaderSignOutButton">Sign Out</button></div></div></div></div><div class="administrationTools"><div class="administrationToolsWrapper"><div><div class="administrationSideBar"><div class="administrationSideBarWrapper"><a href="http://localhost:3000/administrationpanel/orderrequestcolumns"><div class="administrationSideBarTasks administrationSideBarNotActiveField"><div class="administrationSideBarLogo"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M912 192H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM104 228a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm0 284a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm0 284a56 56 0 1 0 112 0 56 56 0 1 0-112 0z"></path></svg></div><div class="administrationSideBarName">Order Request Columns</div></div></a><a href="http://localhost:3000/administrationpanel/orderrequestcolumnsmulti"><div class="administrationSideBarTasks administrationSideBarNotActiveField"><div class="administrationSideBarLogo"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20,2H8C6.897,2,6,2.897,6,4v12c0,1.103,0.897,2,2,2h12c1.103,0,2-0.897,2-2V4C22,2.897,21.103,2,20,2z M8,16V4h12 l0.002,12H8z"></path><path d="M4 8H2v12c0 1.103.897 2 2 2h12v-2H4V8zM12.933 11.519L11.207 9.793 9.793 11.207 13.067 14.481 18.769 7.641 17.231 6.359z"></path></svg></div><div class="administrationSideBarName">Order Request Columns Multi</div></div></a><a href="http://localhost:3000/administrationpanel/importexcelbalance"><div class="taskAppSideBarTasks notActiveField"><div class="taskAppSideBarLogo"><svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><title></title><path d="M23 1.5q.41 0 .7.3.3.29.3.7v19q0 .41-.3.7-.29.3-.7.3H7q-.41 0-.7-.3-.3-.29-.3-.7V18H1q-.41 0-.7-.3-.3-.29-.3-.7V7q0-.41.3-.7Q.58 6 1 6h5V2.5q0-.41.3-.7.29-.3.7-.3zM6 13.28l1.42 2.66h2.14l-2.38-3.87 2.34-3.8H7.46l-1.3 2.4-.05.08-.04.09-.64-1.28-.66-1.29H2.59l2.27 3.82-2.48 3.85h2.16zM14.25 21v-3H7.5v3zm0-4.5v-3.75H12v3.75zm0-5.25V7.5H12v3.75zm0-5.25V3H7.5v3zm8.25 15v-3h-6.75v3zm0-4.5v-3.75h-6.75v3.75zm0-5.25V7.5h-6.75v3.75zm0-5.25V3h-6.75v3Z"></path></svg></div><div class="taskAppSideBarName">Import Excel Balance</div></div></a><a href="http://localhost:3000/administrationpanel/importexcelweborder"><div class="taskAppSideBarTasks notActiveField"><div class="taskAppSideBarLogo"><svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><title></title><path d="M23 1.5q.41 0 .7.3.3.29.3.7v19q0 .41-.3.7-.29.3-.7.3H7q-.41 0-.7-.3-.3-.29-.3-.7V18H1q-.41 0-.7-.3-.3-.29-.3-.7V7q0-.41.3-.7Q.58 6 1 6h5V2.5q0-.41.3-.7.29-.3.7-.3zM6 13.28l1.42 2.66h2.14l-2.38-3.87 2.34-3.8H7.46l-1.3 2.4-.05.08-.04.09-.64-1.28-.66-1.29H2.59l2.27 3.82-2.48 3.85h2.16zM14.25 21v-3H7.5v3zm0-4.5v-3.75H12v3.75zm0-5.25V7.5H12v3.75zm0-5.25V3H7.5v3zm8.25 15v-3h-6.75v3zm0-4.5v-3.75h-6.75v3.75zm0-5.25V7.5h-6.75v3.75zm0-5.25V3h-6.75v3Z"></path></svg></div><div class="taskAppSideBarName">Import Excel Web Order</div></div></a><a href="http://localhost:3000/administrationpanel/employees"><div class="administrationSideBarTasks administrationSideBarNotActiveField"><div class="administrationSideBarLogo"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><div class="administrationSideBarName">Employees</div></div></a><a href="http://localhost:3000/administrationpanel/position"><div class="administrationSideBarTasks notActiveField"><div class="administrationSideBarLogo"><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17 7C17 5.34315 15.6569 4 14 4H10C8.34315 4 7 5.34315 7 7H6C4.34315 7 3 8.34315 3 10V18C3 19.6569 4.34315 21 6 21H18C19.6569 21 21 19.6569 21 18V10C21 8.34315 19.6569 7 18 7H17ZM14 6H10C9.44772 6 9 6.44772 9 7H15C15 6.44772 14.5523 6 14 6ZM6 9H18C18.5523 9 19 9.44772 19 10V18C19 18.5523 18.5523 19 18 19H6C5.44772 19 5 18.5523 5 18V10C5 9.44772 5.44772 9 6 9Z" fill="currentColor"></path></svg></div><div class="administrationSideBarName">Employess Positions</div></div></a><a href="http://localhost:3000/administrationpanel/department"><div class="administrationSideBarTasks activeField"><div class="administrationSideBarLogo"><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg></div><div class="administrationSideBarName">Department</div></div></a><a href="http://localhost:3000/administrationpanel/customers"><div class="administrationSideBarTasks notActiveField"><div class="administrationSideBarLogo"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM1.022 13h9.956a.274.274 0 00.014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 00.022.004zm9.974.056v-.002.002zM6 7a2 2 0 100-4 2 2 0 000 4zm3-2a3 3 0 11-6 0 3 3 0 016 0zm4.5 0a.5.5 0 01.5.5v2a.5.5 0 01-.5.5h-2a.5.5 0 010-1H13V5.5a.5.5 0 01.5-.5z" clip-rule="evenodd"></path><path fill-rule="evenodd" d="M13 7.5a.5.5 0 01.5-.5h2a.5.5 0 010 1H14v1.5a.5.5 0 01-1 0v-2z" clip-rule="evenodd"></path></svg></div><div class="administrationSideBarName">Customers</div></div></a><a href="http://localhost:3000/administrationpanel/address"><div class="administrationSideBarTasks notActiveField"><div class="administrationSideBarLogo"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M436 160c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20zm-68 304H48V48h320v416zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2z"></path></svg></div><div class="administrationSideBarName">Address</div></div></a></div></div></div><div><div class="AdministrationFeed"><div class="AdministrationFeedWrapper"><div class="department"><div class="departmentWrapper"><div class="departmentTitle">Create department</div><div class="departmentCenter"><div class="departmentAddButtonCover"><button class="departmentAddButton">+</button></div><div class="departmentsWrapper"><div class="depWrapper"><div class="depAddress">Manandyan 33/27</div><div class="depDepartmentName">Office</div><div class="depManager">Ani</div><div class="depPhoneNumber">2</div><div class="depEdit"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"></path></svg></div><div class="depDelete"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"></path></g></svg></div></div><div class="depWrapper"><div class="depAddress">Manandyan 33/27</div><div class="depDepartmentName">Office</div><div class="depManager">Ani</div><div class="depPhoneNumber">22</div><div class="depEdit"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"></path></svg></div><div class="depDelete"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"></path></g></svg></div></div><div class="depWrapper"><div class="depAddress">Manandyan 33/27</div><div class="depDepartmentName">Office</div><div class="depManager">Ani</div><div class="depPhoneNumber">223</div><div class="depEdit"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"></path></svg></div><div class="depDelete"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"></path></g></svg></div></div><div class="depWrapper"><div class="depAddress">Manandyan 33/27</div><div class="depDepartmentName">Office</div><div class="depManager">Ani</div><div class="depPhoneNumber">2332</div><div class="depEdit"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"></path></svg></div><div class="depDelete"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z"></path></g></svg></div></div></div></div></div><div class="departmentCreateDepartment departmentDeActive"><div class="createDepartment"><div class="createDepartmentHeader"><div class="createDepartmentTitle">Create new store</div><div class="createDepartmentClose"><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="32" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M6.2253 4.81108C5.83477 4.42056 5.20161 4.42056 4.81108 4.81108C4.42056 5.20161 4.42056 5.83477 4.81108 6.2253L10.5858 12L4.81114 17.7747C4.42062 18.1652 4.42062 18.7984 4.81114 19.1889C5.20167 19.5794 5.83483 19.5794 6.22535 19.1889L12 13.4142L17.7747 19.1889C18.1652 19.5794 18.7984 19.5794 19.1889 19.1889C19.5794 18.7984 19.5794 18.1652 19.1889 17.7747L13.4142 12L19.189 6.2253C19.5795 5.83477 19.5795 5.20161 19.189 4.81108C18.7985 4.42056 18.1653 4.42056 17.7748 4.81108L12 10.5858L6.2253 4.81108Z" fill="currentColor"></path></svg></div></div><div class="createDepartmentWrapper"><form action="http://localhost:3000/administrationpanel/department#" class="createDepartmentForm"><div class="createDepartmentInputWrapper"><span class="createDepartmentInputSpan">Address</span><input name="address" type="text" placeholder="Address" class="createDepartmentInput" value=""></div><div class="createDepartmentInputWrapper"><span class="createDepartmentInputSpan">Department name</span><input name="departmentName" type="text" placeholder="Department name" class="createDepartmentInput" value=""></div><div class="createDepartmentInputWrapper"><span class="createDepartmentInputSpan">Department phone number</span><input name="phoneNumber" type="text" placeholder="Department phone number" class="createDepartmentInput" value=""></div><div class="createDepartmentInputWrapper"><span class="createDepartmentInputSpan">Manager name</span><input name="manager" type="text" placeholder="Manager name" class="createDepartmentInput" value=""></div><div class="createDepartmentButtonWrapper"><button class="createDepartmentButton" type="submit">Create</button><button class="createDepartmentButtonClear" type="button">Clear</button></div></form></div></div></div><div class="departmentCreateDepartment departmentActive"><div class="updateDepartment"><div class="updateDepartmentWrapper"><div class="updateDepartmentHeader"><div class="updateDepartmentTitle">Update</div><div class="updateDepartmentClose"><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="32" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M6.2253 4.81108C5.83477 4.42056 5.20161 4.42056 4.81108 4.81108C4.42056 5.20161 4.42056 5.83477 4.81108 6.2253L10.5858 12L4.81114 17.7747C4.42062 18.1652 4.42062 18.7984 4.81114 19.1889C5.20167 19.5794 5.83483 19.5794 6.22535 19.1889L12 13.4142L17.7747 19.1889C18.1652 19.5794 18.7984 19.5794 19.1889 19.1889C19.5794 18.7984 19.5794 18.1652 19.1889 17.7747L13.4142 12L19.189 6.2253C19.5795 5.83477 19.5795 5.20161 19.189 4.81108C18.7985 4.42056 18.1653 4.42056 17.7748 4.81108L12 10.5858L6.2253 4.81108Z" fill="currentColor"></path></svg></div></div><div class="updateDepartmentBody"><form action="http://localhost:3000/administrationpanel/department#" class="updateDepartmentForm"><input name="address" type="text" class="updateDepartmentInput" placeholder="Address" value="Manandyan 33/27"><input name="departmentName" type="text" class="updateDepartmentInput" placeholder="DepartmentName" value="Office"><input name="manager" type="text" class="updateDepartmentInput" placeholder="Manager" value="Ani"><input name="phoneNumber" type="text" class="updateDepartmentInput" placeholder="Phone number" value="2"><div class="updateDepartmentButtonWrapper"><button type="submit" class="updateDepartmentButton">Update</button></div></form></div></div></div></div></div></div></div></div></div></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="./React App_files/bundle.js"></script><script src="./React App_files/vendors_main.chunk.js"></script><script src="./React App_files/main.chunk.js"></script>
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

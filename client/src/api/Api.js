@@ -53,3 +53,11 @@ export const excelApi = ({
   deleteExcelBalance(formData) { return instance.put(`app/excel/deleteexcelbalance`, formData) },
   deleteExcelWebOrder(formData) { return instance.put(`app/excel/deleteexcelweborder`, formData) }
 })
+
+export const departmentApi = ({
+  createNewDepartment(formData) { return instance.post(`/app/department/createnewdepartment`, formData) },
+  getDepartments(formData) { return instance.get(`/app/department/getdepartments?company=${formData.company}`) },
+  getDepartment(formData) { return instance.get(`/app/department/getdepartment?company=${formData.company}&id=${formData.id}`) },
+  updateDepartment(formData) { return instance.put(`/app/department/updatedepartment?company=${formData.company}&id=${formData.id}`, formData) },
+  deleteDepartment(formData) { return instance.put(`/app/department/deletedepartment?company=${formData.company}&id=${formData.id}`) }
+})

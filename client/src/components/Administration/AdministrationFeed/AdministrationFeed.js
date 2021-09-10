@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
+import Department from '../Department/Department'
 import ImportExcelBalance from '../ImportExcelBalance/ImportExcelBalance'
 import ImportExcelWebOrder from '../ImportExcelWebOrder/ImportExcelWebOrder'
 import OrderRequestColumns from '../OrderRequestColumns/OrderRequestColumns'
@@ -15,6 +16,7 @@ const AdministrationFeed = () => {
           <Route path='/administrationpanel/orderrequestcolumnsmulti' render={() => <OrderRequestColumnsMulti />} />
           <Route path='/administrationpanel/importexcelbalance' render={() => <ImportExcelBalance />} />
           <Route path='/administrationpanel/importexcelweborder' render={() => <ImportExcelWebOrder />} />
+          <Route path='/administrationpanel/department' render={() => <Department />} />
         </Switch>
       </div>
     </div>

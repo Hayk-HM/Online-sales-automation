@@ -1,0 +1,92 @@
+.department {
+  width: 80vw;
+}
+
+.departmentWrapper {
+}
+
+.departmentTitle {
+  font-size: 30px;
+  font-weight: 500;
+  color: rgb(41, 105, 201);
+  text-align: center;
+}
+
+.departmentCenter {
+  margin-top: 10px;
+}
+
+.departmentAddButtonCover {
+  margin-bottom: 10px;
+}
+
+.departmentAddButton {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(41, 105, 201);
+  color: white;
+  border-radius: 50%;
+  border: none;
+  font-size: 40px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.depAddress,
+.depDepartmentName,
+.depManager,
+.depPhoneNumber {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgb(122, 134, 222);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 300px;
+}
+.depDepartmentName,
+.depManager,
+.depPhoneNumber {
+  width: 200px;
+}
+
+.depEdit {
+  color: rgb(41, 105, 201);
+  cursor: pointer;
+  margin-right: 50px;
+}
+.depDelete {
+  color: red;
+  cursor: pointer;
+}
+
+.departmentCreateDepartment {
+  position: absolute;
+  top: 80px;
+  background-color: rgb(245, 245, 245);
+  width: 50%;
+  height: calc(100vh - 80px);
+}
+
+.departmentDeActive {
+  position: absolute;
+  right: -100%;
+  transition: all 1s ease;
+}
+
+.departmentActive {
+  position: absolute;
+  right: 0;
+  transition: all 1s ease;
+}
+
+.depWrapper {
+  display: flex;
+  cursor: default;
+}
+
+.depWrapper:hover {
+  background-color: rgb(245, 245, 245);
+}

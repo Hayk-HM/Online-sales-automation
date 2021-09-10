@@ -7,6 +7,7 @@ const { authRouter } = require('./routers/authRouter')
 const { employeesRouter } = require('./routers/employeesRouter')
 const { orderRouter } = require('./routers/orderRouter')
 const { excelRouter } = require('./routers/excelRouter')
+const { departmentRouter } = require('./routers/departmentRouter')
 
 dotenv.config()
 const app = express()
@@ -51,6 +52,7 @@ app.use('/auth', authRouter)
 app.use('/app', employeesRouter)
 app.use('/app/order', orderRouter)
 app.use('/app/excel', excelRouter)
+app.use('/app/department', departmentRouter)
 
 const PORT = process.env.PORT || 5000
 server.listen(PORT, (err) => {
