@@ -1,0 +1,23 @@
+.adminEmployees {
+  width: 80vw;
+}
+
+.adminEmployeesWrapper {
+  width: 100%;
+}
+
+.adminEmployeesTitle {
+  font-size: 32px;
+  font-weight: 500;
+  color: #2969c9;
+  margin-left: 45%;
+}
+
+.adminEmployeesBody {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  gap: 10px 10px;
+}
+/*# sourceMappingURL=AdminEmployees.css.map */

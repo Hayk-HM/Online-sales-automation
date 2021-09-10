@@ -22,7 +22,8 @@ export const employeesApi = ({
   getAllEmployees(formData) { return instance.get(`/app/employees/${formData.company}`) },
   getEmployeeInformation(formData) { return instance.get(`/app/employees/${formData.companyName}/${formData.userId}`) },
   updateEmployeeInformation(formData) { return instance.put(`/app/employees/${formData.companyName}/${formData.userId}`, formData,) },
-  uploadEmployeePhoto(formData) { return instance.post('app/employees/uploadPhoto', formData) }
+  uploadEmployeePhoto(formData) { return instance.post('app/employees/uploadPhoto', formData) },
+  deleteEmployee(formData) { return instance.put(`/app/employees/deleteemployee?company=${formData.company}&id=${formData.id}`) },
 })
 
 export const orderApi = ({
@@ -40,7 +41,7 @@ export const tableColumnsApi = ({
   getOrdersAdmissibility(formData) { return instance.get(`/app/order/getOrdersAdmissibility?company=${formData.company}`) },
   changeOrdersVisibility(formData) { return instance.put(`/app/order/changeordersvisibility?company=${formData.company}`, formData) },
   changeMultiOrdersVisibility(formData) { return instance.put(`/app/order/changemultiordersvisibility?company=${formData.company}`, formData) },
-  getMultiOrdersColumnsAdmissibility(formData) { return instance.get(`./app/order/getmultiorderscolumnsadmissibility?company=${formData.company}`) }
+  getMultiOrdersColumnsAdmissibility(formData) { return instance.get(`./app/order/getmultiorderscolumnsadmissibility?company=${formData.company}`) },
 })
 
 export const excelApi = ({
@@ -51,7 +52,7 @@ export const excelApi = ({
   getDailyBalance(formData) { return instance.get(`app/excel/getdailybalance?company=${formData.company}`) },
   getDailyWebOrder(formData) { return instance.get(`app/excel/getdailyweborder?company=${formData.company}`) },
   deleteExcelBalance(formData) { return instance.put(`app/excel/deleteexcelbalance`, formData) },
-  deleteExcelWebOrder(formData) { return instance.put(`app/excel/deleteexcelweborder`, formData) }
+  deleteExcelWebOrder(formData) { return instance.put(`app/excel/deleteexcelweborder`, formData) },
 })
 
 export const departmentApi = ({
@@ -59,5 +60,5 @@ export const departmentApi = ({
   getDepartments(formData) { return instance.get(`/app/department/getdepartments?company=${formData.company}`) },
   getDepartment(formData) { return instance.get(`/app/department/getdepartment?company=${formData.company}&id=${formData.id}`) },
   updateDepartment(formData) { return instance.put(`/app/department/updatedepartment?company=${formData.company}&id=${formData.id}`, formData) },
-  deleteDepartment(formData) { return instance.put(`/app/department/deletedepartment?company=${formData.company}&id=${formData.id}`) }
+  deleteDepartment(formData) { return instance.put(`/app/department/deletedepartment?company=${formData.company}&id=${formData.id}`) },
 })

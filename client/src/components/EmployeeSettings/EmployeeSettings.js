@@ -14,18 +14,16 @@ const EmployeeSettings = () => {
   const dispatch = useDispatch()
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
   const [file, setFile] = useState(null)
-
+  console.log(user.result[0].photo);
   const initialValues = {
-    photo: '',
+    photo: "",
     firstName: user.result[0].firstName,
     lastName: user.result[0].lastName || '',
     companyName: user.result[0].companyName || '',
     email: user.result[0].email || '',
-    position: user.result[0].position || '',
     department: user.result[0].department || '',
     cellPhoneOne: user.result[0].cellPhoneOne || '',
     cellPhoneTwo: user.result[0].cellPhoneTwo || '',
-    phone: user.result[0].phone || '',
     address: user.result[0].address || '',
   }
 
@@ -119,13 +117,6 @@ const EmployeeSettings = () => {
                   {touched.email && errors.email && <div className='signInError'>{errors.email}</div>}
 
                   <Field
-                    className='employeeSettingsPosition employeeSettingsInput'
-                    type='text'
-                    placeholder='position'
-                    name='position'
-                  />
-
-                  <Field
                     className='employeeSettingsDepartment employeeSettingsInput'
                     type='text'
                     placeholder='department'
@@ -144,13 +135,6 @@ const EmployeeSettings = () => {
                     type='text'
                     placeholder='cell phone two'
                     name='cellPhoneTwo'
-                  />
-
-                  <Field
-                    className='employeeSettingsPhone employeeSettingsInput'
-                    type='text'
-                    placeholder='phone'
-                    name='phone'
                   />
 
                   <Field

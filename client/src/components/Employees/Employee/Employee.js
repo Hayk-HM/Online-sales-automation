@@ -10,7 +10,7 @@ const Employee = ({ employee }) => {
 
   const activeUsers = useSelector(state => state.activeUsers)
   const allUsers = useSelector(state => state.employees.employees)
-  console.log(activeUsers.some(user => user.userId === employee.userId));
+
   return (
     <div className='employee'>
       <div className='employeeWrapper'>

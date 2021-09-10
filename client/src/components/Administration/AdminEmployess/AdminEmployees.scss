@@ -1,0 +1,20 @@
+.adminEmployees {
+  width: 80vw;
+}
+
+.adminEmployeesWrapper {
+  width: 100%;
+}
+
+.adminEmployeesTitle {
+  font-size: 32px;
+  font-weight: 500;
+  color: rgb(41, 105, 201);
+  margin-left: 45%;
+}
+
+.adminEmployeesBody {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 10px;
+}

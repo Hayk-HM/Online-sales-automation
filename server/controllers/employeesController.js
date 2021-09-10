@@ -68,15 +68,14 @@ const uploadEmployeeController = async (req, res) => {
 
 
 const updateEmployeeInformation = async (req, res) => {
-
   const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'adminRoot',
     database: req.body.companyName.trim().replaceAll(' ', '_')
   })
-  try {
 
+  try {
     await db.query(`UPDATE users SET 
       firstName = '${req.body.firstName}',
       lastName = '${req.body.lastName}',
@@ -88,7 +87,7 @@ const updateEmployeeInformation = async (req, res) => {
       ${req.body.cellPhoneOne ? `cellPhoneOne = '${req.body.cellPhoneOne}'` : `cellPhoneOne = NULL`},
       ${req.body.cellPhoneTwo ? `cellPhoneTwo = '${req.body.cellPhoneTwo}'` : `cellPhoneTwo = NULL`},
       ${req.body.phone ? `phone = '${req.body.phone}'` : `phone = NULL`},
-      ${req.body.address ? `address = '${req.body.address}'` : `address = NULL`},
+      ${req.body.address ? `address = '${req.body.address}'` : `address = NULL`}
             WHERE userId = '${req.params.userId}'`, async (err, result) => {
       if (err) {
         console.log(err);
