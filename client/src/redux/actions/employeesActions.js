@@ -50,3 +50,13 @@ export const uploadEmployeePhoto = (formData) => async (dispatch) => {
     console.log(error);
   }
 }
+
+export const deleteEmployee = (formData) => async (dispatch) => {
+  try {
+
+    const { data } = await employeesApi.deleteEmployee(formData)
+    dispatch(employeesActions.getEmployees({ company: formData.company }))
+  } catch (error) {
+    console.log('deleteEmployee', error);
+  }
+}

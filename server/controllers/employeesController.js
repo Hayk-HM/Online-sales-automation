@@ -106,7 +106,7 @@ const updateEmployeeInformation = async (req, res) => {
   }
 }
 
-const updateEmployeeInformationAdmin = (req, res) => {
+const updateEmployeeInformationAdmin = async (req, res) => {
   const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -121,6 +121,7 @@ const updateEmployeeInformationAdmin = (req, res) => {
   email = '${req.body.email}',
   ${req.body.position ? `position = '${req.body.position}'` : `position = NULL`},
   ${req.body.department ? `department = '${req.body.department}'` : `department = NULL`},
+  ${req.body.departmentId ? `departmentId = '${req.body.departmentId}'` : `departmentId = NULL`},
   ${req.body.cellPhoneOne ? `cellPhoneOne = '${req.body.cellPhoneOne}'` : `cellPhoneOne = NULL`},
   ${req.body.cellPhoneTwo ? `cellPhoneTwo = '${req.body.cellPhoneTwo}'` : `cellPhoneTwo = NULL`},
   ${req.body.phone ? `phone = '${req.body.phone}'` : `phone = NULL`},
@@ -129,7 +130,7 @@ const updateEmployeeInformationAdmin = (req, res) => {
   ${req.body.admitted ? `admitted = '${req.body.admitted}'` : `admitted = NULL`}
         WHERE userId = '${req.params.userId}'`
   try {
-    db.query(query, (err, result) => {
+    await db.query(query, (err, result) => {
       if (err) {
         console.log(err)
       } else {
@@ -147,10 +148,33 @@ const updateEmployeeInformationAdmin = (req, res) => {
   }
 }
 
+const deleteEmployeeController = (req, res) => {
+  console.log(req.query);
+  const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'adminRoot',
+    database: req.query.company.trim().replaceAll(' ', '_')
+  })
+  const query = `DELETE FROM users WHERE _id='${req.query.id}'`
+  try {
+    db.query(query, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.status(200).json(result)
+      }
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
   employeesController,
   employeeInfoController,
   updateEmployeeInformation,
   uploadEmployeeController,
-  updateEmployeeInformationAdmin
+  updateEmployeeInformationAdmin,
+  deleteEmployeeController,
 }

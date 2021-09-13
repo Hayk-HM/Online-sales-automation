@@ -35,7 +35,6 @@ const Department = () => {
     } else {
       console.log('Keep');
     }
-
   }
 
   return (

@@ -39,9 +39,17 @@
           flex-direction: column;
 }
 
+.adminEmployeeSettingsForm > span {
+  font-size: 14px;
+  margin-left: 10px;
+  color: #5f90d8;
+}
+
 .adminEmployeeSettingsField {
+  width: 70%;
   height: 30px;
   margin: 10px;
+  margin-left: 20px;
   background-color: whitesmoke;
   border: none;
   border-bottom: 1px solid #2969c9;
@@ -50,6 +58,16 @@
 }
 
 .adminEmployeeSettingsButtonWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 10px;
 }
 
@@ -63,5 +81,19 @@
   color: white;
   cursor: pointer;
   border-radius: 10px;
+  margin-right: 20px;
+}
+
+.adminEmployeeSettingsDelete {
+  width: 100px;
+  height: 50px;
+  border: none;
+  background-color: red;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 20px;
 }
 /*# sourceMappingURL=AdminUpdateEmployees.css.map */

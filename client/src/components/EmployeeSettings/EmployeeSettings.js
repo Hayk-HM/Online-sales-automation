@@ -21,7 +21,6 @@ const EmployeeSettings = () => {
     lastName: user.result[0].lastName || '',
     companyName: user.result[0].companyName || '',
     email: user.result[0].email || '',
-    department: user.result[0].department || '',
     cellPhoneOne: user.result[0].cellPhoneOne || '',
     cellPhoneTwo: user.result[0].cellPhoneTwo || '',
     address: user.result[0].address || '',
@@ -117,13 +116,6 @@ const EmployeeSettings = () => {
                   {touched.email && errors.email && <div className='signInError'>{errors.email}</div>}
 
                   <Field
-                    className='employeeSettingsDepartment employeeSettingsInput'
-                    type='text'
-                    placeholder='department'
-                    name='department'
-                  />
-
-                  <Field
                     className='employeeSettingsCellPhoneOne employeeSettingsInput'
                     type='text'
                     placeholder='cell phone one'
@@ -145,7 +137,7 @@ const EmployeeSettings = () => {
                   />
 
                   <div className='employeeSettingsButtonWrapper'>
-                    <button className='employeeSettingsInButton' disabled={isSubmitting} type='submit'>Save</button>
+                    <div><button className='employeeSettingsInButton' disabled={isSubmitting} type='submit'>Save</button></div>
                   </div>
                 </Form>
               )
