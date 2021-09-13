@@ -16,5 +16,10 @@
 .adminEmployeesBody {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px 10px;
+  gap: 20px 0px;
+  margin-top: 10px;
+}
+
+.adminEmployee {
+  width: 90%;
 }

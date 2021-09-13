@@ -3,6 +3,9 @@ const uuid = require('uuid')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
+let admin = true
+let admitted = true
+
 const createCompanyController = async (req, res) => {
 
   const data = req.body
@@ -59,12 +62,24 @@ const createTablesController = async (req, res) => {
          address VARCHAR(100) NULL DEFAULT NULL,
          password VARCHAR(100) NULL DEFAULT NULL,
          positionId INT(50) NULL DEFAULT NULL,
+         administrator VARCHAR(100) NULL DEFAULT NULL,
+         admitted VARCHAR(100) NULL DEFAULT NULL,
     PRIMARY KEY(_id)
     )
     `, async (err, result) => {
       if (err) {
         console.log(err)
       } else {
+        db.query(`SELECT * FROM users`, (err, result) => {
+          if (err) {
+            console.log(err)
+          } else {
+            if (result.length > 0) {
+              admin = false
+              admitted = false
+            }
+          }
+        })
         console.log(`User table created successfully!!!`)
         // res.status(200).json({ message: `User table created successfully!!!` })
 
@@ -266,7 +281,8 @@ const insertInfoController = async (req, res) => {
         console.log('SELECT ERROR FOR SIGNUP');
       } else {
         if (result.length === 0) {
-          await db.query(`INSERT INTO users(userId, firstName, lastName, fullName, company, companyName, email, password) VALUES('${uuid.v4()}', '${data.firstName}', '${data.lastName}', '${data.firstName} ${data.lastName}', '${data.company.trim().replaceAll(' ', '_')}', '${data.company.trim()}', '${data.email}', '${hashPassword}')`, async (err, result) => {
+          console.log('ADMIN', admin);
+          await db.query(`INSERT INTO users(userId, firstName, lastName, fullName, company, companyName, email, password, administrator, admitted) VALUES('${uuid.v4()}', '${data.firstName}', '${data.lastName}', '${data.firstName} ${data.lastName}', '${data.company.trim().replaceAll(' ', '_')}', '${data.company.trim()}', '${data.email}', '${hashPassword}', '${admin}', '${admitted}')`, async (err, result) => {
             if (err) {
               console.log(err);
               res.status(500).json('err')

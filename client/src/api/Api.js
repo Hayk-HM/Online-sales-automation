@@ -22,6 +22,7 @@ export const employeesApi = ({
   getAllEmployees(formData) { return instance.get(`/app/employees/${formData.company}`) },
   getEmployeeInformation(formData) { return instance.get(`/app/employees/${formData.companyName}/${formData.userId}`) },
   updateEmployeeInformation(formData) { return instance.put(`/app/employees/${formData.companyName}/${formData.userId}`, formData,) },
+  updateEmployeeInformationAdmin(formData) { return instance.put(`/app/employeesadmin/${formData.companyName}/${formData.userId}`, formData,) },
   uploadEmployeePhoto(formData) { return instance.post('app/employees/uploadPhoto', formData) },
   deleteEmployee(formData) { return instance.put(`/app/employees/deleteemployee?company=${formData.company}&id=${formData.id}`) },
 })

@@ -18,6 +18,11 @@
   display: grid;
   -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
-  gap: 10px 10px;
+  gap: 20px 0px;
+  margin-top: 10px;
+}
+
+.adminEmployee {
+  width: 90%;
 }
 /*# sourceMappingURL=AdminEmployees.css.map */

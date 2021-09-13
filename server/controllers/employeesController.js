@@ -66,7 +66,6 @@ const uploadEmployeeController = async (req, res) => {
   }
 }
 
-
 const updateEmployeeInformation = async (req, res) => {
   const db = mysql.createConnection({
     host: 'localhost',
@@ -107,4 +106,51 @@ const updateEmployeeInformation = async (req, res) => {
   }
 }
 
-module.exports = { employeesController, employeeInfoController, updateEmployeeInformation, uploadEmployeeController }
+const updateEmployeeInformationAdmin = (req, res) => {
+  const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'adminRoot',
+    database: req.body.companyName.trim().replaceAll(' ', '_')
+  })
+
+  const query = `UPDATE users SET 
+  firstName = '${req.body.firstName}',
+  lastName = '${req.body.lastName}',
+  fullName = '${req.body.firstName + " " + req.body.lastName}',
+  email = '${req.body.email}',
+  ${req.body.position ? `position = '${req.body.position}'` : `position = NULL`},
+  ${req.body.department ? `department = '${req.body.department}'` : `department = NULL`},
+  ${req.body.cellPhoneOne ? `cellPhoneOne = '${req.body.cellPhoneOne}'` : `cellPhoneOne = NULL`},
+  ${req.body.cellPhoneTwo ? `cellPhoneTwo = '${req.body.cellPhoneTwo}'` : `cellPhoneTwo = NULL`},
+  ${req.body.phone ? `phone = '${req.body.phone}'` : `phone = NULL`},
+  ${req.body.address ? `address = '${req.body.address}'` : `address = NULL`},
+  ${req.body.administrator ? `administrator = '${req.body.administrator}'` : `administrator = NULL`},
+  ${req.body.admitted ? `admitted = '${req.body.admitted}'` : `admitted = NULL`}
+        WHERE userId = '${req.params.userId}'`
+  try {
+    db.query(query, (err, result) => {
+      if (err) {
+        console.log(err)
+      } else {
+        db.query(`SELECT * FROM users WHERE userId = '${req.params.userId}'`, (err, result) => {
+          if (err) {
+            console.log(err)
+          } else {
+            res.status(200).json(result)
+          }
+        })
+      }
+    })
+  } catch (error) {
+
+  }
+}
+
+module.exports = {
+  employeesController,
+  employeeInfoController,
+  updateEmployeeInformation,
+  uploadEmployeeController,
+  updateEmployeeInformationAdmin
+}

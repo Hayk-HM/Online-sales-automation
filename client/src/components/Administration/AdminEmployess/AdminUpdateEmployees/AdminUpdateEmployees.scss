@@ -1,0 +1,60 @@
+.adminEmployeeSettings {
+  width: 50%;
+  height: calc(100% - 80px);
+  background-color: rgb(245, 245, 245);
+  position: absolute;
+  top: 80px;
+  right: 0;
+}
+
+.adminEmployeeSettingsWrapper {
+}
+
+.adminEmployeeSettingsHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.adminEmployeeSettingsTitle {
+  color: rgb(41, 105, 201);
+  font-size: 32px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.adminEmployeeSettingsClose {
+  font-size: 32px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.adminEmployeeSettingsForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.adminEmployeeSettingsField {
+  height: 30px;
+  margin: 10px;
+  background-color: rgb(245, 245, 245);
+  border: none;
+  border-bottom: 1px solid rgb(41, 105, 201);
+  outline: none;
+  font-size: 18px;
+}
+
+.adminEmployeeSettingsButtonWrapper {
+  margin: 10px;
+}
+
+.adminEmployeeSettingsButton {
+  width: 100px;
+  height: 50px;
+  border: none;
+  background-color: rgb(41, 105, 201);
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+}

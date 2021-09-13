@@ -16,7 +16,7 @@ const EmployeeSettings = () => {
   const [file, setFile] = useState(null)
   console.log(user.result[0].photo);
   const initialValues = {
-    photo: "",
+    photo: null,
     firstName: user.result[0].firstName,
     lastName: user.result[0].lastName || '',
     companyName: user.result[0].companyName || '',

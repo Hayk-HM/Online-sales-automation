@@ -17,6 +17,12 @@ const EmployeesReducer = (state = initialState, action) => {
         employee: { ...action.payload }
       }
     }
+    case 'UPDATE_EMPLOYEE': {
+      return {
+        ...state,
+        employee: { ...action.payload }
+      }
+    }
     default:
       return state
   }
