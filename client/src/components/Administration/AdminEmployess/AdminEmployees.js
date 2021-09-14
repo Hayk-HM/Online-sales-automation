@@ -4,6 +4,7 @@ import { getDepartmentsAction } from '../../../redux/actions/departmentActions'
 import { getAllEmployees } from '../../../redux/actions/employeesActions'
 import { getEmployeeInformation } from '../../../redux/actions/employeesActions'
 import Employee from '../../Employees/Employee/Employee'
+import { getPositionsAction } from '../../../redux/actions/positionActions'
 import './AdminEmployees.css'
 import AdminUpdateEmployees from './AdminUpdateEmployees/AdminUpdateEmployees'
 
@@ -15,10 +16,12 @@ const AdminEmployees = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { employee } = useSelector(state => state.employees)
   const { departments } = useSelector(state => state.department)
+  const { positions } = useSelector(state => state.position)
 
   useEffect(() => {
     dispatch(getAllEmployees({ company: user.company }))
     dispatch(getDepartmentsAction({ company: user.company }))
+    dispatch(getPositionsAction({ company: user.company }))
   }, [dispatch, user])
 
   const handleClick = (employee) => {
@@ -41,7 +44,7 @@ const AdminEmployees = () => {
         </div>
       </div>
       {
-        isOpen ? <AdminUpdateEmployees departments={departments} employee={employee} setIsOpen={setIsOpen} user={user} /> : null
+        isOpen ? <AdminUpdateEmployees positions={positions} departments={departments} employee={employee} setIsOpen={setIsOpen} user={user} /> : null
       }
     </div>
   )

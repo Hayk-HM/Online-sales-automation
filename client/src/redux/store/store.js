@@ -6,6 +6,7 @@ import EmployeesReducer from "../reducers/employessReducer";
 import { getExcelsReducer } from "../reducers/excelReducers";
 import { loadingReducer } from "../reducers/loadingReducers";
 import createNewOrderReducer from "../reducers/orderReducers";
+import positionReducers from "../reducers/positionReducers";
 import { getActiveUsers } from "../reducers/usersReducers";
 
 const rootReducer = combineReducers({
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   excels: getExcelsReducer,
   isLoading: loadingReducer,
   department: departmentReducer,
+  position: positionReducers,
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

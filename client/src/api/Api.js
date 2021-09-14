@@ -63,3 +63,11 @@ export const departmentApi = ({
   updateDepartment(formData) { return instance.put(`/app/department/updatedepartment?company=${formData.company}&id=${formData.id}`, formData) },
   deleteDepartment(formData) { return instance.put(`/app/department/deletedepartment?company=${formData.company}&id=${formData.id}`) },
 })
+
+export const employeesPositionApi = ({
+  createPosition(formData) { return instance.post(`/app/position/createposition`, formData) },
+  getPositions(formData) { return instance.get(`/app/position/getpositions?company=${formData.company}`) },
+  getPosition(formData) { return instance.get(`/app/position/getposition?company=${formData.company}&id=${formData.id}`) },
+  updatePosition(formData) { return instance.put(`/app/position/updateposition?company=${formData.company}&id=${formData.id}`, formData) },
+  deletePosition(formData) { return instance.post(`/app/position/deleteposition?company=${formData.company}&id=${formData.id}`) },
+})

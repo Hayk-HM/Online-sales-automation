@@ -198,19 +198,19 @@ const createTablesController = async (req, res) => {
                                           console.log(err)
                                         } else {
                                           console.log('Daily Web Order table created successfully!!!')
-                                          db.query(`CREATE TABLE IF NOT EXISTS departments(
+                                          await db.query(`CREATE TABLE IF NOT EXISTS departments(
                                             _id INT(50) NOT NULL AUTO_INCREMENT,
                                             address VARCHAR(255) NULL DEFAULT NULL,
                                             departmentName VARCHAR(255) NULL DEFAULT NULL,
                                             phoneNumber VARCHAR(255) NULL DEFAULT NULL,
                                             manager VARCHAR(255) NULL DEFAULT NULL,
                                             PRIMARY KEY(_id)
-                                          )`, (err, result) => {
+                                          )`, async (err, result) => {
                                             if (err) {
                                               console.log(err);
                                             } else {
                                               console.log('Departments table created successfully!!!')
-                                              db.query(`CREATE TABLE IF NOT EXISTS customers(
+                                              await db.query(`CREATE TABLE IF NOT EXISTS customers(
                                                 _id INT(50) NOT NULL AUTO_INCREMENT,
                                                 firstName VARCHAR(255) NULL DEFAULT NULL,
                                                 lastName VARCHAR(255) NULL DEFAULT NULL,
@@ -222,12 +222,12 @@ const createTablesController = async (req, res) => {
                                                 address VARCHAR(255) NULL DEFAULT NULL,
                                                 dateOfBirth VARCHAR(255) NULL DEFAULT NULL,
                                                 PRIMARY KEY(_id)
-                                              )`, (err, result) => {
+                                              )`, async (err, result) => {
                                                 if (err) {
                                                   console.log(err);
                                                 } else {
                                                   console.log('Customers table created successfully!!!')
-                                                  db.query(`CREATE TABLE IF NOT EXISTS employeesPositions(
+                                                  await db.query(`CREATE TABLE IF NOT EXISTS employeesPositions(
                                                     _id INT(50) NOT NULL AUTO_INCREMENT,
                                                     position VARCHAR(255) NULL DEFAULT NULL,
                                                     PRIMARY KEY(_id)

@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import AdminEmployees from '../AdminEmployess/AdminEmployees'
 import Department from '../Department/Department'
+import EmployeesPosition from '../EmployeesPosition/EmployeesPosition'
 import ImportExcelBalance from '../ImportExcelBalance/ImportExcelBalance'
 import ImportExcelWebOrder from '../ImportExcelWebOrder/ImportExcelWebOrder'
 import OrderRequestColumns from '../OrderRequestColumns/OrderRequestColumns'
@@ -19,6 +20,7 @@ const AdministrationFeed = () => {
           <Route path='/administrationpanel/importexcelweborder' render={() => <ImportExcelWebOrder />} />
           <Route path='/administrationpanel/department' render={() => <Department />} />
           <Route path='/administrationpanel/employees' render={() => <AdminEmployees />} />
+          <Route path='/administrationpanel/position' render={() => <EmployeesPosition />} />
         </Switch>
       </div>
     </div>

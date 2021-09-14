@@ -1,6 +1,6 @@
 .adminEmployeeSettings {
   width: 50%;
-  height: calc(100% - 80px);
+  height: calc(100vh - 80px);
   background-color: rgb(245, 245, 245);
   position: absolute;
   top: 80px;
@@ -31,6 +31,7 @@
 .adminEmployeeSettingsForm {
   display: flex;
   flex-direction: column;
+  background-color: rgb(245, 245, 245);
 }
 
 .adminEmployeeSettingsForm > span {

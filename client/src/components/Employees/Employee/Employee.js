@@ -9,8 +9,10 @@ import avatar from '../../../img/userAvatar.png'
 const Employee = ({ employee }) => {
 
   const activeUsers = useSelector(state => state.activeUsers)
-  const allUsers = useSelector(state => state.employees.employees)
-
+  const { departments } = useSelector(state => state.department)
+  const { positions } = useSelector(state => state.position)
+  const department = departments.filter(elem => elem._id === employee.departmentId)
+  const position = positions.filter(elem => elem._id === employee.positionId)
   return (
     <div className='employee'>
       <div className='employeeWrapper'>
@@ -25,8 +27,8 @@ const Employee = ({ employee }) => {
 
         <div className='employeeInfoPartOne'>
           <div className='employeeFullName'>{`${employee.firstName} ${employee.lastName}`}</div>
-          <div className='employeeOwnPosition'>{employee.position}</div>
-          <div className='employeeDepartment'>{employee.department}</div>
+          <div className='employeeOwnPosition'>{position[0]?.position}</div>
+          <div className='employeeDepartment'>{department[0]?.departmentName}</div>
         </div>
         <div className='employeeInfoPartTwo'>
           {

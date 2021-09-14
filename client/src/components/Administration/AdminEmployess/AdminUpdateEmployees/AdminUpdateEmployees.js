@@ -5,8 +5,7 @@ import { RiDeleteBinLine } from 'react-icons/ri'
 import { getAllEmployees, getEmployeeInformation, updateEmployeeFormData, updateEmployee, deleteEmployee } from '../../../../redux/actions/employeesActions'
 import './AdminUpdateEmployees.css'
 
-const AdminUpdateEmployees = ({ employee, setIsOpen, user, departments }) => {
-  console.log(departments);
+const AdminUpdateEmployees = ({ employee, setIsOpen, user, departments, positions }) => {
   const dispatch = useDispatch()
 
   const initialValues = {
@@ -16,7 +15,7 @@ const AdminUpdateEmployees = ({ employee, setIsOpen, user, departments }) => {
     address: employee[0]?.address,
     cellPhoneOne: employee[0]?.cellPhoneOne,
     cellPhoneTwo: employee[0]?.cellPhoneTwo,
-    position: employee[0]?.position,
+    positionId: employee[0]?.positionId || '',
     departmentId: employee[0]?.departmentId || '',
     companyName: employee[0]?.companyName,
     administrator: employee[0]?.administrator,
@@ -48,7 +47,8 @@ const AdminUpdateEmployees = ({ employee, setIsOpen, user, departments }) => {
           enableReinitialize
           initialValues={initialValues}
           onSubmit={async (values, actions) => {
-            await dispatch(updateEmployee({ ...values, department: values.departmentId - 1 !== -1 ? departments[values.departmentId - 1].departmentName : "", departmentId: values.departmentId, userId: employee[0].userId, companyName: employee[0].companyName }))
+            console.log('values', values);
+            await dispatch(updateEmployee({ ...values, userId: employee[0].userId, companyName: employee[0].companyName }))
             await dispatch(getAllEmployees({ company: employee[0].company }))
             actions.resetForm()
           }}
@@ -62,9 +62,13 @@ const AdminUpdateEmployees = ({ employee, setIsOpen, user, departments }) => {
                 <span>Address</span><Field className='adminEmployeeSettingsField' type='text' name='address' placeholder='Address' />
                 <span>Cell phone number</span><Field className='adminEmployeeSettingsField' type='text' name='cellPhoneOne' placeholder='Cell phone one' />
                 <span>Cell phone number</span><Field className='adminEmployeeSettingsField' type='text' name='cellPhoneTwo' placeholder='Cell phone two' />
-                <span>position</span><Field className='adminEmployeeSettingsField' type='text' name='position' placeholder='Position' />
+                <span>position</span><Field className='adminEmployeeSettingsField' as='select' name='positionId'>
+                  <option value=''>-</option>
+                  {
+                    positions.map(position => <option value={position._id}>{position.position}</option>)
+                  }
+                </Field>
                 <span>Department</span><Field className='adminEmployeeSettingsField' as='select' name='departmentId'>
-
                   <option value='' default>-</option>
                   {
                     departments.map(department => <option value={department._id}>{department.departmentName}</option>)

@@ -1,0 +1,26 @@
+.position {
+}
+
+.positionWrapper {
+  display: flex;
+  margin: 20px;
+}
+
+.positionName {
+  font-size: 24px;
+  color: rgb(41, 105, 201);
+  margin-right: 20px;
+}
+
+.positionEdit {
+  font-size: 24px;
+  color: rgb(41, 105, 201);
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.positionDelete {
+  font-size: 24px;
+  color: red;
+  cursor: pointer;
+}

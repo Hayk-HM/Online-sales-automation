@@ -120,6 +120,7 @@ const updateEmployeeInformationAdmin = async (req, res) => {
   fullName = '${req.body.firstName + " " + req.body.lastName}',
   email = '${req.body.email}',
   ${req.body.position ? `position = '${req.body.position}'` : `position = NULL`},
+  ${req.body.positionId ? `positionId = '${req.body.positionId}'` : `positionId = NULL`},
   ${req.body.department ? `department = '${req.body.department}'` : `department = NULL`},
   ${req.body.departmentId ? `departmentId = '${req.body.departmentId}'` : `departmentId = NULL`},
   ${req.body.cellPhoneOne ? `cellPhoneOne = '${req.body.cellPhoneOne}'` : `cellPhoneOne = NULL`},
