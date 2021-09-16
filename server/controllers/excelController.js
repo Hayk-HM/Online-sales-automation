@@ -236,6 +236,28 @@ const readExcelFileWebOrder = async (req, res) => {
   }
 }
 
+const getDailyWebOrdersController = async (req, res) => {
+  const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'adminRoot',
+    database: req.query.company.trim().replaceAll(' ', '_')
+  })
+  const query = `SELECT * FROM dailyWebOrder`
+  try {
+    db.query(query, (err, result) => {
+      if (err) {
+        console.log(err)
+        res.status(500).json({ message: 'Something went wrong' })
+      } else {
+        res.status(200).json(result)
+      }
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 
 module.exports = {
   uploadExcelStockBalanceController,
@@ -245,5 +267,6 @@ module.exports = {
   deleteFileWebOrder,
   getWebOrderExcelsController,
   readExcelFileWebOrder,
-  uploadExcelWebOrderController
+  uploadExcelWebOrderController,
+  getDailyWebOrdersController,
 }

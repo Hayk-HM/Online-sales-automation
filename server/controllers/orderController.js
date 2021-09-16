@@ -11,10 +11,8 @@ const createNewOrderController = async (req, res) => {
   })
   try {
     await db.query(`INSERT INTO orders 
-    ( ${Object.keys(req.body)}
-      ) VALUES 
-    ( ${Object.keys(req.body).map(elem => req.body[elem] ? typeof (req.body[elem]) === 'object' ? `'${JSON.stringify(req.body[elem])}'` : `'${req.body[elem]}'` : `NULL`)} 
-      )`, (err, result) => {
+    (${Object.keys(req.body)}) VALUES 
+    (${Object.keys(req.body).map(elem => req.body[elem] ? typeof (req.body[elem]) === 'object' ? `'${JSON.stringify(req.body[elem])}'` : `'${req.body[elem]}'` : `NULL`)})`, (err, result) => {
       if (err) {
         console.log(err);
       } else {

@@ -85,7 +85,7 @@ const createTablesController = async (req, res) => {
 
         await db.query(`CREATE TABLE IF NOT EXISTS orders (
           _id INT(50) NOT NULL AUTO_INCREMENT,
-          createDate DATETIME NULL DEFAULT NULL,
+          createDate VARCHAR(255) NULL DEFAULT NULL,
           orderCreator VARCHAR(255) NULL DEFAULT NULL,
           company VARCHAR(255) NULL DEFAULT NULL,
           user_id VARCHAR(255) NULL DEFAULT NULL,

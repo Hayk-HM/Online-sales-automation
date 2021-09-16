@@ -7,7 +7,8 @@ const {
   getWebOrderExcelsController,
   readExcelFileWebOrder,
   uploadExcelWebOrderController,
-  deleteFileWebOrder } = require('../controllers/excelController')
+  deleteFileWebOrder,
+  getDailyWebOrdersController } = require('../controllers/excelController')
 
 const excelRouter = express.Router()
 
@@ -19,5 +20,6 @@ excelRouter.get('/getdailybalance', readExcelFileBalance)
 excelRouter.get('/getdailyweborder', readExcelFileWebOrder)
 excelRouter.put('/deleteexcelbalance', deleteFileBalance)
 excelRouter.put('/deleteexcelweborder', deleteFileWebOrder)
+excelRouter.get('/getdailyweborders', getDailyWebOrdersController)
 
 module.exports = { excelRouter }

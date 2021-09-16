@@ -2,6 +2,7 @@ const initialState = {
   excels: [],
   excelWebOrder: [],
   dailyBalance: [],
+  dailyWebOrders: [],
 }
 
 export const getExcelsReducer = (state = initialState, action) => {
@@ -22,6 +23,12 @@ export const getExcelsReducer = (state = initialState, action) => {
       return {
         ...state,
         dailyBalance: [...action.payload]
+      }
+    }
+    case 'GET_DAILY_WEB_ORDERS': {
+      return {
+        ...state,
+        dailyWebOrders: [...action.payload]
       }
     }
 

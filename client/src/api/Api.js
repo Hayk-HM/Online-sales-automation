@@ -54,6 +54,7 @@ export const excelApi = ({
   getDailyWebOrder(formData) { return instance.get(`app/excel/getdailyweborder?company=${formData.company}`) },
   deleteExcelBalance(formData) { return instance.put(`app/excel/deleteexcelbalance`, formData) },
   deleteExcelWebOrder(formData) { return instance.put(`app/excel/deleteexcelweborder`, formData) },
+  getDailyWebOrders(formData) { return instance.get(`/app/excel/getdailyweborders?company=${formData.company}`) }
 })
 
 export const departmentApi = ({

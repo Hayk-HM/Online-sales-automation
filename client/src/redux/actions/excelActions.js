@@ -4,6 +4,7 @@ const excelActions = {
   getExcels: (formData) => ({ type: 'GET_EXCELS', payload: formData }),
   getExcelsWebOrder: (formData) => ({ type: 'GET_EXCELS_WEB_ORDER', payload: formData }),
   getDailyBalance: (formData) => ({ type: 'GET_DAILY_BALANCE', payload: formData }),
+  getDailyWebOrders: (formData) => ({ type: 'GET_DAILY_WEB_ORDERS', payload: formData }),
 }
 
 
@@ -77,3 +78,11 @@ export const deleteExcelWebOrderAction = (formData) => async (dispatch) => {
   }
 }
 
+export const getDailyWebOrdersAction = (formData) => async (dispatch) => {
+  try {
+    const { data } = await excelApi.getDailyWebOrders(formData)
+    dispatch(excelActions.getDailyWebOrders(data))
+  } catch (error) {
+    console.log('getDailyWebOrdersAction', error);
+  }
+}

@@ -50,6 +50,7 @@ const OrderNew = () => {
                 sendingObj[elem] = values[elem]
               }
             })
+            console.log('values.createDate', values);
             await dispatch(createNewOrder({ ...sendingObj, company: user.company, user_id: user._id, userId: user.userId, createDate: values.createDate, orderCreator: values.orderCreator }))
             actions.resetForm()
           }}
