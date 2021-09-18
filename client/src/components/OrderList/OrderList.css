@@ -38,4 +38,37 @@
   background-color: #04aa6d;
   color: white;
 }
+
+.orderListForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.orderListFormField {
+  height: 30px;
+  font-size: 18px;
+}
+
+.orderListButtonWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 20px;
+}
+
+.orderListButton {
+  width: 100px;
+  height: 30px;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  background-color: #2969c9;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+}
 /*# sourceMappingURL=OrderList.css.map */

@@ -2,6 +2,7 @@ import { orderApi, tableColumnsApi } from "../../api/Api";
 
 const orderActions = {
   createNewOrder: (formData) => ({ type: 'CREATE_NEW_ORDER', payload: formData }),
+  createNewAllOrder: (formData) => ({ type: 'CREATE_NEW_ALL_ORDER', payload: formData }),
   getAllOrders: (formData) => ({ type: 'GET_ALL_ORDERS', payload: formData }),
   getOneOrder: (formData) => ({ type: 'GET_ONE_ORDER', payload: formData }),
   getOrderColumns: (formData) => ({ type: 'GET_ORDER_COLUMNS', payload: formData }),
@@ -10,18 +11,29 @@ const orderActions = {
   getMultiOrdersColumnsAdmissibility: (formData) => ({ type: 'GET_MULTI_ORDERS_COLUMNS_ADMISSIBILITY', payload: formData })
 }
 
+let newOrderId
 export const createNewOrder = (formData) => async (dispatch) => {
   try {
     const { data } = await orderApi.createNewOrder(formData)
+    newOrderId = data.insertId
     dispatch(orderActions.createNewOrder(data))
   } catch (error) {
     console.log('createNewOrder', error);
   }
 }
 
+export const createNewAllOrder = (formData) => async (dispatch) => {
+  try {
+    const { data } = await orderApi.createNewAllOrder({ ...formData, newOrderId })
+    //dispatch(orderActions.createNewAllOrder(data))
+  } catch (error) {
+    console.log('createNewAllOrder', error);
+  }
+}
+
+
 export const getAllOrders = (formData) => async (dispatch) => {
   try {
-
     const { data } = await orderApi.getAllOrders(formData)
     dispatch(orderActions.getAllOrders(data))
   } catch (error) {

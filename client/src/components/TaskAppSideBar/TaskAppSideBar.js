@@ -2,7 +2,7 @@ import React from 'react'
 import { BiTask, BiChat, BiUser } from 'react-icons/bi'
 import { FiSettings } from 'react-icons/fi'
 import { Link, useLocation } from 'react-router-dom'
-import { FaPenNib } from 'react-icons/fa'
+import { FaPenNib, FaTelegramPlane } from 'react-icons/fa'
 import { RiAdminLine } from 'react-icons/ri'
 import { CgList } from 'react-icons/cg'
 import { MdBorderColor } from 'react-icons/md'
@@ -49,6 +49,13 @@ const TaskAppSideBar = () => {
           <div className={`taskAppSideBarTasks ${activeField === 'chat' ? 'activeField' : 'notActiveField'}`}>
             <div className='taskAppSideBarLogo'><BiChat size={20} /></div>
             <div className='taskAppSideBarName'>Chat</div>
+          </div>
+        </Link>
+
+        <Link to='/app/telegram'>
+          <div className={`taskAppSideBarTasks ${activeField === 'telegram' ? 'activeField' : 'notActiveField'}`}>
+            <div className='taskAppSideBarLogo'><FaTelegramPlane size={20} /></div>
+            <div className='taskAppSideBarName'>Telegram</div>
           </div>
         </Link>
 

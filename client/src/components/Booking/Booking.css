@@ -36,4 +36,45 @@
 .bookingId {
   margin-right: 20px;
 }
+
+.bookingForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.bookingFormField {
+  height: 30px;
+  font-size: 18px;
+}
+
+.bookingFormButtonWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 20px;
+}
+
+.bookingButton {
+  width: 100px;
+  height: 30px;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  background-color: #2969c9;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+}
+
+.tableRow:hover {
+  background-color: grey;
+}
+
+.tableData:hover {
+  background-color: yellow;
+}
 /*# sourceMappingURL=Booking.css.map */

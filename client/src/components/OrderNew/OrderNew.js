@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Formik, Form, Field, FieldArray } from 'formik'
+import * as Yup from 'yup'
 import './OrderNew.css'
-import { createNewOrder, getMultiOrdersColumnsAdmissibility, getOrdersAdmissibility } from '../../redux/actions/orderActions'
+import { createNewAllOrder, createNewOrder, getMultiOrdersColumnsAdmissibility, getOrdersAdmissibility } from '../../redux/actions/orderActions'
 
 const OrderNew = () => {
 
@@ -36,12 +37,16 @@ const OrderNew = () => {
         <Formik
           enableReinitialize
           initialValues={initialValues}
+          validationSchema={
+            Yup.object().shape({
+              createDate: Yup.string().max(255).required('Create Date is required'),
+            })
+          }
           onSubmit={async (values, actions) => {
             // dispatch(createNewOrder({ ...values, company: user.company, user_id: user._id, userId: user.userId }))
             const needFields = [...newMultiOrdersAdmissibility.map(elem => elem.dbColumnName), ...newOrdersAdmissibility.map(elem => elem.dbColumnName)]
             const sendingObj = {}
             needFields.map(elem => sendingObj[elem] = values[elem])
-
             needFields.map(elem => {
               if (typeof (sendingObj[elem]) === 'object') {
                 const subFields = Object.keys(sendingObj[elem][0])
@@ -50,8 +55,22 @@ const OrderNew = () => {
                 sendingObj[elem] = values[elem]
               }
             })
-            console.log('values.createDate', values);
+            const arrAllOrders = []
+            const forAllOrders = Object.keys(values)
+            forAllOrders.map(elem => {
+              if (typeof (values[elem]) === 'object') {
+                let subArrays = Object.keys(values[elem][0])
+                if (values[elem][0][subArrays[0]] === '') {
+                  return
+                } else {
+                  arrAllOrders.push(...values[elem])
+                }
+              }
+            }
+            )
+            console.log('arrAllOrders', arrAllOrders);
             await dispatch(createNewOrder({ ...sendingObj, company: user.company, user_id: user._id, userId: user.userId, createDate: values.createDate, orderCreator: values.orderCreator }))
+            await dispatch(createNewAllOrder({ product: arrAllOrders, company: user.company, user_id: user._id, userId: user.userId, createDate: values.createDate, orderCreator: values.orderCreator, id: values.Id }))
             actions.resetForm()
           }}
         >
@@ -60,6 +79,7 @@ const OrderNew = () => {
 
               <Form className='orderForm'>
                 <div className='orderField'><span className='orderSpan'>Create date</span><Field name='createDate' placeholder='create date' type='date' className='orderInput' /></div>
+                {touched.createDate && errors.createDate && <div className='signInError'>{errors.createDate}</div>}
                 <div lassName='orderField'><span className='orderSpan'>Order creator</span><Field disabled name='orderCreator' placeholder='order creator' type='text' className='orderInput' /></div>
                 {
                   newOrdersAdmissibility.map(elem =>
@@ -76,35 +96,9 @@ const OrderNew = () => {
                       <span className='orderSpanTitle'>{order?.columnName}</span>
                       {
                         subField.map(subOrder => {
-
-                          // if (!values[order?.columnName]) return
-                          // values[order?.columnName][0][subOrder] = values[subOrder]
-
                           return <div>
                             <span className='orderSpan'>{subOrder}</span>
                             <Field name={subOrder} placeholder={subOrder} type='text' className='orderInput' />
-                            {/* <FieldArray name={subOrder}>
-                              {
-                                (fieldArrayProps) => {
-                                  console.log(fieldArrayProps);
-                                  const { push, remove, form } = fieldArrayProps
-                                  const { values } = form
-                                  const { Product } = values
-
-                                  return <div>
-                                    {
-                                      Product?.map((pr, index) => (
-                                        <div key={index}>
-                                          <Field name={`pr${index}`} />
-                                          <button type='button' onClick={() => remove(index)}> - </button>
-                                          <button type='button' onClick={() => push('')}> + </button>
-                                        </div>
-                                      ))
-                                    }
-                                  </div>
-                                }
-                              }
-                            </FieldArray> */}
                           </div>
                         })
                       }

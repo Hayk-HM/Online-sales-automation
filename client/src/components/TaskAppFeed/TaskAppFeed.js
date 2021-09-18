@@ -8,6 +8,7 @@ import OrderNew from '../OrderNew/OrderNew'
 import OrderList from '../OrderList/OrderList'
 import './TaskAppFeed.css'
 import Booking from '../Booking/Booking'
+import TelegramBot from '../TelegramBot/TelegramBot'
 
 const TaskAppFeed = () => {
   return (
@@ -20,6 +21,7 @@ const TaskAppFeed = () => {
         <Route path='/app/neworder' render={() => <OrderNew />} />
         <Route path='/app/orderlist' render={() => <OrderList />} />
         <Route path='/app/booking' render={() => <Booking />} />
+        <Route path='/app/telegram' render={() => <TelegramBot />} />
       </Switch>
     </div>
   )

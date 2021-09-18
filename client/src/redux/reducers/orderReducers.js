@@ -15,9 +15,7 @@ const createNewOrderReducer = (state = initialState, action) => {
         newOrder: { ...action.payload }
       }
     }
-
     case 'GET_ALL_ORDERS': {
-
       return {
         ...state,
         orders: [...action.payload]

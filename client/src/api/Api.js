@@ -29,8 +29,10 @@ export const employeesApi = ({
 
 export const orderApi = ({
   createNewOrder(formData) { return instance.post('/app/order/createneworder', formData) },
-  getAllOrders(formData) { return instance.get(`/app/order/getorders?company=${formData.company}`) },
+  createNewAllOrder(formData) { return instance.post('/app/order/createnewallorder', formData) },
+  getAllOrders(formData) { return instance.get(`/app/order/getorders?company=${formData.company}&createDate=${formData.createDate}`) },
   getOneOrder(formData) { return instance.get(`/app/order/getorders?company=${formData.company}&_id=${formData._id}`) },
+  // getOrdersWithDate(formData) { return instance.get(`/app/order/getorderswithdate?company=${formData.company}&createDate=${formData.createDate}`) }
 })
 
 export const tableColumnsApi = ({
@@ -54,7 +56,7 @@ export const excelApi = ({
   getDailyWebOrder(formData) { return instance.get(`app/excel/getdailyweborder?company=${formData.company}`) },
   deleteExcelBalance(formData) { return instance.put(`app/excel/deleteexcelbalance`, formData) },
   deleteExcelWebOrder(formData) { return instance.put(`app/excel/deleteexcelweborder`, formData) },
-  getDailyWebOrders(formData) { return instance.get(`/app/excel/getdailyweborders?company=${formData.company}`) }
+  getDailyWebOrders(formData) { return instance.get(`/app/excel/getdailyweborders?company=${formData.company}&createDate=${formData.createDate}`) }
 })
 
 export const departmentApi = ({
@@ -71,4 +73,8 @@ export const employeesPositionApi = ({
   getPosition(formData) { return instance.get(`/app/position/getposition?company=${formData.company}&id=${formData.id}`) },
   updatePosition(formData) { return instance.put(`/app/position/updateposition?company=${formData.company}&id=${formData.id}`, formData) },
   deletePosition(formData) { return instance.post(`/app/position/deleteposition?company=${formData.company}&id=${formData.id}`) },
+})
+
+export const ordersWithBalance = ({
+  getOrdersWithBalance(formData) { return instance.get(`/app/getorderswithbalance/getorders?company=${formData.company}&createDate=${formData.createDate}`) }
 })
