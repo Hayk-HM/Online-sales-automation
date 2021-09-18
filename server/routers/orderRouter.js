@@ -1,5 +1,6 @@
 const express = require('express')
 const { createNewOrderController,
+  createNewAllOrderController,
   getOrdersController,
   getOrderColumnsController,
   deleteOrderColumnsController,
@@ -9,12 +10,15 @@ const { createNewOrderController,
   changeOrdersVisibilityController,
   changeMultiOrdersVisibilityController,
   getmultiorderscolumnsadmissibilityController,
-  addMultiOrdersColumnsController } = require('../controllers/orderController')
+  addMultiOrdersColumnsController,
+  getOrdersWithDate } = require('../controllers/orderController')
 
 const orderRouter = express.Router()
 
 orderRouter.post('/createneworder', createNewOrderController)
+orderRouter.post('/createnewallorder', createNewAllOrderController)
 orderRouter.get('/getorders', getOrdersController)
+orderRouter.get('/getorderswithdate', getOrdersWithDate)
 orderRouter.get('/getordercolumns', getOrderColumnsController)
 orderRouter.put('/deleteordercolumn', deleteOrderColumnsController)
 orderRouter.put('/deletemultiordercolumn', deleteMultiOrderColumnsController)

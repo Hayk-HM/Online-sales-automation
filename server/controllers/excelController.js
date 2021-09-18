@@ -148,16 +148,27 @@ const deleteFileWebOrder = async (req, res) => {
   const pathExcel = path.join(__dirname, '..', 'public', 'excel', `${req.body.name}`)
   const query = `DELETE FROM webOrderExcel WHERE _id=${req.body.id}`
   const queryDeleteDailyWebOrder = `DELETE FROM dailyWebOrder WHERE webOrderExcelId=${req.body.id}`
+  const queryDeleteFromAllOrders = `DELETE FROM allOrders WHERE webOrderExcelId=${req.body.id}`
   try {
     await fs.unlinkSync(pathExcel)
-    await db.query(query, (err, result) => {
+    await db.query(query, async (err, result) => {
       if (err) {
         console.log(err);
       } else {
         console.log('Deleted successfully!!!');
-        db.query(queryDeleteDailyWebOrder, (err, result) => {
-          if (err) throw err
-          console.log('Daily web order deleted successfully!!!');
+        await db.query(queryDeleteDailyWebOrder, async (err, result) => {
+          if (err) {
+            console.log(err)
+          } else {
+            console.log('Daily web order deleted successfully!!!');
+            await db.query(queryDeleteFromAllOrders, (err, result) => {
+              if (err) {
+                console.log(err)
+              } else {
+                console.log('All orders deleted successfully!!!');
+              }
+            })
+          }
         })
       }
     })
@@ -190,15 +201,14 @@ const readExcelFileBalance = async (req, res) => {
         console.log(err)
       } else {
         console.log('Balance table  truncated!!!')
-        const newArr = data.filter(elem => elem['Артикул'] === 8713)
-        data.map(async elem => await db.query(`INSERT INTO dailyBalance (balance) VALUES ('${JSON.stringify(elem)}')`, (err, result) => {
-          if (err) {
-            console.log(err);
-          }
+        data.map(async elem => {
+          await db.query(`INSERT INTO dailyBalance (code, balance) VALUES ('${elem['Артикул']}','${JSON.stringify(elem)}')`, (err, result) => {
+            if (err) {
+              console.log(err);
+            }
+          })
         })
-        )
       }
-
     })
     res.status(200).json({ message: 'DONE!!!' })
   } catch (error) {
@@ -222,13 +232,16 @@ const readExcelFileWebOrder = async (req, res) => {
 
   // const query = `INSERT INTO dailyBalance (balance) VALUES ('${[data[0], data[1], data[2]]}')`
   try {
-    const newArr = data.filter(elem => elem['Артикул'] === 8713)
     const today = new Date();
-    data.map(async elem => await db.query(`INSERT INTO dailyWebOrder (createDate,balance, webOrderExcelId) VALUES ('${today.getFullYear() + "-" + ((today.getMonth() + 1) <= 9 ? "0" + (today.getMonth() + 1) : (today.getMonth() + 1)) + "-" + (today.getDate() <= 9 ? ("0" + today.getDate()) : today.getDate())}','${JSON.stringify(elem)}', '${webOrderInsertId}')`, (err, result) => {
+    data.map(async elem => await db.query(`INSERT INTO dailyWebOrder (createDate,balance, webOrderExcelId) VALUES ('${today.getFullYear() + "-" + ((today.getMonth() + 1) <= 9 ? "0" + (today.getMonth() + 1) : (today.getMonth() + 1)) + "-" + (today.getDate() <= 9 ? ("0" + today.getDate()) : today.getDate())}','${JSON.stringify(elem)}', '${webOrderInsertId}')`, async (err, result) => {
       if (err) {
         console.log(err);
       }
     })
+    )
+    await data.map(elem => db.query(`INSERT INTO allOrders (createDate,code,id,productName,webOrderExcelId) 
+        VALUES 
+        ('${today.getFullYear() + "-" + ((today.getMonth() + 1) <= 9 ? "0" + (today.getMonth() + 1) : (today.getMonth() + 1)) + "-" + (today.getDate() <= 9 ? ("0" + today.getDate()) : today.getDate())}','${elem.Code}','${elem.ID}', '${elem.Order}','${webOrderInsertId}')`)
     )
     res.status(200).json({ message: 'DONE!!!' })
   } catch (error) {
@@ -243,7 +256,7 @@ const getDailyWebOrdersController = async (req, res) => {
     password: 'adminRoot',
     database: req.query.company.trim().replaceAll(' ', '_')
   })
-  const query = `SELECT * FROM dailyWebOrder`
+  const query = `SELECT * FROM dailyWebOrder WHERE createDate='${req.query.createDate}'`
   try {
     db.query(query, (err, result) => {
       if (err) {

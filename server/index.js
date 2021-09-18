@@ -9,6 +9,8 @@ const { orderRouter } = require('./routers/orderRouter')
 const { excelRouter } = require('./routers/excelRouter')
 const { departmentRouter } = require('./routers/departmentRouter')
 const { positionRouter } = require('./routers/positionRouter')
+const { getOrdersWithBalanceRouter } = require('./routers/ordersWithBalanceRouter')
+//const { bot } = require('./telegram')
 
 dotenv.config()
 const app = express()
@@ -55,6 +57,7 @@ app.use('/app/order', orderRouter)
 app.use('/app/excel', excelRouter)
 app.use('/app/department', departmentRouter)
 app.use('/app/position', positionRouter)
+app.use('/app/getorderswithbalance', getOrdersWithBalanceRouter)
 
 const PORT = process.env.PORT || 5000
 server.listen(PORT, (err) => {

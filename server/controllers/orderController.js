@@ -1,8 +1,6 @@
 const mysql = require('mysql')
 
 const createNewOrderController = async (req, res) => {
-  console.log(req.body);
-  console.log(Object.keys(req.body));
   const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -24,6 +22,29 @@ const createNewOrderController = async (req, res) => {
   }
 }
 
+const createNewAllOrderController = async (req, res) => {
+  console.log("info", req.body.product);
+  const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'adminRoot',
+    database: req.body.company.trim().replaceAll(' ', '_')
+  })
+  try {
+    req.body.product.map(async elem => await db.query(`INSERT INTO allOrders 
+  (createDate, id, code,productName,color, size, orderId)
+  VALUES
+  ('${req.body.createDate}','${req.body.id}',${Object.keys(elem).map(el => `'${elem[el]}'`)}, '${req.body.newOrderId}')`, async (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+    })
+    )
+  } catch (error) {
+    console.log('createNewOrderController', error);
+  }
+}
+
 const getOrdersController = async (req, res) => {
   const db = mysql.createConnection({
     host: 'localhost',
@@ -32,7 +53,7 @@ const getOrdersController = async (req, res) => {
     database: req.query.company.trim().replaceAll(' ', '_')
   })
 
-  const getAllOrders = `SELECT * FROM orders ORDER BY createDate`
+  const getAllOrders = `SELECT * FROM orders WHERE createDate = '${req.query.createDate}' ORDER BY createDate`
   const getOrder = `SELECT * FROM orders WHERE orders._id = '${req.query._id}' `
 
   let query = req.query._id ? getOrder : getAllOrders
@@ -41,6 +62,28 @@ const getOrdersController = async (req, res) => {
     await db.query(query, (err, result) => {
       if (err) {
         console.log(err);
+      } else {
+        res.status(200).json(result)
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const getOrdersWithDate = async (req, res) => {
+  const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'adminRoot',
+    database: req.query.company.trim().replaceAll(' ', '_')
+  })
+  const query = `SELECT * FROM orders WHERE createDate='${req.query.createDate}'`
+  try {
+    db.query(query, (err, result) => {
+      if (err) {
+        res.status(500).json({ message: 'Something went wrong' })
+        console.log(err)
       } else {
         res.status(200).json(result)
       }
@@ -77,7 +120,6 @@ const getOrderColumnsController = async (req, res) => {
 }
 
 const deleteOrderColumnsController = async (req, res) => {
-  console.log(req.body);
   const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -110,7 +152,6 @@ const deleteOrderColumnsController = async (req, res) => {
 }
 
 const deleteMultiOrderColumnsController = async (req, res) => {
-  console.log(req.body);
   const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -142,7 +183,6 @@ const deleteMultiOrderColumnsController = async (req, res) => {
 }
 
 const addOrderColumnsController = async (req, res) => {
-  console.log('sfsddsds', req.body);
   const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -172,7 +212,6 @@ const addOrderColumnsController = async (req, res) => {
 }
 
 const addMultiOrdersColumnsController = async (req, res) => {
-  console.log(req.body);
   const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -293,6 +332,7 @@ const getmultiorderscolumnsadmissibilityController = async (req, res) => {
 
 module.exports = {
   createNewOrderController,
+  createNewAllOrderController,
   getOrdersController,
   getOrderColumnsController,
   deleteOrderColumnsController,
@@ -302,5 +342,6 @@ module.exports = {
   changeOrdersVisibilityController,
   changeMultiOrdersVisibilityController,
   getmultiorderscolumnsadmissibilityController,
-  addMultiOrdersColumnsController
+  addMultiOrdersColumnsController,
+  getOrdersWithDate
 }

@@ -168,6 +168,7 @@ const createTablesController = async (req, res) => {
                               console.log('Excel table created successfully!!!')
                               await db.query(`CREATE TABLE IF NOT EXISTS dailyBalance (
                                 _id INT(50) NOT NULL AUTO_INCREMENT,
+                                code VARCHAR(255) NULL DEFAULT NULL,
                                 balance VARCHAR(5000) NULL DEFAULT NULL,
                                 PRIMARY KEY(_id)
                               )`, async (err, result) => {
@@ -231,7 +232,31 @@ const createTablesController = async (req, res) => {
                                                     _id INT(50) NOT NULL AUTO_INCREMENT,
                                                     position VARCHAR(255) NULL DEFAULT NULL,
                                                     PRIMARY KEY(_id)
-                                                  )`,)
+                                                  )`, async (err, result) => {
+                                                    if (err) {
+                                                      console.log(err)
+                                                    } else {
+                                                      console.log('Employees positions table created successfully!!!')
+                                                      await db.query(`CREATE TABLE IF NOT EXISTS allOrders(
+                                                        _id INT(50) NOT NULL AUTO_INCREMENT,
+                                                        createDate VARCHAR(500) NULL DEFAULT NULL,
+                                                        code VARCHAR(500) NULL DEFAULT NULL,
+                                                        id VARCHAR(500) NULL DEFAULT NULL,
+                                                        productName VARCHAR(500) NULL DEFAULT NULL,
+                                                        color VARCHAR(500) NULL DEFAULT NULL,
+                                                        size VARCHAR(500) NULL DEFAULT NULL,
+                                                        webOrderExcelId VARCHAR(500) NULL DEFAULT NULL,
+                                                        orderId VARCHAR(500) NULL DEFAULT NULL,
+                                                        PRIMARY KEY(_id)
+                                                      )`, async (err, result) => {
+                                                        if (err) {
+                                                          console.log(err)
+                                                        } else {
+                                                          console.log('All Orders table created successfully!!!')
+                                                        }
+                                                      })
+                                                    }
+                                                  })
                                                 }
                                               })
                                             }
