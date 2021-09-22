@@ -1,0 +1,31 @@
+.orderStatusName {
+  font-size: 18px;
+  color: #538de3;
+}
+
+.orderStatusDeleteButton {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  margin-right: 20px;
+  background-color: red;
+}
+
+.orderStatusEditButton {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  margin-right: 20px;
+  background-color: #216ee3;
+}
+/*# sourceMappingURL=Status.css.map */

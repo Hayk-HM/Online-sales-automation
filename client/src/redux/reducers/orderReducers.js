@@ -5,6 +5,7 @@ const initialState = {
   orderColumns: [],
   ordersAdmissibility: [],
   multiOrdersAdmissibility: [],
+  allOrdersWithBalance: []
 }
 
 const createNewOrderReducer = (state = initialState, action) => {
@@ -49,6 +50,12 @@ const createNewOrderReducer = (state = initialState, action) => {
       return {
         ...state,
         multiOrdersAdmissibility: [...action.payload]
+      }
+    }
+    case 'GET_ALL_ORDERS_WITH_BALANCE': {
+      return {
+        ...state,
+        allOrdersWithBalance: [action.payload]
       }
     }
 

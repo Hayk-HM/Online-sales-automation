@@ -243,6 +243,7 @@ const createTablesController = async (req, res) => {
                                                         code VARCHAR(500) NULL DEFAULT NULL,
                                                         id VARCHAR(500) NULL DEFAULT NULL,
                                                         productName VARCHAR(500) NULL DEFAULT NULL,
+                                                        quantity VARCHAR(500) NULL DEFAULT NULL,
                                                         color VARCHAR(500) NULL DEFAULT NULL,
                                                         size VARCHAR(500) NULL DEFAULT NULL,
                                                         webOrderExcelId VARCHAR(500) NULL DEFAULT NULL,
@@ -252,6 +253,17 @@ const createTablesController = async (req, res) => {
                                                         if (err) {
                                                           console.log(err)
                                                         } else {
+                                                          await db.query(`CREATE TABLE IF NOT EXISTS orderStatus (
+                                                            _id INT(50) NOT NULL AUTO_INCREMENT,
+                                                            orderStatus VARCHAR(500) NULL DEFAULT NULL,
+                                                            PRIMARY KEY(_id)
+                                                          )`, async (err, result) => {
+                                                            if (err) {
+                                                              console.log(err)
+                                                            } else {
+                                                              console.log('Order status table created successfully!!!')
+                                                            }
+                                                          })
                                                           console.log('All Orders table created successfully!!!')
                                                         }
                                                       })

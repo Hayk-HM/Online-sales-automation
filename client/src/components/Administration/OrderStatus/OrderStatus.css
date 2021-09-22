@@ -1,0 +1,38 @@
+.orderStatusForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.orderStatusField {
+  height: 30px;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid #2969c9;
+  outline: none;
+}
+
+.orderStatusError {
+  color: red;
+}
+
+.orderStatusButtonWrapper {
+  margin-left: 20px;
+}
+
+.orderStatusButton {
+  height: 30px;
+  width: 150px;
+  background-color: #2969c9;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+}
+
+.orderStatusList {
+  margin-top: 10px;
+}
+/*# sourceMappingURL=OrderStatus.css.map */

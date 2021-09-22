@@ -1,0 +1,36 @@
+.orderStatusWrapper {
+}
+
+.orderStatusName {
+  font-size: 18px;
+  color: rgb(83, 141, 227);
+}
+
+.orderStatusButtonWrapper {
+}
+
+.orderStatusDeleteButton {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  margin-right: 20px;
+  background-color: red;
+}
+
+.orderStatusEditButton {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  margin-right: 20px;
+  background-color: rgb(33, 110, 227);
+}

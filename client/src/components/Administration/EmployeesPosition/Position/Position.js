@@ -4,12 +4,11 @@ import { RiDeleteBinLine } from 'react-icons/ri'
 import { deletePositionAction, getPositionAction, getPositionsAction } from '../../../../redux/actions/positionActions'
 import './Position.css'
 
-const Position = ({ position, user, dispatch, isEdit, setIsEdit }) => {
+const Position = ({ position, user, dispatch, setIsEdit }) => {
 
   const handleEdit = async () => {
     await dispatch(getPositionAction({ company: user.company, id: position._id }))
     setIsEdit(true)
-    console.log(position);
   }
 
   const handleDelete = async () => {

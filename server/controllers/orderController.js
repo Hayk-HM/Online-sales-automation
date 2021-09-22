@@ -23,7 +23,6 @@ const createNewOrderController = async (req, res) => {
 }
 
 const createNewAllOrderController = async (req, res) => {
-  console.log("info", req.body.product);
   const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -32,7 +31,7 @@ const createNewAllOrderController = async (req, res) => {
   })
   try {
     req.body.product.map(async elem => await db.query(`INSERT INTO allOrders 
-  (createDate, id, code,productName,color, size, orderId)
+  (createDate, id, code,productName,color, size, quantity, orderId)
   VALUES
   ('${req.body.createDate}','${req.body.id}',${Object.keys(elem).map(el => `'${elem[el]}'`)}, '${req.body.newOrderId}')`, async (err, result) => {
       if (err) {
@@ -40,6 +39,7 @@ const createNewAllOrderController = async (req, res) => {
       }
     })
     )
+    res.status(200).json({ message: 'Done' })
   } catch (error) {
     console.log('createNewOrderController', error);
   }
@@ -330,6 +330,27 @@ const getmultiorderscolumnsadmissibilityController = async (req, res) => {
   }
 }
 
+const getAllOrdersWithBalanceController = async (req, res) => {
+  const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'adminRoot',
+    database: req.query.company.trim().replaceAll(' ', '_')
+  })
+  const query = `SELECT * FROM allOrders JOIN dailyBalance ON allOrders.Code = dailyBalance.code  WHERE createDate='${req.query.createDate}' ORDER BY allOrders.Code`
+  try {
+    await db.query(query, (err, result) => {
+      if (err) {
+        console.log(err)
+      } else {
+        res.status(200).json(result)
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
   createNewOrderController,
   createNewAllOrderController,
@@ -343,5 +364,6 @@ module.exports = {
   changeMultiOrdersVisibilityController,
   getmultiorderscolumnsadmissibilityController,
   addMultiOrdersColumnsController,
-  getOrdersWithDate
+  getOrdersWithDate,
+  getAllOrdersWithBalanceController
 }

@@ -7,6 +7,7 @@ import ImportExcelBalance from '../ImportExcelBalance/ImportExcelBalance'
 import ImportExcelWebOrder from '../ImportExcelWebOrder/ImportExcelWebOrder'
 import OrderRequestColumns from '../OrderRequestColumns/OrderRequestColumns'
 import OrderRequestColumnsMulti from '../OrderRequestColumnsMulti/OrderRequestColumnsMulti'
+import OrderStatus from '../OrderStatus/OrderStatus'
 import './AdministrationFeed.css'
 
 const AdministrationFeed = () => {
@@ -21,6 +22,7 @@ const AdministrationFeed = () => {
           <Route path='/administrationpanel/department' render={() => <Department />} />
           <Route path='/administrationpanel/employees' render={() => <AdminEmployees />} />
           <Route path='/administrationpanel/position' render={() => <EmployeesPosition />} />
+          <Route path='/administrationpanel/ordertatus' render={() => <OrderStatus />} />
         </Switch>
       </div>
     </div>

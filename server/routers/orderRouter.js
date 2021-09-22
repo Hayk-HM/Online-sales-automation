@@ -11,7 +11,8 @@ const { createNewOrderController,
   changeMultiOrdersVisibilityController,
   getmultiorderscolumnsadmissibilityController,
   addMultiOrdersColumnsController,
-  getOrdersWithDate } = require('../controllers/orderController')
+  getOrdersWithDate,
+  getAllOrdersWithBalanceController } = require('../controllers/orderController')
 
 const orderRouter = express.Router()
 
@@ -28,5 +29,6 @@ orderRouter.get('/getOrdersAdmissibility', getOrdersAdmissibilityController)
 orderRouter.put('/changeordersvisibility', changeOrdersVisibilityController)
 orderRouter.put('/changemultiordersvisibility', changeMultiOrdersVisibilityController)
 orderRouter.get('/getmultiorderscolumnsadmissibility', getmultiorderscolumnsadmissibilityController)
+orderRouter.get('/getallorderswithbalance', getAllOrdersWithBalanceController)
 
 module.exports = { orderRouter }

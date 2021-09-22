@@ -9,6 +9,7 @@ import { FaRegAddressBook } from 'react-icons/fa'
 import { AiOutlineBars } from 'react-icons/ai'
 import { BiSelectMultiple } from 'react-icons/bi'
 import { SiMicrosoftexcel } from 'react-icons/si'
+import { ImStatsBars2 } from 'react-icons/im'
 import './AdministrationSideBar.css'
 
 const AdministrationSideBar = () => {
@@ -66,6 +67,13 @@ const AdministrationSideBar = () => {
           <div className={`administrationSideBarTasks ${activeField === 'department' ? 'activeField' : 'notActiveField'}`}>
             <div className='administrationSideBarLogo'><HiOutlineOfficeBuilding size={20} /></div>
             <div className='administrationSideBarName'>Department</div>
+          </div>
+        </Link>
+
+        <Link to='/administrationpanel/ordertatus'>
+          <div className={`administrationSideBarTasks ${activeField === 'ordertatus' ? 'activeField' : 'notActiveField'}`}>
+            <div className='administrationSideBarLogo'><ImStatsBars2 size={20} /></div>
+            <div className='administrationSideBarName'>Order Status</div>
           </div>
         </Link>
 

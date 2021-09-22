@@ -28,9 +28,9 @@ const Department = () => {
     setIsUpdateVisible(!isUpdateVisible)
   }
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id, departmentName) => {
     if (window.confirm('Are you sure you want to delete this?. \nYou can no longer restore it !!!?')) {
-      await dispatch(deleteDepartmentAction({ company: user.company, id }))
+      await dispatch(deleteDepartmentAction({ company: user.company, id, departmentName }))
       await dispatch(getDepartmentsAction({ company: user.company }))
     } else {
       console.log('Keep');
@@ -57,7 +57,7 @@ const Department = () => {
                 <div className='depManager'>{department.manager}</div>
                 <div className='depPhoneNumber'>{department.phoneNumber}</div>
                 <div className='depEdit' onClick={() => handleUpdate(department._id)}><AiOutlineEdit size={24} /></div>
-                <div className='depDelete' onClick={() => handleDelete(department._id)}><RiDeleteBinLine size={24} /></div>
+                <div className='depDelete' onClick={() => handleDelete(department._id, department.departmentName)}><RiDeleteBinLine size={24} /></div>
               </div>)
             }
 

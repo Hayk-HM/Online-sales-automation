@@ -239,9 +239,9 @@ const readExcelFileWebOrder = async (req, res) => {
       }
     })
     )
-    await data.map(elem => db.query(`INSERT INTO allOrders (createDate,code,id,productName,webOrderExcelId) 
+    await data.map(elem => db.query(`INSERT INTO allOrders (createDate,code,id,productName,quantity,webOrderExcelId) 
         VALUES 
-        ('${today.getFullYear() + "-" + ((today.getMonth() + 1) <= 9 ? "0" + (today.getMonth() + 1) : (today.getMonth() + 1)) + "-" + (today.getDate() <= 9 ? ("0" + today.getDate()) : today.getDate())}','${elem.Code}','${elem.ID}', '${elem.Order}','${webOrderInsertId}')`)
+        ('${today.getFullYear() + "-" + ((today.getMonth() + 1) <= 9 ? "0" + (today.getMonth() + 1) : (today.getMonth() + 1)) + "-" + (today.getDate() <= 9 ? ("0" + today.getDate()) : today.getDate())}','${elem.Code}','${elem.ID}', '${elem.Order}','${elem.Quantity}','${webOrderInsertId}')`)
     )
     res.status(200).json({ message: 'DONE!!!' })
   } catch (error) {

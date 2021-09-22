@@ -4,6 +4,7 @@ const orderActions = {
   createNewOrder: (formData) => ({ type: 'CREATE_NEW_ORDER', payload: formData }),
   createNewAllOrder: (formData) => ({ type: 'CREATE_NEW_ALL_ORDER', payload: formData }),
   getAllOrders: (formData) => ({ type: 'GET_ALL_ORDERS', payload: formData }),
+  getAllOrdersWithBalance: (formData) => ({ type: 'GET_ALL_ORDERS_WITH_BALANCE', payload: formData }),
   getOneOrder: (formData) => ({ type: 'GET_ONE_ORDER', payload: formData }),
   getOrderColumns: (formData) => ({ type: 'GET_ORDER_COLUMNS', payload: formData }),
   getOrdersAdmissibility: (formData) => ({ type: 'GET_ORDERS_ADMISSIBILITY', payload: formData }),
@@ -31,7 +32,6 @@ export const createNewAllOrder = (formData) => async (dispatch) => {
   }
 }
 
-
 export const getAllOrders = (formData) => async (dispatch) => {
   try {
     const { data } = await orderApi.getAllOrders(formData)
@@ -40,6 +40,17 @@ export const getAllOrders = (formData) => async (dispatch) => {
     console.log('getAllOrders', error);
   }
 }
+
+export const getAllOrdersWithBalance = (formData) => async (dispatch) => {
+  try {
+    const { data } = await orderApi.getAllOrdersWithBalance(formData)
+    dispatch(orderActions.getAllOrdersWithBalance(data))
+  } catch (error) {
+    console.log('getAllOrders', error);
+  }
+}
+
+
 
 export const getOneOrder = (formData) => async (dispatch) => {
   try {

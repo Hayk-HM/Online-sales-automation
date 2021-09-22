@@ -1,3 +1,13 @@
+.booking {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.bookingWrapper {
+  width: 500%;
+  overflow-x: scroll;
+}
+
 .bookingOrder {
   display: flex;
   flex-direction: column;
@@ -56,4 +66,16 @@
 
 .tableData:hover {
   background-color: yellow;
+}
+
+.bookingTable td {
+  border-right: 1px solid rgb(208, 193, 193);
+  border-bottom: 1px solid rgb(208, 193, 193);
+}
+
+.bookingTable tr {
+  margin-bottom: 10px;
+}
+
+.bookingTable {
 }

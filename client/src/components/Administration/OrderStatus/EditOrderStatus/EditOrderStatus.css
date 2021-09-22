@@ -1,0 +1,52 @@
+.editOrderStatus {
+  width: 100vw;
+  margin-top: 20px;
+}
+
+.editOrderStatusForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 30%;
+}
+
+.editOrderStatusField {
+  width: 200px;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid #4b4bdf;
+  outline: none;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.editOrderStatusButtonWrapper {
+  margin-left: 20px;
+}
+
+.editOrderStatusButtonSave {
+  width: 100px;
+  height: 30px;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: blue;
+  margin-right: 10px;
+}
+
+.editOrderStatusButtonCancel {
+  width: 100px;
+  height: 30px;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: red;
+  margin-right: 10px;
+}
+/*# sourceMappingURL=EditOrderStatus.css.map */

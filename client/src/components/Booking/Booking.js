@@ -2,29 +2,38 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
-import { getDailyWebOrdersAction, getExcelsWebOrderAction } from '../../redux/actions/excelActions'
-import { getAllOrders, getMultiOrdersColumns } from '../../redux/actions/orderActions'
+import { getAllOrdersWithBalance } from '../../redux/actions/orderActions'
 import './Booking.css'
-import { getOrdersWithBalanceAction } from '../../redux/actions/ordersWithBalanceActions'
+import { getDepartmentsAction } from '../../redux/actions/departmentActions'
+import { getOrderStatusesAction } from '../../redux/actions/orderStatusActions'
 
 const Booking = () => {
 
   const dispatch = useDispatch()
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')).result[0])
-  const { orders } = useSelector(state => state.order)
+  const { allOrdersWithBalance } = useSelector(state => state.order)
   const { multiOrdersAdmissibility } = useSelector(state => state.order)
-  const { dailyWebOrders } = useSelector(state => state.excels)
+  const { departments } = useSelector(state => state.department)
+  const { orderStatuses } = useSelector(state => state.orderStatus)
 
-  let codesArr = []
   let multiOrders = []
   multiOrdersAdmissibility.map(elem => multiOrders.push(elem.dbColumnName))
 
   useEffect(() => {
-    dispatch(getMultiOrdersColumns({ company: user.company }))
+    dispatch(getDepartmentsAction({ company: user.company }))
+    dispatch(getOrderStatusesAction({ company: user.company }))
   }, [dispatch, user])
 
   const initialValues = {
     createDate: ''
+  }
+
+  const handleChangeStatus = (status) => {
+    console.log(status.target.value);
+  }
+
+  const handleChangeQuantity = () => {
+
   }
 
   return (
@@ -39,8 +48,7 @@ const Booking = () => {
             })
           }
           onSubmit={async (values, actions) => {
-            await dispatch(getAllOrders({ company: user.company, createDate: values.createDate }))
-            await dispatch(getDailyWebOrdersAction({ company: user.company, createDate: values.createDate }))
+            await dispatch(getAllOrdersWithBalance({ company: user.company, createDate: values.createDate }))
             // actions.resetForm()
           }}
         >
@@ -56,52 +64,57 @@ const Booking = () => {
             )
           }
         </Formik>
-        {/* {
-          !(orders.length === 0 && dailyWebOrders.length === 0)
-            ? <table>
-              <thead>
-                <tr>
-                  <th>Id</th>
-                  <th>Code</th>
-                  <th>Name</th>
-                  <th>Color</th>
-                  <th>Size</th>
-                </tr>
-              </thead>
+        {
+          allOrdersWithBalance.length !== 0 ? <table className='bookingTable'>
+            <thead>
+              <tr>
+                <td>Id</td>
+                <td>Code</td>
+                <td>Name</td>
+                <td>Size</td>
+                <td>Color</td>
+                <td>Quantity</td>
+                {
+                  departments.map(elem => <>
+                    <td>{elem.departmentName}</td>
+                    <td>{elem.departmentName + ' amount'}</td>
+                    <td>{elem.departmentName + ' status'}</td>
+                  </>)
+                }
+              </tr>
+            </thead>
+            <tbody>
               {
-                orders.map(order => (
-                  multiOrders.map(multiOrder => {
-                    const multiOrderObj = JSON.parse(order[multiOrder])
-                    const keysForMultiOrderObj = Object.keys(multiOrderObj[0])
-
-                    console.log('multiOrderObj', multiOrderObj);
-                    codesArr.push(+multiOrderObj[0][keysForMultiOrderObj[0]])
-                    return <tbody> <tr>
-                      <td>{order.Id}</td>
-                      {
-                        keysForMultiOrderObj.map(elem => <td>{multiOrderObj[0][elem]}</td>)
-                      }
-                    </tr></tbody>
-                  })
-                ))
-              }
-
-              {
-                dailyWebOrders.map(dailyWebOrder => {
-
-                  console.log(codesArr);
-                  const dailyWebOrderObj = JSON.parse(dailyWebOrder.balance)
-                  codesArr.push(dailyWebOrderObj.Code)
-                  console.log(codesArr);
-                  return <tbody> <tr>
-                    <td>{dailyWebOrderObj.ID}</td>
-                    <td>{dailyWebOrderObj.Code}</td>
-                    <td>{dailyWebOrderObj.Order}</td>
-                  </tr></tbody>
+                allOrdersWithBalance[0]?.map(elem => {
+                  const balance = JSON.parse(elem.balance)
+                  return <tr>
+                    <td>{elem.id}</td>
+                    <td>{elem.code}</td>
+                    <td>{elem.productName}</td>
+                    <td>{elem.size}</td>
+                    <td>{elem.color}</td>
+                    <td>{elem.quantity}</td>
+                    {
+                      departments.map(department => <>
+                        <td>{balance[department.departmentName]}</td>
+                        <td><input type='number' placeholder='-' onChange={handleChangeQuantity} /></td>
+                        <td>
+                          <select name='status' id='status' onChange={(e) => handleChangeStatus(e)}>
+                            {
+                              orderStatuses.map(status =>
+                                <option value={status.orderStatus} >{status.orderStatus}</option>)
+                            }
+                          </select>
+                        </td>
+                      </>)
+                    }
+                  </tr>
                 })
               }
-            </table> : null
-        } */}
+            </tbody>
+          </table>
+            : null
+        }
       </div>
     </div>
   )
